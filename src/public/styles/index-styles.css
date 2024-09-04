@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+  height: 100vh;
+  background-image: url('../images/background/image.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.logo{
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #000;
+}
+
+.main-container{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.frase{
+  font-family: "Kelly Slab", sans-serif;
+  color:#fff;
+  font-size: 75px;
+  font-weight: 400;
+  margin-left: 100PX;
+}
+
+img{
+  width: 600px;
+  margin-right: 100px;
+}
