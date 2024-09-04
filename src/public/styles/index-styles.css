@@ -21,11 +21,6 @@ body{
 }
 
 .header-container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #000;
 }
 
 .main-container{
@@ -44,7 +39,6 @@ body{
   margin-left: 100PX;
 }
 
-img{
-  width: 600px;
-  margin-right: 100px;
+.icons{
+  width: 30px;
 }
