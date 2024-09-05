@@ -74,6 +74,7 @@ body{
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 .menu{
   font-family: "Kelly Slab", sans-serif;
   font-weight: 400;
@@ -82,3 +83,170 @@ body{
   color: #FFFFFF;
   align-items: center;
 }
+=======
+.caixa01 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.caixa02 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.caixa03 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.titulo {
+  color: #fff;
+  font-size: 75px;
+  align-items: center;
+  columns: center;
+  font-family: "Kelly Slab", sans-serif;
+}
+
+.frango {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.pastel {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.macarrão {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.nomedoprato {
+  color: #CD8110;
+  font-size: 30px;
+}
+
+.ingredientes {
+  color: #fff;
+  font-size: 20px;
+}
+
+.preco {
+  color: #fff;
+  font-size: 20px;
+}
+
+.estrela {
+  width: 20px;
+  margin-right: 10px;
+}
+
+button {
+  width: 200px;
+  height: 30px;
+  margin-right: 10px;
+  font-size: 17px;
+  background-color: #EBA742;
+  border: none;
+  border-radius: 10px;
+}
+.menu-container{
+  display: flex;
+  gap: 50px;
+  
+}
+
+.dvbebidas{
+  border: 2px solid #EBA742;
+}
+
+.bebidas {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center; 
+}
+
+.btbebidas {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #FFF;
+  background-color:#EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.dvporcoes{
+  border: 1px solid #EBA742;
+}
+
+.porcoes {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center;
+}
+
+.btporcoes {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #FFF;
+  background-color:#EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+
+}
+
+.dvsobremesas{
+  border: 1px solid #EBA742;
+}
+
+.sobremesas {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center;
+  
+  
+}
+
+.btsobremesas {
+  display: flex;
+  align-items:center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #ffffff;
+  background-color: #EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+>>>>>>> 315a143ec91380a48a7d96218f1691475a3f40d3
