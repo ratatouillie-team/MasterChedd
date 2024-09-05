@@ -73,3 +73,77 @@ body{
   font-family: 'Inter', sans-serif;
   text-decoration: none;
 }
+
+.caixa01 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.caixa02 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.caixa03 {
+  border: 2px, solid #CD8110;
+  border-radius: 5px;
+  width: 404px;
+}
+
+.titulo {
+  color: #fff;
+  font-size: 75px;
+  align-items: center;
+  columns: center;
+  font-family: "Kelly Slab", sans-serif;
+}
+
+.frango {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.pastel {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.macarrão {
+  width: 400px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.nomedoprato {
+  color: #CD8110;
+  font-size: 30px;
+}
+
+.ingredientes {
+  color: #fff;
+  font-size: 20px;
+}
+
+.preco {
+  color: #fff;
+  font-size: 20px;
+}
+
+.estrela {
+  width: 20px;
+  margin-right: 10px;
+}
+
+button {
+  width: 200px;
+  height: 30px;
+  margin-right: 10px;
+  font-size: 17px;
+  background-color: #CD8110;
+  border: none;
+  border-radius: 10px;
+}
