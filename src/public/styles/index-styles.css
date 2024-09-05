@@ -88,12 +88,32 @@ body {
 }
 
 .menu{
-  font-family: "Kelly Slab", sans-serif;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 77.57px;
-  color: #FFFFFF;
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: "Kelly Slab", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #FFFFFF;
+}
+
+.menu img {
+  width: 1000px;
+  margin-top: 100px;
+}
+
+.menu a{
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #EBA742;
+
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  color: #fff;
 }
 
 .organzando-caixa {
