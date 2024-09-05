@@ -1,19 +1,20 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   background-color: black;
   height: 100vh;
   background-image: url('../images/background/image.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+
 }
 
-.logo{
+.logo {
   font-family: 'Inter', sans-serif;
   font-size: 30px;
   font-weight: 600;
@@ -22,7 +23,7 @@ body{
   cursor: default;
 }
 
-.header-container{
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,14 +36,14 @@ body{
   box-shadow: #000000 0px 5px 15px;
 }
 
-.main-container{
+.main-container {
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
 }
 
-.frase{
+.frase {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,22 +51,24 @@ body{
   height: 90vh;
   font-family: "Kelly Slab", sans-serif;
   text-align: center;
-  color:#fff;
+  color: #fff;
   font-size: 75px;
   font-weight: 400;
   cursor: default;
 }
 
-.icons{
+.icons {
   width: 30px;
 }
-.nav-bar{
+
+.nav-bar {
   display: flex;
   gap: 20px;
   align-items: center;
   margin-right: 50px;
 }
-.btn{
+
+.btn {
   border: 1px solid #EBA742;
   padding: 5px 20px;
   border-radius: 5px;
@@ -74,30 +77,37 @@ body{
   text-decoration: none;
 }
 
-.caixa01 {
-  border: 2px, solid #CD8110;
-  border-radius: 5px;
-  width: 404px;
+.do-dia-horizontal {
+  display: flex;
+  width: 100%;
+  margin-top: 120px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.caixa02 {
-  border: 2px, solid #CD8110;
-  border-radius: 5px;
-  width: 404px;
+.organzando-caixa {
+  display: flex;
+  margin-top: 20px;
+  gap: 100px;
 }
 
-.caixa03 {
-  border: 2px, solid #CD8110;
+.caixa {
+  border: 2px, solid #EBA742;
   border-radius: 5px;
   width: 404px;
 }
 
 .titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Kelly Slab", sans-serif;
+  text-align: center;
   color: #fff;
   font-size: 75px;
-  align-items: center;
-  columns: center;
-  font-family: "Kelly Slab", sans-serif;
+  font-weight: 400;
+  cursor: default;
 }
 
 .frango {
@@ -119,7 +129,7 @@ body{
 }
 
 .nomedoprato {
-  color: #CD8110;
+  color: #EBA742;
   font-size: 30px;
 }
 
@@ -143,17 +153,19 @@ button {
   height: 30px;
   margin-right: 10px;
   font-size: 17px;
-  background-color: #CD8110;
+  background-color: #EBA742;
   border: none;
   border-radius: 10px;
-}
-.menu-container{
-  display: flex;
-  gap: 50px;
-  
+  color: #FFF;
 }
 
-.dvbebidas{
+.menu-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 100px;
+}
+
+.dvbebidas {
   border: 2px solid #EBA742;
 }
 
@@ -161,7 +173,7 @@ button {
   width: 380px;
   height: 380px;
   display: flex;
-  align-items:center; 
+  align-items: center;
 }
 
 .btbebidas {
@@ -171,7 +183,7 @@ button {
   width: 100%;
   padding: 15px;
   color: #FFF;
-  background-color:#EBA742;
+  background-color: #EBA742;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -181,7 +193,7 @@ button {
   margin-top: 10px;
 }
 
-.dvporcoes{
+.dvporcoes {
   border: 1px solid #EBA742;
 }
 
@@ -189,7 +201,7 @@ button {
   width: 380px;
   height: 380px;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 
 .btporcoes {
@@ -199,7 +211,7 @@ button {
   width: 100%;
   padding: 15px;
   color: #FFF;
-  background-color:#EBA742;
+  background-color: #EBA742;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -210,7 +222,7 @@ button {
 
 }
 
-.dvsobremesas{
+.dvsobremesas {
   border: 1px solid #EBA742;
 }
 
@@ -218,14 +230,14 @@ button {
   width: 380px;
   height: 380px;
   display: flex;
-  align-items:center;
-  
-  
+  align-items: center;
+
+
 }
 
 .btsobremesas {
   display: flex;
-  align-items:center;
+  align-items: center;
   text-align: center;
   width: 100%;
   padding: 15px;
