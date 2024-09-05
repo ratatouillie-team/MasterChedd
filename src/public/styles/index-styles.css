@@ -73,3 +73,12 @@ body{
   font-family: 'Inter', sans-serif;
   text-decoration: none;
 }
+
+.menu{
+  font-family: "Kelly Slab", sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 77.57px;
+  color: #FFFFFF;
+  align-items: center;
+}
