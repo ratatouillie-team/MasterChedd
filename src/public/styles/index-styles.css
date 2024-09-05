@@ -43,7 +43,50 @@ body{
   margin-left: 100PX;
 }
 
-img{
-  width: 600px;
-  margin-right: 100px;
+
+/* footer Cauã */
+.footer-container{
+  color: #fff;
+  display: flex;
+  gap: 50px;
+}
+
+.rodaPe{
+  color: #fff;
+}
+
+.telefone{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+}
+
+.endereco{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+}
+
+
+
+/* imagens footer*/
+.icons-telefone{
+  width: 50px;
+  margin-right: 50px;
+}
+
+.icons-local{
+  width: 50px;
+  margin-right: 50px;
+}
+
+.icons-redes{
+  width: 150px;
+  margin-right: 150px;
+
 }
