@@ -77,6 +77,7 @@ body {
   text-decoration: none;
 }
 
+
 .do-dia-horizontal {
   display: flex;
   width: 100%;
@@ -84,6 +85,15 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.menu{
+  font-family: "Kelly Slab", sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 77.57px;
+  color: #FFFFFF;
+  align-items: center;
 }
 
 .organzando-caixa {
@@ -250,4 +260,9 @@ button {
   font-size: 40px;
   text-decoration: none;
   margin-top: 10px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 315a143ec91380a48a7d96218f1691475a3f40d3
+>>>>>>> 236df26cc0eff333c82de0caf5589e989291af69
