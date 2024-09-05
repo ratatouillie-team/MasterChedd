@@ -147,3 +147,95 @@ button {
   border: none;
   border-radius: 10px;
 }
+.menu-container{
+  display: flex;
+  gap: 50px;
+  
+}
+
+.dvbebidas{
+  border: 2px solid #EBA742;
+}
+
+.bebidas {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center; 
+}
+
+.btbebidas {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #FFF;
+  background-color:#EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.dvporcoes{
+  border: 1px solid #EBA742;
+}
+
+.porcoes {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center;
+}
+
+.btporcoes {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #FFF;
+  background-color:#EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+
+}
+
+.dvsobremesas{
+  border: 1px solid #EBA742;
+}
+
+.sobremesas {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items:center;
+  
+  
+}
+
+.btsobremesas {
+  display: flex;
+  align-items:center;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  color: #ffffff;
+  background-color: #EBA742;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
