@@ -14,6 +14,8 @@ body {
 
 }
 
+
+/* HEADER STYLE*/
 .logo {
   font-family: 'Inter', sans-serif;
   font-size: 30px;
@@ -39,7 +41,7 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -77,17 +79,143 @@ body {
   text-decoration: none;
 }
 
-
-.do-dia-horizontal {
+/* PRATO DO DIA STYLE */
+.container-ptdia {
   display: flex;
   width: 100%;
-  margin-top: 120px;
+  height: 100vh;
+  margin-top: 60px;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+
+  border: 1px solid #EBA742;
 }
 
-.menu{
+.titulo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Kelly Slab", sans-serif;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 900;
+  cursor: default;
+
+  width: 100%;
+  height: 10%;
+}
+
+.organzando-caixa {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  justify-items: center;
+
+  width: 80%;
+  height: 90vh;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  margin-top: 30px;
+  border: 2px, solid #EBA742;
+  font-family: 'Inter', sans-serif;
+
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+
+  transition: 0.5s;
+}
+
+.caixa:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.caixa-img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+}
+
+.caixa-img img {
+  width: 100%;
+}
+
+.caixa-info {
+  display: flex;
+  flex-direction: column;
+
+  width: 95%;
+  margin-top: 5px;
+  height: 50%;
+}
+
+.caixa-info p{
+  color: #EBA742;;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.caixa-info small {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 3px;
+  margin-left: 2px;
+  cursor: default;
+}
+
+.caixa-info span {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: default;
+  margin-top: 15px;
+}
+.avaliacao-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  width: 95%;
+  height: 20%;
+}
+
+.avaliacao i{
+  color: #EBA742;
+  font-size: 20px;
+  margin: 2px;
+}
+
+.btn-adicionar button{
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: #EBA742;
+  font-family: 'Inter', sans-serif;
+  margin: 2px;
+  transition: 0.5s;
+}
+
+.btn-adicionar button:hover{
+  background-color: #b97f27;
+  color: #000000;
+  transition: 0.5s;
+}
+
+/* MENU STYLE */
+.menu {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -104,7 +232,7 @@ body {
   margin-top: 100px;
 }
 
-.menu a{
+.menu a {
   text-align: center;
   text-decoration: none;
   padding: 10px 15px;
@@ -116,84 +244,13 @@ body {
   color: #fff;
 }
 
-.organzando-caixa {
-  display: flex;
-  margin-top: 20px;
-  gap: 100px;
-}
 
-.caixa {
-  border: 2px, solid #EBA742;
-  border-radius: 5px;
-  width: 404px;
-}
-
-.titulo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Kelly Slab", sans-serif;
-  text-align: center;
-  color: #fff;
-  font-size: 75px;
-  font-weight: 400;
-  cursor: default;
-}
-
-.frango {
-  width: 400px;
-  margin-right: 100px;
-  border-radius: 5px;
-}
-
-.pastel {
-  width: 400px;
-  margin-right: 100px;
-  border-radius: 5px;
-}
-
-.macarrão {
-  width: 400px;
-  margin-right: 100px;
-  border-radius: 5px;
-}
-
-.nomedoprato {
-  color: #EBA742;
-  font-size: 30px;
-}
-
-.ingredientes {
-  color: #fff;
-  font-size: 20px;
-}
-
-.preco {
-  color: #fff;
-  font-size: 20px;
-}
-
-.estrela {
-  width: 20px;
-  margin-right: 10px;
-}
-
-button {
-  width: 200px;
-  height: 30px;
-  margin-right: 10px;
-  font-size: 17px;
-  background-color: #EBA742;
-  border: none;
-  border-radius: 10px;
-  color: #FFF;
-}
-
+/* MENU OPCOES STYLE */
 .menu-container {
   display: flex;
   margin-top: 20px;
   gap: 100px;
- 
+
 }
 
 .container-opcoes {
@@ -211,10 +268,10 @@ button {
   align-items: center;
 
   margin-bottom: 10px;
-  
+
 }
 
-.container-bt{
+.container-bt {
   background-color: #EBA742;
   padding: 10px 15px;
   font-size: 25px;
@@ -225,7 +282,6 @@ button {
   text-decoration: none;
   color: #FFF;
 }
-
 
 
 /* footer Cauã */
@@ -240,7 +296,7 @@ button {
   background-color: #353535;
 }
 
-.container-info{
+.container-info {
   display: flex;
   gap: 50px
 }
@@ -260,7 +316,7 @@ button {
   color: #ffffff;
 }
 
-.Master small{
+.Master small {
   color: #EBA742;
 }
 
