@@ -5,7 +5,11 @@ const bodyParser = require('body-parser');
 const enableHotReload = require("./hot-reload");
 
 // Puxando os controladores da aplicação
-const controladorDePaginas = require("./controllers/controladorDePaginas");
+const homeRouter = require("./routes/homeRoute");
+const menuRouter = require("./routes/menuRoute");
+const loginRouter = require("./routes/loginRoute");
+const criarContaRouter = require("./routes/criarContaRoute");
+const carrinhoRouter = require("./routes/carrinhoRoute");
 
 // Chamando o express
 const app = express();
@@ -26,7 +30,11 @@ app.use(express.static(path.join(__dirname, "public")));
 enableHotReload(app);
 
 // Rotas das paginas
-app.get("/", controladorDePaginas.exibindoHomePage);
+app.use("/", homeRouter);
+app.use("/", menuRouter);
+app.use("/", loginRouter);
+app.use("/", criarContaRouter);
+app.use("/", carrinhoRouter);
 
 // Inicie o servidor
 const port = 3000;
