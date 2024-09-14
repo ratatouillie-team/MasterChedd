@@ -7,22 +7,24 @@
   <title>Document</title>
 </head>
 <body>
-  <h1 class="titulo">Faça seu cadastro no nosso site</h1>
+  <h1 class="titulo">Crie sua conta no  </h1>
+  <h2>MasterChedd</h2>
 
 <form class="formulario" action="/cadastro" method="POST">
-<h2>Criar conta</h2>
+
 
 <label for="nome">Nome</label>
-<input type="text" id="nome" name="nome" required>
+<input class="mudaCor" type="text" id="nome" name="nome" required placeholder="Digite o nome de usuario" >
 
 <label for="email">Email</label>
-<input type="text" id="email" name="email" required>
+<input type="text" id="email" name="email" required  placeholder="Digite o seu Email">
 
 <label for="password">Senha</label>
-<input type="password" id="senha" name="senha" required>
+<input type="password" id="senha" name="senha" required placeholder="Crie uma senha forte">
 
 <button type="submit">Criar conta</button>
 
-<a href="/">Já possui conta? Entrar agora mesmo</a>
+<p>Já possui conta? <a href="/login">Entrar agora mesmo</a></p>
+
 </body>
 </html>
