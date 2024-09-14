@@ -7,6 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Criar Conta</h1>
+  <h1 class="titulo">Faça seu cadastro no nosso site</h1>
+
+<form class="formulario" action="/cadastro" method="POST">
+<h2>Criar conta</h2>
+
+<label for="nome">Nome</label>
+<input type="text" id="nome" name="nome" required>
+
+<label for="email">Email</label>
+<input type="text" id="email" name="email" required>
+
+<label for="password">Senha</label>
+<input type="password" id="senha" name="senha" required>
+
+<button type="submit">Criar conta</button>
+
+<a href="/">Já possui conta? Entrar agora mesmo</a>
 </body>
 </html>
