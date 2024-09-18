@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reserva-styles.css">
+</head>
+
+<body>
+
+    <form>
+        <h1 style="color: azure;">Reserva</h1>
+        <label for="nome">Nome Completo</label>
+        <input id="nome" type="name" name="nome" placeholder="Digite seu nome" />
+
+
+        <div class="container-input">
+            <div class="item-input">
+                <label for="QtPessoas">Quantidade de pessoas</label>
+                <input id="QtPessoas" type="number" name="QtPessoas" placeholder="QtPessoas" />
+
+            </div>
+            <div class="item-input">
+                <label for="data">Data</label>
+                <input type="date" name="data" />
+
+            </div>
+        </div>
+
+
+        <div class="hora">
+            <div class="item_hora">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" placeholder="Digite seu telefone" />
+        </div>
+        <div class="item_hora">   
+            <label for="hora">Horário</label>
+            <input type="time" name="hora"  />
+        </div>
+    </div>
+     
+
+
+        <button type="submit">Reserva</button>
+
+    </form>
+</body>
+
+</html>

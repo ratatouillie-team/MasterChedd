@@ -10,6 +10,7 @@ const menuRouter = require("./routes/menuRoute");
 const loginRouter = require("./routes/loginRoute");
 const criarContaRouter = require("./routes/criarContaRoute");
 const carrinhoRouter = require("./routes/carrinhoRoute");
+const reservaRouter = require("./routes/reservaRouter");
 
 // Chamando o express
 const app = express();
@@ -35,6 +36,7 @@ app.use("/", menuRouter);
 app.use("/", loginRouter);
 app.use("/", criarContaRouter);
 app.use("/", carrinhoRouter);
+app.use("/", reservaRouter);
 
 // Inicie o servidor
 const port = 3000;
