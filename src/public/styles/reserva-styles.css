@@ -79,6 +79,7 @@
     border: 1px solid #ffffff;
     color: #000000;
     background: #fff;
+    outline: none;
   }
 
   .container-input{
@@ -101,6 +102,18 @@
   }
 
   .item_hora{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .PCD{
+    width: 100%;
+    display: flex;
+    border: #EBA742 1p solid;
+  }
+
+  .item_PCD{
     display: flex;
     flex-direction: column;
     width: 50%;

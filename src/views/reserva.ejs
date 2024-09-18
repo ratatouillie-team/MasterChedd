@@ -23,13 +23,13 @@
 
         <div class="container-input">
             <div class="item-input">
-                <label for="QtPessoas">Quantidade de pessoas</label>
-                <input id="QtPessoas" type="number" name="QtPessoas" placeholder="QtPessoas" />
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" placeholder="(00) 00000-0000 " />
 
             </div>
             <div class="item-input">
-                <label for="data">Data</label>
-                <input type="date" name="data" />
+                <label for="QtPessoas">Quantidade de pessoas</label>
+                <input id="QtPessoas" type="number" name="QtPessoas" placeholder="QtPessoas" />
 
             </div>
         </div>
@@ -37,19 +37,18 @@
 
         <div class="hora">
             <div class="item_hora">
-            <label for="telefone">Telefone</label>
-            <input type="tel" name="telefone" placeholder="Digite seu telefone" />
+                <label for="data">Data</label>
+                <input type="date" name="data" />
+            </div>
+            <div class="item_hora">
+                <label for="hora">Horário</label>
+                <input type="time" name="hora" />
+            </div>
         </div>
-        <div class="item_hora">   
-            <label for="hora">Horário</label>
-            <input type="time" name="hora"  />
-        </div>
-    </div>
-     
+        <label for="nome">Observação</label>
+        <input id="nome" type="name" name="nome" placeholder="Exemplo: Local de mesa, Pcd, Etc..." />
 
-
-        <button type="submit">Reserva</button>
-
+        <button type="submit">Reservar</button>
     </form>
 </body>
 
