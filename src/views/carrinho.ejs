@@ -17,8 +17,21 @@
 
   <form>
     <h1 class="titulocarrinho">Seu pedido</h1>
-    <input class="total" type="total" name="total" id="total" placeholder="Total: R$">
+    <p class="total">Total:</p>
+
+    </label>
+    <input list="formasdepagamento" placeholder="Forma de pagamento">
+    </label>
+    <datalist id="formasdepagamento">
+      <option value="Pix"></option>
+      <option value="Cartão"></option>
+      <option value="Dinheiro"></option>
+    </datalist>
+    
     <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
+
+
+
 
     <button type="submit">Finalizar pedido</button>
 

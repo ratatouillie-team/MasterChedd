@@ -22,11 +22,11 @@ body {
   width: 200px;
   padding: 10px;
   height: 38px;
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 100px;
   border-radius: 8px;
   font-weight: bold;
-  color: #000000;
+  color: #686868;
   background: #fff;
 }
 
@@ -41,6 +41,17 @@ input {
   background: #fff;
 }
 
+label {
+  padding: 10px;
+  height: 38px;
+  font-size: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #fff;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -52,7 +63,6 @@ form {
   border-radius: 20px;
   border: 3px solid #EBA742;
 }
-
 
 button {
   font-weight: bold;
