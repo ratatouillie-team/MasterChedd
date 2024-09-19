@@ -8,14 +8,11 @@
 </head>
 
 <body>
-    <div class="caixa">
-        <div class="conteudo">
-            <h1 class="titulo">Crie e compartilhe <br><i>seu evento.</i></h1>
-            <br>
-            <br>
-            <small>O primeiro passo, é preencher esse formulário:</small>
+        <div class="criareventos">
+            <p class="titulocriareventos">Crie e compartilhe seu evento.</p>
+            <p class="frasecriareventos">O primeiro passo é preencher esse formulário:</p>
             <div>
-                <form action="/novoevento" method="post">
+                <form>
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite o nome">
 
@@ -26,8 +23,8 @@
                     <input type="text" id="local" name="local" placeholder="Digite o local">
 
                     <button type="submit">Criar</button>
+                    <a href="/eventos">Vizualizar eventos</a>
                 </form>
-            </div>
         </div>
     </div>
 </body>
