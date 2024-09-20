@@ -81,7 +81,13 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* transition: background 0.3s; */
 }
+
+/* button:hover{
+    background-color: #df921e;
+    transition: background 0.3s;
+} */
 
 a {
     font-weight: bold;
