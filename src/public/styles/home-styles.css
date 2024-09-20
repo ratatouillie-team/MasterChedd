@@ -271,16 +271,21 @@ body {
 
 }
 
-.container-bt {
-  background-color: #EBA742;
-  padding: 10px 15px;
-  font-size: 25px;
-
-  margin-bottom: 10px;
+.container-botao {
+  font-weight: bold;
+  background: #EBA742;
+  margin-top: 20px;
+  color: #fff;
+  border: none;
+  padding: 10px;
   border-radius: 8px;
-
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Kelly Slab", sans-serif;
   text-decoration: none;
-  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 

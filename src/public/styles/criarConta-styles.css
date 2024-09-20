@@ -53,6 +53,7 @@ button {
   color: #fff;
   background-color: #EBA742;
   backdrop-filter: blur (10px);
+  transition: background 0.3s;
 }
 
 a {
@@ -64,9 +65,14 @@ a {
   margin-top: 20px;
   font-size: 14px;
   text-decoration: none;
-
+  
   cursor: pointer;
   font-family: "Poetsen One", sans-serif;
+}
+
+button:hover {
+  background-color: #df921e;
+  transition: background 0.3s;
 }
 
 label {

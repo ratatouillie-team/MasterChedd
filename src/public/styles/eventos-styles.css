@@ -67,28 +67,6 @@ label {
     border: 3px solid #EBA742;
 }
 
-button {
-    font-weight: bold;
-    background: #EBA742;
-    margin-top: 50px;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* transition: background 0.3s; */
-}
-
-/* button:hover{
-    background-color: #df921e;
-    transition: background 0.3s;
-} */
-
 a {
     font-weight: bold;
     background: #EBA742;
@@ -104,4 +82,10 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background 0.3s;
+}
+
+a:hover {
+    background-color: #df921e;
+    transition: background 0.3s;
 }
