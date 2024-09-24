@@ -7,15 +7,22 @@
 body {
   background-color: #353535;
   height: 100vh;
-  background-image: url('../images/background/image.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
 }
 
+/* ⬇︎ ESTILIZAÇÃO DO HEADER ⬇︎ */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(10deg, #0000004d, #c978006c);
+  backdrop-filter: blur(10px);
+  border-bottom: #EBA742 1px solid;
+  box-shadow: #000000 0px 5px 15px;
+}
 
-/* HEADER STYLE*/
 .logo {
   font-family: 'Inter', sans-serif;
   font-size: 30px;
@@ -25,44 +32,6 @@ body {
   cursor: default;
 }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  height: 80px;
-  background-color: rgba(0, 0, 0, 0.219);
-  backdrop-filter: blur(10px);
-  border-bottom: #EBA742 1px solid;
-  box-shadow: #000000 0px 5px 15px;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.frase {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 90vh;
-  font-family: "Kelly Slab", sans-serif;
-  text-align: center;
-  color: #fff;
-  font-size: 75px;
-  font-weight: 400;
-  cursor: default;
-}
-
-.icons {
-  width: 30px;
-}
-
 .nav-bar {
   display: flex;
   gap: 20px;
@@ -70,265 +39,215 @@ body {
   margin-right: 50px;
 }
 
-.btn {
+.nav-bar a {
   border: 1px solid #EBA742;
   padding: 5px 20px;
   border-radius: 5px;
   color: #fff;
   font-family: 'Inter', sans-serif;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-/* PRATO DO DIA STYLE */
-.container-ptdia {
+.nav-bar a:hover {
+  background-color: #EBA742;
+  color: #ffffff;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DO HEADER ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DO MAIN ⬇︎ */
+main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 100vh;
-  margin-top: 60px;
+}
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬇︎ */
+.container-info {
+  width: 100%;
+  height: 300px;
+  background-image: url('../images/background/bg-home.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-home {
+  width: 50%;
+  height: 50%;
+}
+
+.info-home p {
+  font-family: 'Kelly Slab', sans-serif;
+  font-size: 35px;
+  text-align: center;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+  margin-bottom: 23px;
+  cursor: default;
+}
+
+.info-home button {
+  border: 1px solid #EBA742;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  background-color: #00000000;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.info-home button:hover {
+  background-color: #EBA742;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬇︎ */
+.container-ptdia {
+  width: 100%;
+  display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.titulo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Kelly Slab", sans-serif;
-  color: #fff;
-  font-size: 60px;
-  font-weight: 900;
+.container-ptdia section h1 {
+  font-family: 'kelly slab', sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+  margin-top: 20px;
   cursor: default;
-  margin-top: 70px;
-  width: 100%;
-  height: 10%;
 }
 
 .organzando-caixa {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  
   justify-items: center;
-
-  width: 80%;
-  height: 90vh;
+  align-items: center;
+  height: 50vh;
 }
 
 .caixa {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  width: 250px;
+  height: 300px;
+  background-color: rgb(43, 43, 43);
+  
+  border-radius: 8px;
   overflow: hidden;
-
-  margin-top: 30px;
-  border: 2px, solid #EBA742;
-  font-family: 'Inter', sans-serif;
-
-  border-radius: 10px;
-  width: 400px;
-  height: 400px;
-
-  transition: 0.5s;
+  border: 2px solid #EBA742;
+  cursor: default;
+  
+  transition: 0.3s;
 }
 
-.caixa:hover {
+.caixa:hover{
   transform: scale(1.05);
-  transition: 0.5s;
-}
-
-.caixa-img {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 50%;
+  transition: 0.3s;
 }
 
 .caixa-img img {
   width: 100%;
+
+  object-fit: cover;
+  border-bottom: 1px solid #EBA742;
 }
 
-.caixa-info {
+.caixa-info{
   display: flex;
   flex-direction: column;
-
-  width: 95%;
-  margin-top: 5px;
-  height: 50%;
 }
 
 .caixa-info p {
-  color: #EBA742;
-  ;
-  font-size: 25px;
-  font-weight: 700;
-  cursor: default;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  padding: 5px;
 }
 
-.caixa-info small {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 3px;
-  margin-left: 2px;
-  cursor: default;
+.caixa-info small{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EBA742;
+  padding: 5px;
 }
 
 .caixa-info span {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: default;
-  margin-top: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 5px;
 }
 
-.avaliacao-container {
+.avaliacao-container{
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  margin-top: 10px;
-
-  width: 95%;
-  height: 20%;
+  justify-content: space-around;
 }
 
-.avaliacao i {
-  color: #EBA742;
-  font-size: 20px;
-  margin: 2px;
+.avaliacao {
+  width: 35%;
+  direction: rtl;
+  display: inline-flex; 
+  font-size: 15px;
 }
 
-.btn-adicionar button {
-  border: none;
-  padding: 5px 20px;
-  border-radius: 10px;
-  background-color: #EBA742;
+.avaliacao input {
+  display: none; 
+}
+
+.avaliacao label {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.avaliacao input:checked ~ label,
+.avaliacao label:hover,
+.avaliacao label:hover ~ label {
+  color: #EBA742; 
+}
+
+.avaliacao input:checked ~ label:hover,
+.avaliacao input:checked ~ label:hover ~ label {
+  color: #EBA742; 
+}
+
+.btn-adicionar button{
+  border: 1px solid #EBA742;
+  border-radius: 5px;
+  color: #ffffff;
   font-family: 'Inter', sans-serif;
-  margin: 2px;
-  transition: 0.5s;
+  background-color: #00000000;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn-adicionar button:hover {
-  background-color: #b97f27;
-  color: #000000;
-  transition: 0.5s;
-}
-
-/* MENU STYLE */
-.menu {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-
-  font-family: "Kelly Slab", sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #FFFFFF;
-}
-
-.menu img {
-  width: 1000px;
-  margin-top: 100px;
-}
-
-.menu a {
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 15px;
   background-color: #EBA742;
-
-  border-radius: 8px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  color: #fff;
-}
-
-
-/* MENU OPCOES STYLE */
-.menu-container {
-  display: flex;
-  margin-top: 20px;
-  gap: 100px;
-
-}
-
-.container-opcoes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid #EBA742;
-  text-align: center;
-}
-
-.container-img {
-  width: 380px;
-  height: 380px;
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 10px;
-
-}
-
-.container-bt {
-  font-weight: bold;
-  background: #EBA742;
-  margin-top: 20px;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  font-family: "Kelly Slab", sans-serif;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-/* footer Cauã */
-.footer-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 500px;
-
-  margin-top: 100px;
-  background-color: #353535;
-}
-
-.container-info {
-  display: flex;
-  gap: 50px
-}
-
-.informacao {
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  color: #fff;
-
-
-  margin-bottom: 50px;
-}
-
-.Master {
-  font-size: 30px;
-  color: #ffffff;
-}
-
-.icones {
-  width: 40px;
-  margin-right: 15px;
-  border-radius: 5px;
-}
-
-.iconesredes {
-  width: 150px;
-  margin-right: 20px;
-  border-radius: 5px;
+  transform: scale(1.02);
+  transition: 0.3s;
 }

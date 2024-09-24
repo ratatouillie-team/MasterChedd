@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/home-styles.css">
+  <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
   <title>MasterChedd</title>
 </head>
 
@@ -15,26 +16,26 @@
   <header class="header-container">
     <section class="logo"><span style="color: #EBA742;">Master</span>Chedd</section>
     <section class="nav-bar">
-      <img class="icons" src="images/icons/pesquisa.png">
-      <a href="/carrinho"><img class="icons" src="images/icons/carrinho.png"></a>
-      <a class="btn" href="/login">login</a>
+      <a href="/reserva">Fazer reserva</a>
+      <a href="/carrinho"><i class="fa-solid fa-bag-shopping"></i></a>
+      <a href="/login">login</a>
     </section>
   </header>
 
   <main class="main-container">
-    <section class="frase">
-      <p><span style="color: #EBA742;">Estação do Sabor.</span></p>
-      <p>Pratos diversificados <br> e drinks <br> personalizados.</p>
+    <section class="container-info">
+      <section class="info-home">
+        <p><span style="color: #EBA742;">Estação do Sabor.</span> Pratos diversificados <br> e drinks personalizados.</p>
+        <button>Horário de Funcionamento <i class="fa-solid fa-caret-down"></i></button>
+      </section> 
     </section>
 
-    <section class="container-ptdia">
-      <!-- PRATO DO DIA -->
-      <section class="titulo-container">
+     <section class="container-ptdia">
+      <section>
         <h1>Pratos do dia</h1>
       </section>
 
       <section class="organzando-caixa">
-
         <section class="caixa">
           <div class="caixa-img">
             <img src="images/background/frango.webp">
@@ -48,8 +49,20 @@
 
           <div class="avaliacao-container">
             <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <input value="5" type="radio" name="star" id="star5">
+              <label for="star5"><i class="fa-solid fa-star"></i></label>
+
+              <input value="4" type="radio" name="star" id="star4">
+              <label for="star4"><i class="fa-solid fa-star"></i></label>
+
+              <input value="3" type="radio" name="star" id="star3">
+              <label for="star3"><i class="fa-solid fa-star"></i></label>
+
+              <input value="2" type="radio" name="star" id="star2">
+              <label for="star2"><i class="fa-solid fa-star"></i></label>
+
+              <input value="1" type="radio" name="star" id="star1">
+              <label for="star1"><i class="fa-solid fa-star"></i></label>
             </div>
 
             <div class="btn-adicionar">
@@ -57,133 +70,117 @@
             </div>
           </div>
         </section>
-
         <section class="caixa">
           <div class="caixa-img">
-            <img src="images/background/pastel.jpg">
+            <img src="images/background/frango.webp">
           </div>
 
           <div class="caixa-info">
-            <p>Porção</p>
-            <small> - Mini pasteis de camarão com molho branco.</small>
-            <span>R$ 39,00</span>
+            <p>Frango assado</p>
+            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
+            <span>R$ 45,95</span>
           </div>
 
           <div class="avaliacao-container">
             <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <input value="5" type="radio" name="star" id="star5">
+              <label for="star5"><i class="fa-solid fa-star"></i></label>
+
+              <input value="4" type="radio" name="star" id="star4">
+              <label for="star4"><i class="fa-solid fa-star"></i></label>
+
+              <input value="3" type="radio" name="star" id="star3">
+              <label for="star3"><i class="fa-solid fa-star"></i></label>
+
+              <input value="2" type="radio" name="star" id="star2">
+              <label for="star2"><i class="fa-solid fa-star"></i></label>
+
+              <input value="1" type="radio" name="star" id="star1">
+              <label for="star1"><i class="fa-solid fa-star"></i></label>
             </div>
-            
+
             <div class="btn-adicionar">
               <button>Adicionar</button>
             </div>
           </div>
         </section>
-
         <section class="caixa">
           <div class="caixa-img">
-            <img src="images/background/macarrão.jpg">
+            <img src="images/background/frango.webp">
           </div>
 
           <div class="caixa-info">
-            <p>Noodle</p>
-            <small> - Massa com molho de carne moida e queijo parmesão.</small>
-            <span>R$ 35,90</span>
+            <p>Frango assado</p>
+            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
+            <span>R$ 45,95</span>
           </div>
 
           <div class="avaliacao-container">
             <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <input value="5" type="radio" name="star" id="star5">
+              <label for="star5"><i class="fa-solid fa-star"></i></label>
+
+              <input value="4" type="radio" name="star" id="star4">
+              <label for="star4"><i class="fa-solid fa-star"></i></label>
+
+              <input value="3" type="radio" name="star" id="star3">
+              <label for="star3"><i class="fa-solid fa-star"></i></label>
+
+              <input value="2" type="radio" name="star" id="star2">
+              <label for="star2"><i class="fa-solid fa-star"></i></label>
+
+              <input value="1" type="radio" name="star" id="star1">
+              <label for="star1"><i class="fa-solid fa-star"></i></label>
             </div>
-            
+
             <div class="btn-adicionar">
               <button>Adicionar</button>
             </div>
           </div>
         </section>
-
         <section class="caixa">
           <div class="caixa-img">
-            <img src="images/background/macarrão.jpg">
+            <img src="images/background/frango.webp">
           </div>
 
           <div class="caixa-info">
-            <p>Noodle</p>
-            <small> - Massa com molho de carne moida e queijo parmesão.</small>
-            <span>R$ 35,90</span>
+            <p>Frango assado</p>
+            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
+            <span>R$ 45,95</span>
           </div>
 
           <div class="avaliacao-container">
             <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <input value="5" type="radio" name="star" id="star5">
+              <label for="star5"><i class="fa-solid fa-star"></i></label>
+
+              <input value="4" type="radio" name="star" id="star4">
+              <label for="star4"><i class="fa-solid fa-star"></i></label>
+
+              <input value="3" type="radio" name="star" id="star3">
+              <label for="star3"><i class="fa-solid fa-star"></i></label>
+
+              <input value="2" type="radio" name="star" id="star2">
+              <label for="star2"><i class="fa-solid fa-star"></i></label>
+
+              <input value="1" type="radio" name="star" id="star1">
+              <label for="star1"><i class="fa-solid fa-star"></i></label>
             </div>
-            
+
             <div class="btn-adicionar">
               <button>Adicionar</button>
             </div>
           </div>
         </section>
-
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/macarrão.jpg">
-          </div>
-
-          <div class="caixa-info">
-            <p>Noodle</p>
-            <small> - Massa com molho de carne moida e queijo parmesão.</small>
-            <span>R$ 35,90</span>
-          </div>
-
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/macarrão.jpg">
-          </div>
-
-          <div class="caixa-info">
-            <p>Noodle</p>
-            <small> - Massa com molho de carne moida e queijo parmesão.</small>
-            <span>R$ 35,90</span>
-          </div>
-
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-
       </section>
     </section>
 
-    <section class="menu">
-      <!-- MENU -->
+    <!--<section class="menu">
       <img src="/images/background/image-menu.png">
       <a href="/menu">MENU</a>
     </section>
 
     <section class="menu-container">
-      <!-- MENU DE ESCOLHA -->
       <div class="container-opcoes">
         <img class="container-img" src="images/background/imageporcao.png">
         <a class="container-bt" href="/porcoes">Porçoes</a>
@@ -199,20 +196,25 @@
         <a class="container-bt" href="/bebidas">Bebidas</a>
       </div>
 
-    </section>
+    </section> -->
 
   </main>
 
-  <footer class="footer-container">
-    <!-- FAZER ESTILO DO FOOTER -->
-    <div class="container-info">
-      <p class="informacao"><img class="icones" src="images/icons/telefone.png"> + 055 16 99625-6589</p>
-      <p class="informacao"><img class="icones" src="images/icons/local.png"> Av.Brasil - Centro - 452 </p>
-    </div>
+  <!-- <footer class="footer-container">
+    <section class="container-info">
+      <p class="informacao"><i class="fa-solid fa-phone"></i> + 055 16 99625-6589</p>
+      <p class="informacao"><i class="fa-solid fa-location-dot"></i> Av.Brasil - Centro - 452 </p>
+    </section>
 
-    <img class="iconesredes" src="images/icons/redes.png">
-    <p class="Master">Master <small>CheddOficial</small></p>
-  </footer>
+    <section class="container-redes">
+      <div class="redes-sociais">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+      <p class="Master">Master<small>CheddOficial</small></p>
+    </section>
+  </footer> -->
 </body>
 
 </html>
