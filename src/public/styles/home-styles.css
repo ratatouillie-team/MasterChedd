@@ -55,6 +55,7 @@ body {
   transform: scale(1.05);
   transition: 0.3s;
 }
+
 /* ⬆︎ ESTILIZAÇÃO DO HEADER ⬆︎ */
 
 
@@ -113,6 +114,7 @@ main {
   transform: scale(1.05);
   transition: 0.3s;
 }
+
 /* ⬆︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬆︎ */
 
 
@@ -138,7 +140,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  
+
   justify-items: center;
   align-items: center;
   height: 50vh;
@@ -151,16 +153,16 @@ main {
   width: 250px;
   height: 300px;
   background-color: rgb(43, 43, 43);
-  
+
   border-radius: 8px;
   overflow: hidden;
   border: 2px solid #EBA742;
   cursor: default;
-  
+
   transition: 0.3s;
 }
 
-.caixa:hover{
+.caixa:hover {
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -172,7 +174,7 @@ main {
   border-bottom: 1px solid #EBA742;
 }
 
-.caixa-info{
+.caixa-info {
   display: flex;
   flex-direction: column;
 }
@@ -184,7 +186,7 @@ main {
   padding: 5px;
 }
 
-.caixa-info small{
+.caixa-info small {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #EBA742;
@@ -198,7 +200,7 @@ main {
   padding: 5px;
 }
 
-.avaliacao-container{
+.avaliacao-container {
   height: 100%;
   display: flex;
   align-items: center;
@@ -208,12 +210,12 @@ main {
 .avaliacao {
   width: 35%;
   direction: rtl;
-  display: inline-flex; 
+  display: inline-flex;
   font-size: 15px;
 }
 
 .avaliacao input {
-  display: none; 
+  display: none;
 }
 
 .avaliacao label {
@@ -222,18 +224,18 @@ main {
   transition: color 0.3s ease;
 }
 
-.avaliacao input:checked ~ label,
+.avaliacao input:checked~label,
 .avaliacao label:hover,
-.avaliacao label:hover ~ label {
-  color: #EBA742; 
+.avaliacao label:hover~label {
+  color: #EBA742;
 }
 
-.avaliacao input:checked ~ label:hover,
-.avaliacao input:checked ~ label:hover ~ label {
-  color: #EBA742; 
+.avaliacao input:checked~label:hover,
+.avaliacao input:checked~label:hover~label {
+  color: #EBA742;
 }
 
-.btn-adicionar button{
+.btn-adicionar button {
   border: 1px solid #EBA742;
   border-radius: 5px;
   color: #ffffff;
@@ -249,11 +251,12 @@ main {
   transform: scale(1.02);
   transition: 0.3s;
 }
+
 /* ⬆︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬆︎ */
 
 
 /* ⬇︎ ESTILIZAÇÃO DA SECTION MENU ⬇︎ */
-.container-menu{
+.container-menu {
   width: 100%;
   height: 70vh;
   display: flex;
@@ -271,7 +274,7 @@ main {
   margin-top: 10px;
 }
 
-.menu a{
+.menu a {
   font-family: 'Kelly Slab', sans-serif;
   background-color: #EBA742;
   padding: 8px 19px;
@@ -285,7 +288,7 @@ main {
   transition: 0.3s;
 }
 
-.menu a:hover{
+.menu a:hover {
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -298,7 +301,173 @@ main {
   width: 95%;
   height: 80%;
 }
+
 /* ⬆︎ ESTILIZAÇÃO DA SECTION MENU ⬆︎ */
 
 
-/* ⬇︎ ESTILIZAÇÃO DA SECTION RESERVAS ⬇︎ */
+/* ⬇︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬇︎ */
+.container-eventos {
+  width: 100%;
+  height: 65vh;
+}
+
+.container-card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+
+  justify-items: center;
+  align-items: center;
+  height: 73%;
+}
+
+.container-eventos section h1 {
+  font-family: 'kelly slab', sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.eventos-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 250px;
+  height: 300px;
+  background-color: rgb(43, 43, 43);
+
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #EBA742;
+  cursor: default;
+
+  transition: 0.3s;
+}
+
+.eventos-card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.evento-img {
+  height: 100%;
+}
+
+.evento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top: 1px solid #EBA742;
+}
+
+.evento-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+}
+
+.evento-info p {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #fff;
+  padding: 5px;
+}
+
+.evento-info div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.evento-info span {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EBA742;
+  padding: 5px;
+}
+
+.ver-eventos{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.ver-eventos a{
+  font-family: 'kelly slab', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #EBA742;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+
+.ver-eventos a:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+/* ⬆︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DO FOOTER ⬇︎ */
+.footer-container {
+  width: 100%;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(1deg, #0000008e, #353535bb);
+}
+
+.container-social{
+  width: 40%;
+  height: 10%;
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+}
+
+.container-social i{
+  color:#EBA742;
+  margin-right: 5px;
+  font-size: 23px;
+}
+
+.container-redes{
+
+  width: 40%;
+  height: 20%;
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+}
+
+.redes-sociais{
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: #EBA742;
+}
+/* ⬆︎ ESTILIZAÇÃO DO FOOTER ⬆︎ */
