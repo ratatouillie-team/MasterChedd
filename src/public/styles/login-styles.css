@@ -1,3 +1,6 @@
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +19,7 @@ body {
 h1{
   font-family: "Kelly Slab", sans-serif;
   font-size: 50px;
+  color: #fff;
 }
 
 form {
@@ -32,9 +36,9 @@ form {
 
 
 button {
+  margin-right: 50px;
   border: 2px solid #EBA742;
-  padding: 15px;
-  height: 40px;
+  padding: 10px;
   margin-top: 30px;
   border-radius: 8px;
   font-size: 15px;
@@ -45,6 +49,7 @@ button {
   background-color: #EBA742;
   backdrop-filter: blur (10px);
   transition: background 0.3s;
+  margin-right: 5px;
 }
 
 button:hover{
@@ -61,14 +66,10 @@ a {
   margin-top: 20px;
   font-size: 14px;
   text-decoration: none;
-
   cursor: pointer;
   font-family: "Poetsen One", sans-serif;
-}
-
-p{
-  color: #fff;
-  margin-bottom: ;
+  ;
+  
 }
 
 label {
@@ -82,12 +83,24 @@ label {
 }
 
 input {
-  padding: 15px;
-  height: 40px;
+  margin-right: 50px;
+  padding: 10px;
+  height: 35px;
   border-radius: 4px;
   font-weight: bold;
   color: #000000;
   background: #fff;
+  margin-right: 5px;
+
 }
 
+p{
+  color: #fff;
+  margin-top: 20px;
+
+}
+
+input:focus {
+outline: 0
+};
 
