@@ -1,12 +1,13 @@
-const db = require('../config/db')
+const db = require('../config/db');
+const md5 = require('md5');
 
 
-function adicionarUsuario(nome, email, senha) {
+async function adicionarUsuario(nome, email, senha) {
 
   // Adicionando o novo usuario
-  db.query(`
+   await db.query(`
     INSERT INTO usuarios (nome, email, senha, criadoEm) 
-    VALUES ('${nome}', '${email}', '${senha}', now())
+    VALUES ('${nome}', '${email}', '${md5(senha)}', now())
     `)
     .then(() => {
       console.log('Usuário criado com sucesso!')
@@ -16,6 +17,15 @@ function adicionarUsuario(nome, email, senha) {
     })
 }
 
+async function buscarUsuarioPorEmail(email) {
+
+  const user = await db.query(`
+    SELECT * FROM usuarios WHERE email = '${email}'`)
+  
+  return user[0][0]
+}
+
 module.exports = {
-  adicionarUsuario
+  adicionarUsuario,
+  buscarUsuarioPorEmail
 }
