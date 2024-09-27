@@ -8,19 +8,21 @@ function exibirLogin(request, response) {
 
 
 async function logarUsuario(request, response) {
+  console.log("passou no inicio")
   const {email, senha} = request.body
   const user = await userModels.buscarUsuarioPorEmail(email)
 
   if(user == undefined){
-    response.render('login');
+    response.redirect('/login');
+    return;
+  }
+  console.log('passou no if de user')
+  if(md5(senha) == user.senha){
+    response.redirect('/login');
     return;
   }
 
-  if(md5(senha) !== user.senha){
-    response.render('login');
-    return;
-  }
-
+  console.log("passou aqui")
   response.redirect('/');
 }
 

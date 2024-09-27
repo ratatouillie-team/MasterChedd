@@ -20,9 +20,10 @@ async function adicionarUsuario(nome, email, senha) {
 async function buscarUsuarioPorEmail(email) {
 
   const user = await db.query(`
-    SELECT * FROM usuarios WHERE email = '${email}'`)
+    SELECT * FROM usuarios WHERE email = '${email}'
+    `)
   
-  return user[0][0]
+  return user
 }
 
 module.exports = {

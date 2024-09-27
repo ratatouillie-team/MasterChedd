@@ -98,7 +98,7 @@ main {
   cursor: default;
 }
 
-.info-home button {
+.info-home select {
   border: 1px solid #EBA742;
   border-radius: 5px;
   color: #ffffff;
@@ -109,7 +109,7 @@ main {
   transition: 0.3s;
 }
 
-.info-home button:hover {
+.info-home select:hover, .info-home select:focus, option {
   background-color: #EBA742;
   transform: scale(1.05);
   transition: 0.3s;
@@ -127,7 +127,7 @@ main {
 
 .container-ptdia section h1 {
   font-family: 'kelly slab', sans-serif;
-  font-size: 35px;
+  font-size: 50px;
   color: #ffffff;
   margin-top: 20px;
   cursor: default;
@@ -275,10 +275,10 @@ main {
 .menu a {
   font-family: 'Kelly Slab', sans-serif;
   background-color: #EBA742;
-  padding: 8px 19px;
+  padding: 10px 25px;
   border-radius: 9px;
 
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 600;
   color: #fff;
   text-decoration: none;
@@ -322,7 +322,7 @@ main {
 
 .container-eventos section h1 {
   font-family: 'kelly slab', sans-serif;
-  font-size: 35px;
+  font-size: 50px;
   color: #ffffff;
   text-align: center;
   margin-top: 15px;
@@ -401,10 +401,10 @@ main {
 
 .ver-eventos a{
   font-family: 'kelly slab', sans-serif;
-  font-size: 20px;
+  font-size: 35px;
   color: #ffffff;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 25px;
   background-color: #EBA742;
   border-radius: 9px;
   transition: 0.3s;
