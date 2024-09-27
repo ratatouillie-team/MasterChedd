@@ -389,31 +389,6 @@ main {
   color: #EBA742;
   padding: 5px;
 }
-
-.ver-eventos{
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.ver-eventos a{
-  font-family: 'kelly slab', sans-serif;
-  font-size: 35px;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 10px 25px;
-  background-color: #EBA742;
-  border-radius: 9px;
-  transition: 0.3s;
-}
-
-.ver-eventos a:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
 /* ⬆︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬆︎ */
 
 
