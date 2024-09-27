@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,31 @@
   <link rel="stylesheet" href="styles/criarConta-styles.css">
   <title>Document</title>
 </head>
+
 <body>
- 
-<form class="formulario" action="/user-dados" method="POST">
   
-  <h1 >Criar Cadastro</h1>
+  <div class="formulario">
+
+  <form action="/user-dados" method="POST">
 
 
-<label for="nome">Nome</label>
-<input class="mudaCor" type="text" id="nome" name="nome" required placeholder="Digite o nome de usuario" >
+      <h1>Criar Cadastro</h1>
 
-<label for="email">Email</label>
-<input type="text" id="email" name="email" required  placeholder="Digite o seu Email">
 
-<label for="password">Senha</label>
-<input type="password" id="senha" name="senha" required placeholder="Crie uma senha forte">
+      <label for="nome">Nome</label>
+      <input class="mudaCor" type="text" id="nome" name="nome" required placeholder="Digite o nome de usuario">
 
-<button type="submit">Criar conta</button>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" required placeholder="Digite o seu Email">
 
-<p>Já possui conta? <a href="/login">Entrar agora mesmo</a></p>
+      <label for="password">Senha</label>
+      <input type="password" id="senha" name="senha" required placeholder="Crie uma senha forte">
 
+      <button type="submit">Criar conta</button>
+
+      <p style="color: #fff;">Já possui conta? <a href="/login">Entrar agora mesmo</a></p>
+</form>
+    </div>
 </body>
+
 </html>

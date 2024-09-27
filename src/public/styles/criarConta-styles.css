@@ -17,14 +17,6 @@ h1{
   font-family: "Kelly Slab", sans-serif;
   font-size: 50px;
   color: #fff;
-
-}
-
-h2{
-  font-family: "Kelly Slab", sans-serif;
-  font-size: 50px;
-  color: #ffffff;
-  margin-bottom: 30px;
 }
 
 form {
@@ -54,6 +46,12 @@ button {
   background-color: #EBA742;
   backdrop-filter: blur (10px);
   transition: background 0.3s;
+  margin-right: 5px;
+}
+
+button:hover{
+  background-color: #df921e;
+  transition: background 0.3s;
 }
 
 a {
@@ -65,14 +63,10 @@ a {
   margin-top: 20px;
   font-size: 14px;
   text-decoration: none;
-  
   cursor: pointer;
   font-family: "Poetsen One", sans-serif;
-}
-
-button:hover {
-  background-color: #df921e;
-  transition: background 0.3s;
+  ;
+  
 }
 
 label {
@@ -91,14 +85,19 @@ input {
   height: 35px;
   border-radius: 4px;
   font-weight: bold;
-  border: 1px solid #ffffff;
   color: #000000;
   background: #fff;
+  margin-right: 5px;
+
 }
 
 p{
   color: #fff;
-  margin-top: 10px;
+  margin-top: 20px;
+
 }
 
+input:focus {
+outline: 0
+};
 

@@ -14,18 +14,21 @@
 </head>
 
 <body>
+  <div class="login">
+    <form action="/autenticar" method="post">
+      <h1 style="color: azure;">Login</h1>
 
-  <form>
-    <h1 style="color: azure;">Login</h1>
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" placeholder="Digite seu email" />
+      <label for="email">E-mail</label>
+      <input id="email" type="email" name="email" placeholder="Digite seu email" />
 
-    <label for="password">Senha</label>
-    <input id="senha" type="password" name="senha" placeholder="Digite sua senha" />
+      <label for="password">Senha</label>
+      <input id="senha" type="password" name="senha" placeholder="Digite sua senha" />
 
-    <button type="submit">Entrar</button>
-    <a href="/criar-conta"><small style="color: #fff; font-size: 14px;">Não possui conta?</small> Criar conta</a>
-  </form>
+      <button type="submit">Continuar</button>
+
+      <p style="color: #fff; font-size: 14px;">Não possui conta? <a href="/criar-conta">Criar conta</a></p>
+    </form>
+  </div>
 </body>
 
 </html>
