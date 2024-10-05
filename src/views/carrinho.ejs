@@ -15,34 +15,44 @@
 
 <body>
 
-  <form>
-    <h1 class="titulocarrinho">Seu pedido</h1>
-    <p class="total">Total:</p>
 
+  <h1 class="titulocarrinho">Seu pedido</h1>
 
-    
-    <label for="formasdepagamento">Qual a forma de Pagamento?</label>
-    </label>
-    <input list="formasdepagamento" placeholder="Forma de pagamento">
-    </label>
-    <datalist id="formasdepagamento">
-      <option value="Pix"></option>
-      <option value="Cartão"></option>
-      <option value="Dinheiro"></option>
-    </datalist>
-    <label for="observacao">Deseja adicionar alguma observação?</label>
-    <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
+  <div class="caixona">
+    <div class="pedidosfeitos">
+    </div>
+    <div class="informacoesdepagamento">
+
+      <form>
+        <p class="total">Total:</p>
 
 
 
+        <label for="formasdepagamento">Qual a forma de Pagamento?</label>
+        </label>
+        <input list="formasdepagamento" placeholder="Forma de pagamento">
+        </label>
+        <datalist id="formasdepagamento">
+          <option value="Pix"></option>
+          <option value="Cartão"></option>
+          <option value="Dinheiro"></option>
+        </datalist>
+        <label for="observacao">Deseja adicionar alguma observação?</label>
+        <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
 
-    <button type="submit">Finalizar pedido</button>
-
-    <a href="/menu">
-      <p>Continuar comprando</p>
-    </a>
 
 
+
+        <button type="submit">Finalizar pedido</button>
+
+        <a href="/menu">
+          <p>Continuar comprando</p>
+        </a>
+      </form>
+
+
+    </div>
+  </div>
 
 </body>
 
