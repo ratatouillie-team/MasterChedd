@@ -6,7 +6,7 @@ async function adicionarUsuario(nome, email, senha) {
 
   // Adicionando o novo usuario
    await db.query(`
-    INSERT INTO usuarios (nome, email, senha, criadoEm) 
+    INSERT INTO usuario (nome, email, senha, criadoEm) 
     VALUES ('${nome}', '${email}', '${md5(senha)}', now())
     `)
     .then(() => {
@@ -20,7 +20,7 @@ async function adicionarUsuario(nome, email, senha) {
 async function buscarUsuarioPorEmail(email) {
 
   const user = await db.query(`
-    SELECT * FROM usuarios WHERE email = '${email}'
+    SELECT * FROM usuario WHERE email = '${email}'
     `)
   
   return user
