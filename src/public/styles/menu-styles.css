@@ -6,7 +6,7 @@
 
 body {
   height: 100vh;
-  background-color: rgb(0, 0, 0);
+  background-color: #353535;
   font-family: 'Inter', sans-serif;
 }
 
@@ -54,8 +54,9 @@ body {
   height: 80px;
   background-color: rgba(0, 0, 0, 0.219);
   backdrop-filter: blur(10px);
-  border-bottom: #EBA742 1px solid;
-  box-shadow: #000000 0px 5px 15px;
+  border-bottom: #be780e 1px solid;
+  box-shadow: 
+  #000000 0px 5px 15px;
 }
 
 .nav-bar {
@@ -127,15 +128,15 @@ body {
 
 .itens {
   border: 1px solid #EBA742;
-  width: 250px;
+  width: 100%;
   height: 320px;
   overflow: hidden;
   margin-top: 30px;
   border: 2px, solid #EBA742;
   font-family: 'Inter', sans-serif;
-
   border-radius: 7px;
   transition: 0.5s;
+
 
 }
 
@@ -152,18 +153,17 @@ body {
 .titulo-card{
   margin-top: 3px;
   margin-left: 3px;
-  color: #EBA742;
+  color: #e6e6e6;
   font-size: 15px;
 }
 .preco-card {
-  color: #EBA742;
-  margin-left: 3px;
-  margin-top: 3px;
+  color: #ffffff;
+  margin-left:10px;
   font-size: 15px;
 }
 
 .descricao-card {
-  color: #fff;
+  color: #EBA742;
   margin-left: 3px;
   margin-top: 3px;
   font-size: 12px;
