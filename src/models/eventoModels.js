@@ -1,4 +1,4 @@
-const db = require('../database/db');
+const db = require('../config/db');
 
 async function adicionarEventos(nome, data, local) {
 
@@ -22,4 +22,9 @@ async function listarEventos() {
     `)
 
     return eventos
+}
+
+module.exports = {
+    adicionarEventos,
+    listarEventos
 }
