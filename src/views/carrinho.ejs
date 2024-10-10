@@ -10,39 +10,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/carrinho-styles.css">
-  <title>Document</title>
+  <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+  <title>Carrinho MasterChedd</title>
 </head>
 
 <body>
+  <main class="caixona">
+    <section class="titulo-carrinho">
+      <h1>Seu pedido</h1>
+    </section>
 
-  <form>
-    <h1 class="titulocarrinho">Seu pedido</h1>
-    <p class="total">Total:</p>
+    <section class="container-info">
 
+      <section class="caixa-pedido">
 
-    
-    <label for="formasdepagamento">Qual a forma de Pagamento?</label>
-    </label>
-    <input list="formasdepagamento" placeholder="Forma de pagamento">
-    </label>
-    <datalist id="formasdepagamento">
-      <option value="Pix"></option>
-      <option value="Cartão"></option>
-      <option value="Dinheiro"></option>
-    </datalist>
-    <label for="observacao">Deseja adicionar alguma observação?</label>
-    <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
+        <section class="card-item">
+          <section class="caixa-img">
+            <img src="images/pratos/bebidas/agua-com-gas-com-limao.jpg">
+          </section>
+        </section>
 
 
+        <section class="card-item">
+          <section class="caixa-img">
+            <img src="images/pratos/bebidas/agua-com-gas-com-limao.jpg">
+          </section>
 
+        </section>
 
-    <button type="submit">Finalizar pedido</button>
+      </section>
 
-    <a href="/menu">
-      <p>Continuar comprando</p>
-    </a>
+      <section class="caixa-pagamento">
 
+        <form>
+          <label for="formasdepagamento">Qual a forma de Pagamento?</label>
+          <input list="formasdepagamento" placeholder="Forma de pagamento">
+          <datalist id="formasdepagamento">
+            <option value="Pix"></option>
+            <option value="Cartão"></option>
+            <option value="Dinheiro"></option>
+          </datalist>
 
+          <label for="observacao">Deseja adicionar alguma observação?</label>
+          <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
+          <button type="submit">Finalizar pedido</button>
+ 
+          <a href="/menu">Continuar comprando</a>
+        </form>
+
+      </section>
+
+    </section>
+
+    <section class="titulo-total">
+      <p>Total:</p>
+    </section>
+  </main>
 
 </body>
 
