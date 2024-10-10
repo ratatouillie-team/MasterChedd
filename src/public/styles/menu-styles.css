@@ -122,13 +122,15 @@ body {
   grid-template-rows: repeat(6, 1fr);
 
   justify-items: center;
+  margin-left: 25px;
+  gap: 35px;
 
 
 }
 
 .itens {
-  border: 1px solid #EBA742;
-  width: 100%;
+  border: 2px solid #EBA742;
+  width: 90%;
   height: 320px;
   overflow: hidden;
   margin-top: 30px;
@@ -148,6 +150,8 @@ body {
 .card-itens{
   width: 100%;
   height: 88%;
+  display: flex;
+  flex-direction: column;
 }
 
 .titulo-card{
