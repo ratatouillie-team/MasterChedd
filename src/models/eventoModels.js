@@ -21,7 +21,7 @@ async function listarEventos() {
         SELECT * FROM evento
     `)
 
-    return eventos
+    return eventos[0]
 }
 
 module.exports = {
