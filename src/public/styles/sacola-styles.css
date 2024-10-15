@@ -96,7 +96,7 @@ body {
 
 .card-item{
   width: 90%;
-  border: 1px solid red;
+  border: 1px solid #df921e;
   margin-top: 10px;
   height: 150px;
   overflow: hidden;
@@ -114,7 +114,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-right: 1px solid red;
+  border-right: 1px solid #df921e;
 }
 
 .caixa-item{
