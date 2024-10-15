@@ -30,12 +30,12 @@
         <p><span style="color: #EBA742;">Estação do Sabor.</span> Pratos diversificados <br> e drinks personalizados.
         </p>
         <select>
-          <option selected disabled hidden >Horarios de funcionamento</option>
+          <option selected disabled hidden>Horarios de funcionamento</option>
           <option disabled>Segunda, Terça e Quarta: 08:00 às 22:00</option>
           <option disabled>Quinta e Sexta: 10:00 às 23:00</option>
           <option disabled>Sabado e Domingo: 11:00 às 23:00</option>
         </select>
-    </section>
+      </section>
     </section>
 
     <section class="container-ptdia">
@@ -91,19 +91,19 @@
 
           <div class="avaliacao-container">
             <div class="avaliacao">
-              <input value="5" type="radio" name="star" id="star5">
+              <input value="5" type="radio" name="star" id="star2-5">
               <label for="star5"><i class="fa-solid fa-star"></i></label>
 
-              <input value="4" type="radio" name="star" id="star4">
+              <input value="4" type="radio" name="star" id="star2-4">
               <label for="star4"><i class="fa-solid fa-star"></i></label>
 
-              <input value="3" type="radio" name="star" id="star3">
+              <input value="3" type="radio" name="star" id="star2-3">
               <label for="star3"><i class="fa-solid fa-star"></i></label>
 
-              <input value="2" type="radio" name="star" id="star2">
+              <input value="2" type="radio" name="star" id="star2-2">
               <label for="star2"><i class="fa-solid fa-star"></i></label>
 
-              <input value="1" type="radio" name="star" id="star1">
+              <input value="1" type="radio" name="star" id="star2-1">
               <label for="star1"><i class="fa-solid fa-star"></i></label>
             </div>
 
@@ -197,54 +197,23 @@
         <h1>Eventos</h1>
       </section>
       <section class="container-card">
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>Evento BlaBlaBla</p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> 25/09/2024</span>
-              <span><i class="fa-solid fa-clock"></i> 18h as 20h</span>
+        
+        <% eventos.forEach(evento=> { %>
+          <section class="eventos-card">
+            <div class="evento-info">
+              <p>
+                <%= evento.nome %>
+              </p>
+              <div>
+                <span><i class="fa-solid fa-calendar-days"></i> <%= evento.local %></span>
+                <span><i class="fa-solid fa-clock"></i> <%= evento.data %></span>
+              </div>
             </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>Evento BlaBlaBla</p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> 25/09/2024</span>
-              <span><i class="fa-solid fa-clock"></i> 18h as 20h</span>
+            <div class="evento-img">
+              <img src="images/background/imageEvento.png">
             </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>Evento BlaBlaBla</p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> 25/09/2024</span>
-              <span><i class="fa-solid fa-clock"></i> 18h as 20h</span>
-            </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>Evento BlaBlaBla</p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> 25/09/2024</span>
-              <span><i class="fa-solid fa-clock"></i> 18h as 20h</span>
-            </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
+          </section>
+        <% }); %>
       </section>
     </section>
 
