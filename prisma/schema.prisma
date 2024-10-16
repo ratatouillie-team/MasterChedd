@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model avaliacao {
+  id             Int       @id @default(autoincrement())
+  id_usuario     Int?
+  comentario     String?   @db.VarChar(255)
+  avaliacao      String?   @db.VarChar(255)
+  data_avaliacao DateTime? @db.Date
+  usuario        usuario?  @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "avaliacao_ibfk_1")
+
+  @@index([id_usuario], map: "id_usuario")
+}
+
+model evento {
+  id       Int       @id @default(autoincrement())
+  nome     String?   @db.VarChar(255)
+  data     DateTime? @db.Date
+  local    String?   @db.VarChar(255)
+  criadoEm DateTime? @db.Date
+}
+
+model pedido {
+  id            Int       @id @default(autoincrement())
+  id_usuario    Int?
+  id_prato      Int?
+  data_pedido   DateTime? @db.Date
+  total_pedido  String?   @db.VarChar(255)
+  status_pedido String?   @db.VarChar(255)
+  usuario       usuario?  @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_ibfk_1")
+  prato         prato?    @relation(fields: [id_prato], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_ibfk_2")
+
+  @@index([id_prato], map: "id_prato")
+  @@index([id_usuario], map: "id_usuario")
+}
+
+model prato {
+  id              Int      @id @default(autoincrement())
+  nome            String?  @db.VarChar(255)
+  descricao       String?  @db.VarChar(255)
+  preco           String?  @db.VarChar(255)
+  tipo_comida     String?  @db.VarChar(255)
+  disponibilizade String?  @db.VarChar(255)
+  pedido          pedido[]
+}
+
+model reserva {
+  id         Int       @id @default(autoincrement())
+  id_usuario Int?
+  data       DateTime? @db.Date
+  hora       String?   @db.VarChar(255)
+  quantidade Int?
+  usuario    usuario?  @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "reserva_ibfk_1")
+
+  @@index([id_usuario], map: "id_usuario")
+}
+
+model usuario {
+  id        Int         @id @default(autoincrement())
+  nome      String?     @db.VarChar(255)
+  email     String?     @unique(map: "email") @db.VarChar(255)
+  senha     String?     @db.VarChar(255)
+  criadoEm  DateTime?   @db.Date
+  avaliacao avaliacao[]
+  pedido    pedido[]
+  reserva   reserva[]
+}
