@@ -102,6 +102,34 @@ body {
   overflow: hidden;
 }
 
+.caixa-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-item small {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #EBA742;
+  padding: 5px;
+}
+
+.card-item span {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 5px;
+}
+
 .caixa-img {
   height: 100%;
   width: 30%;
