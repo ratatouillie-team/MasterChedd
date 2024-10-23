@@ -13,6 +13,7 @@ const sacolaRouter = require("./routes/sacolaRoute");
 const reservaRouter = require("./routes/reservaRouter");
 const eventosRouter = require("./routes/eventosRoute");
 const criarEventosRouter = require("./routes/criarEventosRoute");
+const session = require('express-session');
 
 // Chamando o express
 const app = express();
@@ -28,6 +29,15 @@ console.log("Views path set to:", path.join(__dirname, "views"));
 
 // Configuração de pasta pública
 app.use(express.static(path.join(__dirname, "public")));
+
+// configuração do express-session
+app.use(
+  session({
+    secret:"chave-muito-mais muito-secreta",
+    resave: false,
+    saveUninitialized: false,
+  })
+)
 
 // Habilitar hot-reload
 enableHotReload(app);
