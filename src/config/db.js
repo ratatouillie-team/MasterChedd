@@ -6,7 +6,7 @@ const conexao = mySql2.createPool({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'ratatouillie'
+  database: 'restaurante'
 });
 
 // Testando a conexão ao MySQL

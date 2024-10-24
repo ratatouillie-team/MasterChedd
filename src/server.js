@@ -9,10 +9,11 @@ const homeRouter = require("./routes/homeRoute");
 const menuRouter = require("./routes/menuRoute");
 const loginRouter = require("./routes/loginRoute");
 const criarContaRouter = require("./routes/criarContaRoute");
-const carrinhoRouter = require("./routes/carrinhoRoute");
+const sacolaRouter = require("./routes/sacolaRoute");
 const reservaRouter = require("./routes/reservaRouter");
 const eventosRouter = require("./routes/eventosRoute");
 const criarEventosRouter = require("./routes/criarEventosRoute");
+const session = require('express-session');
 
 // Chamando o express
 const app = express();
@@ -29,6 +30,15 @@ console.log("Views path set to:", path.join(__dirname, "views"));
 // Configuração de pasta pública
 app.use(express.static(path.join(__dirname, "public")));
 
+// configuração do express-session
+app.use(
+  session({
+    secret:"chave-muito-mais muito-secreta",
+    resave: false,
+    saveUninitialized: false,
+  })
+)
+
 // Habilitar hot-reload
 enableHotReload(app);
 
@@ -37,7 +47,7 @@ app.use("/", homeRouter);
 app.use("/", menuRouter);
 app.use("/", loginRouter);
 app.use("/", criarContaRouter);
-app.use("/", carrinhoRouter);
+app.use("/", sacolaRouter);
 app.use("/", reservaRouter);
 app.use("/", eventosRouter);
 app.use("/", criarEventosRouter);
