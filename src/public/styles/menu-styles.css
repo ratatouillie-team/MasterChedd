@@ -130,14 +130,15 @@ body {
 
 .itens {
   border: 2px solid #EBA742;
-  width: 90%;
-  height: 320px;
+  width: 13%;
+  height: 270px;
   overflow: hidden;
   margin-top: 30px;
   border: 2px, solid #EBA742;
   font-family: 'Inter', sans-serif;
   border-radius: 7px;
   transition: 0.5s;
+margin-left: 20px;
 
 
 }
