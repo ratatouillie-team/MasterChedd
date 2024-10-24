@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +12,8 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #929292;
+  height: 100vh;
+
 }
 
 
@@ -46,7 +50,8 @@ button {
   background-color: #EBA742;
   backdrop-filter: blur (10px);
   transition: background 0.3s;
-  margin-right: 5px;
+
+  margin-right: 10px;
 }
 
 button:hover{
@@ -71,7 +76,7 @@ a {
 
 label {
   font-weight: bold;
-  margin-top: 16px;
+  margin-top: 25px;
   width: 608px;
   height: 24px;
   gap: 12px;
@@ -80,14 +85,13 @@ label {
 }
 
 input {
-  margin-right: 50px;
+  margin-right: 10px;
   padding: 10px;
   height: 40px;
   border-radius: 4px;
   font-weight: bold;
   color: #000000;
   background: #fff;
-  margin-right: 5px;
 
 }
 
@@ -98,6 +102,8 @@ p{
 }
 
 input:focus {
-outline: 0
-};
+outline: 0;
+}
+
+
 
