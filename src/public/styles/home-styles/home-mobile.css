@@ -1,0 +1,587 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #353535;
+  height: 100vh;
+}
+
+/* ⬇︎ ESTILIZAÇÃO DO HEADER ⬇︎ */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(10deg, #0000004d, #c978006c);
+  backdrop-filter: blur(10px);
+  border-bottom: #EBA742 1px solid;
+  box-shadow: #000000 0px 5px 15px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: default;
+  margin-left: 10px;
+}
+
+.menu-mobile {
+  position: relative;
+  z-index: 2;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
+.mobile-nav-list {
+  display: none;
+  width: 150px;
+  list-style: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #353535;
+  border: 1px solid #EBA742;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.mobile-nav-list.active {
+  display: block;
+}
+
+.mobile-nav-list li {
+  padding: 5px;
+}
+
+.mobile-nav-list li:hover {
+  background-color: #EBA742;
+}
+
+.mobile-nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  display: block;
+}
+
+.mobile-nav-list a:hover {
+  background-color: #EBA742;
+}
+
+.nav-bar {
+  display: none;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DO HEADER ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DO MAIN ⬇︎ */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬇︎ */
+.container-info {
+  width: 100%;
+  height: 300px;
+  background-image: url('../../images/background/bg-home.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-home {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-home p {
+  font-family: 'Kelly Slab', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+  margin-bottom: 23px;
+  cursor: default;
+}
+
+#btnHorarios {
+  font-family: 'Inter', sans-serif;
+  width: 70%;
+  max-width: 300px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #eba74200;
+  border: 1px solid #EBA742;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px;
+}
+
+#btnHorarios:hover {
+  background-color: #EBA742;
+}
+
+#cardHorarios {
+  font-family: 'Inter', sans-serif;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 20px;
+  background-color: #353535;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+
+#cardHorarios.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+#cardHorarios h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#cardHorarios ul li{
+  list-style: none;
+  margin: 5px 0;
+} 
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.close-btn {
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.close-btn:hover {
+  background-color: #ff3b3b;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬇︎ */
+.container-ptdia {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-ptdia section h1 {
+  font-family: 'kelly slab', sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+  margin-top: 20px;
+  cursor: default;
+  margin-bottom: 50px;
+}
+
+.organzando-caixa {
+  width: 100%;
+  max-width: 1500px;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 25px;
+
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 25px;
+
+}
+
+.caixa {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 125px 125px 50px;
+
+  width: 250px;
+  height: 300px;
+  background-color: rgb(43, 43, 43);
+
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #EBA742;
+  cursor: default;
+
+  transition: 0.3s;
+}
+
+.caixa:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.caixa-img {
+  grid-column: 1 / 4;
+  height: 100%;
+}
+
+.caixa-img img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-right: 1px solid #EBA742;
+}
+
+.caixa-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  grid-column: 1 / 4;
+}
+
+.caixa-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.caixa-info small {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EBA742;
+  padding: 0 5px 0 5px;
+  margin-left: 5px;
+}
+
+.caixa-info span {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 0 10px 0 10px;
+  margin-top: 10px;
+}
+
+.avaliacao-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  grid-column: 1 / 4;
+}
+
+.avaliacao {
+  direction: rtl;
+  display: inline-flex;
+  font-size: 15px;
+  gap: 2px;
+}
+
+.avaliacao input {
+  display: none;
+}
+
+.avaliacao label {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.avaliacao input:checked~label,
+.avaliacao label:hover,
+.avaliacao label:hover~label {
+  color: #EBA742;
+}
+
+.avaliacao input:checked~label:hover,
+.avaliacao input:checked~label:hover~label {
+  color: #EBA742;
+}
+
+.btn-adicionar button {
+  border: 1px solid #EBA742;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  background-color: #00000000;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-adicionar button:hover {
+  background-color: #EBA742;
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION MENU ⬇︎ */
+.container-menu {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.menu {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.menu a {
+  font-family: 'Kelly Slab', sans-serif;
+  background-color: #EBA742;
+  width: 90%;
+  max-width: 300px;
+  padding: 5px 25px;
+  text-align: center;
+
+  border-radius: 9px;
+
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.menu-image {
+  background-image: url("../../images/background/restaurante.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 95%;
+  height: 80%;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DA SECTION MENU ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬇︎ */
+.container-eventos {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  margin: 25px 0;
+  max-width: 1500px;
+}
+
+.container-card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+
+  justify-items: center;
+  align-items: center;
+  height: 73%;
+
+  gap:25px;
+}
+
+.container-eventos section h1 {
+  font-family: 'kelly slab', sans-serif;
+  font-size: 35px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.eventos-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 250px;
+  height: 300px;
+  background-color: rgb(43, 43, 43);
+
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #EBA742;
+  cursor: default;
+
+  transition: 0.3s;
+}
+
+.eventos-card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.evento-img {
+  height: 100%;
+}
+
+.evento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top: 1px solid #EBA742;
+}
+
+.evento-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+}
+
+.evento-info p {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #fff;
+  padding: 5px;
+}
+
+.evento-info div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.evento-info span {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EBA742;
+  padding: 5px;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬆︎ */
+
+
+/* ⬇︎ ESTILIZAÇÃO DO FOOTER ⬇︎ */
+.footer-container {
+  width: 100%;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(1deg, #0000008e, #353535bb);
+}
+
+.container-social {
+  width: 100%;
+  height: 10%;
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5px;
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+}
+
+.container-social i {
+  color: #EBA742;
+  margin-top: 10px;
+  font-size: 23px;
+}
+.container-redes {
+
+  width: 40%;
+  height: 20%;
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
+}
+
+.redes-sociais {
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: #EBA742;
+}
+
+/* ⬆︎ ESTILIZAÇÃO DO FOOTER ⬆︎ */
