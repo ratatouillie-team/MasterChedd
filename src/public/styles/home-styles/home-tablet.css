@@ -1,0 +1,56 @@
+@media (min-width: 768px) and (max-width: 1093px) {
+
+  /* ⬇︎ ESTILIZAÇÃO DO HEADER ⬇︎ */
+  .menu-mobile {
+    display: none;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .nav-bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-right: 50px;
+  }
+
+  .nav-bar a {
+    border: 1px solid #EBA742;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .nav-bar a:hover {
+    background-color: #EBA742;
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+
+
+  .organzando-caixa {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .container-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container-social {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .container-social i {
+    margin-left: 15px;
+  }
+}
