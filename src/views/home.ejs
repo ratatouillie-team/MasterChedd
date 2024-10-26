@@ -10,17 +10,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/home-styles/home-desk.css">
   <link rel="stylesheet" href="styles/home-styles/home-mobile.css">
   <link rel="stylesheet" href="styles/home-styles/home-tablet.css">
+  <link rel="stylesheet" href="styles/home-styles/home-desk.css">
 
   <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
   <title>MasterChedd</title>
 </head>
 
 <body>
-  <header class="header-container">
+  <!-- <header class="header-container">
     <section class="logo"><span style="color: #EBA742;">Master</span>Chedd</section>
+    <section class="nav-bar">
+      <a href="/reserva">Fazer reserva</a>
+      <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
+      <a href="/login">login</a>
+    </section>
+  </header> -->
+
+  <header class="header-container">
+    <section class="logo">
+      <span style="color: #EBA742;">Master</span>Chedd
+    </section>
+
+    <!-- Menu de navegação para dispositivos móveis -->
+    <div class="menu-mobile" id="mobile-menu">
+      <button class="menu-toggle"><i class="fa fa-bars"></i></button> <!-- Botão de menu sanduíche -->
+      <ul class="mobile-nav-list">
+        <li><a href="/reserva"><i class="fa-solid fa-caret-right"></i> Fazer reserva</a></li>
+        <li><a href="/sacola"><i class="fa-solid fa-caret-right"></i> Sacola</i></a></li>
+        <li><a href="/login"><i class="fa-solid fa-caret-right"></i> login</a></li>
+      </ul>
+    </div>
+
+    <!-- Menu de navegação para tablets e desktops -->
     <section class="nav-bar">
       <a href="/reserva">Fazer reserva</a>
       <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
@@ -28,17 +51,29 @@
     </section>
   </header>
 
+
+
+
   <main class="main-container">
     <section class="container-info">
       <section class="info-home">
         <p><span style="color: #EBA742;">Estação do Sabor.</span> Pratos diversificados <br> e drinks personalizados.
         </p>
-        <select>
-          <option selected disabled hidden>Horarios de funcionamento</option>
-          <option disabled>Segunda, Terça e Quarta: 08:00 às 22:00</option>
-          <option disabled>Quinta e Sexta: 10:00 às 23:00</option>
-          <option disabled>Sabado e Domingo: 11:00 às 23:00</option>
-        </select>
+        <button id="btnHorarios">Horários de funcionamento</button>
+
+        <!-- Fundo escurecido -->
+        <div id="overlay"></div>
+
+        <!-- Card flutuante com os horários -->
+        <div id="cardHorarios" class="fade-in">
+          <h2>Horários de Funcionamento</h2>
+          <ul>
+            <li>Segunda, Terça e Quarta: 08:00 às 22:00</li>
+            <li>Quinta e Sexta: 10:00 às 23:00</li>
+            <li>Sábado e Domingo: 11:00 às 23:00</li>
+          </ul>
+          <button class="close-btn">Fechar</button>
+        </div>
       </section>
     </section>
 
@@ -201,23 +236,52 @@
         <h1>Eventos</h1>
       </section>
       <section class="container-card">
+
+        <section class="eventos-card">
+          <div class="evento-info">
+            <p>
+              NOME DO EVENTO
+            </p>
+            <div>
+              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
+              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
+            </div>
+          </div>
+          <div class="evento-img">
+            <img src="images/background/imageEvento.png">
+          </div>
+        </section>
+
+        <section class="eventos-card">
+          <div class="evento-info">
+            <p>
+              NOME DO EVENTO
+            </p>
+            <div>
+              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
+              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
+            </div>
+          </div>
+          <div class="evento-img">
+            <img src="images/background/imageEvento.png">
+          </div>
+        </section>
+
+        <section class="eventos-card">
+          <div class="evento-info">
+            <p>
+              NOME DO EVENTO
+            </p>
+            <div>
+              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
+              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
+            </div>
+          </div>
+          <div class="evento-img">
+            <img src="images/background/imageEvento.png">
+          </div>
+        </section>
         
-        <% eventos.forEach(evento=> { %>
-          <section class="eventos-card">
-            <div class="evento-info">
-              <p>
-                <%= evento.nome %>
-              </p>
-              <div>
-                <span><i class="fa-solid fa-calendar-days"></i> <%= evento.local %></span>
-                <span><i class="fa-solid fa-clock"></i> <%= evento.data %></span>
-              </div>
-            </div>
-            <div class="evento-img">
-              <img src="images/background/imageEvento.png">
-            </div>
-          </section>
-        <% }); %>
       </section>
     </section>
 
@@ -238,6 +302,39 @@
       <p class="Master">Master<small>CheddOficial</small></p>
     </section>
   </footer>
+
+  <script>
+    // Função para abrir e fechar o menu no mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNavList = document.querySelector('.mobile-nav-list');
+
+    menuToggle.addEventListener('click', () => {
+      mobileNavList.classList.toggle('active');
+    });
+
+    const btnHorarios = document.getElementById('btnHorarios');
+    const cardHorarios = document.getElementById('cardHorarios');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Função para abrir o card
+    btnHorarios.addEventListener('click', function () {
+      cardHorarios.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+
+    // Função para fechar o card
+    closeBtn.addEventListener('click', function () {
+      cardHorarios.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+
+    // Fecha o card se clicar no overlay
+    overlay.addEventListener('click', function () {
+      cardHorarios.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>

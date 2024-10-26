@@ -1,91 +1,99 @@
-@media (max-width: 768px) {
 
 
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 320px;
-        height: 500px;
-        background-color: #353535;
-        margin-top: 100px;
-        padding: 50px;
-        border-radius: 20px;
-        border: 3px solid #EBA742;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    button {
-        margin-right: 50px;
-        border: 2px solid #EBA742;
-        padding: 10px;
-        margin-top: 30px;
-        border-radius: 8px;
-        font-size: 13px;
-        color: #201f1f;
-        font-family: 'Inter', sans-serif;
-        text-decoration: none;
-        color: #fff;
-        background-color: #EBA742;
-        backdrop-filter: blur (10px);
-        transition: background 0.3s;
-
-        margin-right: 10px;
-    }
-
-    button:hover {
-        background-color: #df921e;
-        transition: background 0.3s;
-    }
-
-    a {
-        font-weight: bold;
-        color: #EBA742;
-        border: none;
-        padding: 5px;
-        border-radius: 8px;
-        margin-top: 20px;
-        font-size: 13px;
-        text-decoration: none;
-        cursor: pointer;
-        font-family: "Poetsen One", sans-serif;
-        ;
-
-    }
-
-    label {
-        font-weight: bold;
-        margin-top: 30px;
-        gap: 12px;
-        color: #fff;
-        font-size: 13px;
-
-    }
-
-    input {
-        margin-right: 10px;
-        padding: 10px;
-        height: 30px;
-        font-size: 13px;
-        border: 2px solid #EBA742;
-        border-radius: 4px;
-        font-weight: bold;
-        color: #000000;
-        background: #fff;
-
-    }
-
-    p {
-        color: #fff;
-        margin-top: 20px;
-
-    }
-
-    input:focus {
-        outline: 0;
-    }
-
-
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Archivo", sans-serif;
+    background-color: #929292;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  
+  
+  h1{
+    font-family: "Kelly Slab", sans-serif;
+    font-size: 40px;
+    color: #fff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 315px;
+    height: 100%;
+    background-color: #353535;
+    padding: 25px;
+    border-radius: 20px;
+    border: 3px solid #EBA742 ;
+  }
+  
+  
+  button {
+  
+    border: 2px solid #EBA742;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #201f1f;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background-color: #EBA742;
+    backdrop-filter: blur (10px);
+    transition: background 0.3s;
+  }
+  
+  button:hover{
+    background-color: #df921e;
+    transition: background 0.3s;
+  }
+  
+  a {
+    font-weight: bold;
+    color: #EBA742;
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "Poetsen One", sans-serif;
+    ;
+    
+  }
+  
+  label {
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    
+  }
+  
+  input {
+    height: 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #000000;
+    background: #fff;
+  
+  }
+  
+  p{
+    color: #fff;
+    
+  
+  }
+  
+  input:focus {
+  outline: 0;
+  }
+  
+  
+  
+  
