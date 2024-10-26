@@ -32,81 +32,91 @@
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
           <span>R$ 14,99</span>
         </section>
-        <div></div>
+        <div class="risco"></div>
       </section>
 
       <section class="caixa-pagamento">
 
         <form>
-          <label for="formasdepagamento">Qual a forma de Pagamento?</label>
-          <input list="formasdepagamento" placeholder="Forma de pagamento">
+          <p class="titulo-total">Total:</p>
+          <label for="formasdepagamento">Qual a forma de pagamento?</label>
+          <input class="formaPagamento" list="formasdepagamento" id="pagamento" placeholder="Insira aqui">
           <datalist id="formasdepagamento">
             <option value="Pix"></option>
             <option value="Cartão"></option>
-            <option value="Dinheiro"></option>
           </datalist>
 
-          <label for="observacao">Deseja adicionar alguma observação?</label>
-          <input type="observacao" name="observacao" id="observacao" placeholder="Observação">
+          <button class="confirmarpagamento" id="confirmar">Confirmar</button>
+
+          <script>
+            document.getElementById("confirmar").addEventListener("click", function () {
+              const formaPagamento = document.getElementById("pagamento").value;
+
+              if (formaPagamento === "Pix") {
+                alert("CHAVE PIX:  16 99625-6589");
+              } else {
+                alert("Forma de pagamento: " + formaPagamento);
+              }
+            });
+          </script>
+
+          <label for="observacao">Adicione uma observação</label>
+          <input type="observacao" name="observacao" id="observacao" placeholder="Escreva aqui">
           <button type="submit">Finalizar pedido</button>
 
-          <a href="/menu">Continuar comprando</a>
+
         </form>
 
       </section>
 
-    </section>
-
-    <section class="titulo-total">
-      <p>Total:</p>
     </section>
   </main>
 

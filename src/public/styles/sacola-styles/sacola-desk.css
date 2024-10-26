@@ -47,7 +47,7 @@ body {
   justify-content: space-around;
 }
 
-div{
+.risco {
   border: 1px solid #EBA742;
   width: 90%;
   margin-left: 10px;
@@ -60,7 +60,7 @@ div{
   display: flex;
   flex-direction: column;
 
-  overflow-y: auto ;
+  overflow-y: auto;
   border-radius: 3px;
 }
 
@@ -81,27 +81,20 @@ div{
 }
 
 .titulo-total {
-  width: 100%;
-  height: 15%;
-
-}
-
-.titulo-total p {
   font-size: 25px;
   margin-top: 20px;
 
-  width: 200px;
+  width: 220px;
   padding: 10px;
-  height: 38px;
+  height: 40px;
   font-size: 16px;
   margin-top: 15px;
   border-radius: 4px;
   font-weight: bold;
   color: #686868;
   background: #fff;
+  border: none;
 }
-
-
 
 .caixa-info {
   display: flex;
@@ -151,15 +144,47 @@ input {
   background: #fff;
 }
 
+.formaPagamento {
+  margin-top: 5px;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #000000;
+  background: #fff;
+}
+
 input:focus {
   outline: 0;
 }
 
+.confirmarpagamento {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 335px;
+}
+
+button:hover {
+  background-color: #EBA742;
+  transition: background 0.3s;
+}
 
 button {
   font-weight: bold;
   background: #EBA742;
-  margin-top: 50px;
+  margin-top: 30px;
   color: #fff;
   border: none;
   padding: 10px;
@@ -174,29 +199,6 @@ button {
 }
 
 button:hover {
-  background-color: #df921e;
-  transition: background 0.3s;
-}
-
-a {
-  font-weight: bold;
-  background: #EBA742;
-  margin-top: 20px;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-a:hover {
-  background-color: #df921e;
+  background-color: #EBA742;
   transition: background 0.3s;
 }
