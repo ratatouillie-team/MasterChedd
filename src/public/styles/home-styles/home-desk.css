@@ -1,445 +1,79 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@media (min-width: 1095px) {
+
+  /* ⬇︎ ESTILIZAÇÃO DO HEADER ⬇︎ */
+  .menu-mobile {
+    display: none;
+  }
+
+  .header-container {
+    height: 70px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .nav-bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-right: 50px;
+  }
+
+  .nav-bar a {
+    border: 1px solid #EBA742;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .nav-bar a:hover {
+    background-color: #EBA742;
+    color: #ffffff;
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+
+
+  .organzando-caixa {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+  .container-card {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .info-home p {
+    font-size: 40px;
+  }
+
+  #btnHorarios{
+    font-size: 18px;
+  } 
+
+  .container-ptdia section h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+
+  .container-eventos section h1{
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+  
+  .container-social {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .container-social i {
+    margin-left: 15px;
+  }
+
 }
-
-body {
-  background-color: #353535;
-  height: 100vh;
-}
-
-/* ⬇︎ ESTILIZAÇÃO DO HEADER ⬇︎ */
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-  width: 100%;
-  height: 70px;
-  background: linear-gradient(10deg, #0000004d, #c978006c);
-  backdrop-filter: blur(10px);
-  border-bottom: #EBA742 1px solid;
-  box-shadow: #000000 0px 5px 15px;
-}
-
-.logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 30px;
-  font-weight: 600;
-  color: #fff;
-  margin-left: 50px;
-  cursor: default;
-}
-
-.nav-bar {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-right: 50px;
-}
-
-.nav-bar a {
-  border: 1px solid #EBA742;
-  padding: 5px 20px;
-  border-radius: 5px;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-bar a:hover {
-  background-color: #EBA742;
-  color: #ffffff;
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-/* ⬆︎ ESTILIZAÇÃO DO HEADER ⬆︎ */
-
-
-/* ⬇︎ ESTILIZAÇÃO DO MAIN ⬇︎ */
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-/* ⬇︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬇︎ */
-.container-info {
-  width: 100%;
-  height: 300px;
-  background-image: url('../../images/background/bg-home.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.info-home {
-  width: 50%;
-  height: 50%;
-}
-
-.info-home p {
-  font-family: 'Kelly Slab', sans-serif;
-  font-size: 35px;
-  text-align: center;
-  color: #ffffff;
-  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
-  margin-bottom: 23px;
-  cursor: default;
-}
-
-.info-home select {
-  border: 1px solid #EBA742;
-  border-radius: 5px;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  background-color: #00000000;
-  padding: 5px 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.info-home select:hover, .info-home select:focus, option {
-  background-color: #EBA742;
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-/* ⬆︎ ESTILIZAÇÃO DA SECTION INFORMAÇÕES ⬆︎ */
-
-
-/* ⬇︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬇︎ */
-.container-ptdia {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.container-ptdia section h1 {
-  font-family: 'kelly slab', sans-serif;
-  font-size: 50px;
-  color: #ffffff;
-  margin-top: 20px;
-  cursor: default;
-}
-
-.organzando-caixa {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-
-  justify-items: center;
-  align-items: center;
-  height: 50vh;
-}
-
-.caixa {
-  display: flex;
-  flex-direction: column;
-
-  width: 250px;
-  height: 300px;
-  background-color: rgb(43, 43, 43);
-
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid #EBA742;
-  cursor: default;
-
-  transition: 0.3s;
-}
-
-.caixa:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-.caixa-img img {
-  width: 100%;
-
-  object-fit: cover;
-  border-bottom: 1px solid #EBA742;
-}
-
-.caixa-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.caixa-info p {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: #fff;
-  padding: 5px;
-}
-
-.caixa-info small {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #EBA742;
-  padding: 5px;
-}
-
-.caixa-info span {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: #ffffff;
-  padding: 5px;
-}
-
-.avaliacao-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.avaliacao {
-  width: 35%;
-  direction: rtl;
-  display: inline-flex;
-  font-size: 15px;
-}
-
-.avaliacao input {
-  display: none;
-}
-
-.avaliacao label {
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.avaliacao input:checked~label,
-.avaliacao label:hover,
-.avaliacao label:hover~label {
-  color: #EBA742;
-}
-
-.avaliacao input:checked~label:hover,
-.avaliacao input:checked~label:hover~label {
-  color: #EBA742;
-}
-
-.btn-adicionar button {
-  border: 1px solid #EBA742;
-  border-radius: 5px;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  background-color: #00000000;
-  padding: 5px 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-adicionar button:hover {
-  background-color: #EBA742;
-  transform: scale(1.02);
-  transition: 0.3s;
-}
-/* ⬆︎ ESTILIZAÇÃO DA SECTION PRATOS DO DIA ⬆︎ */
-
-
-/* ⬇︎ ESTILIZAÇÃO DA SECTION MENU ⬇︎ */
-.container-menu {
-  width: 100%;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.menu {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-  margin-top: 10px;
-}
-
-.menu a {
-  font-family: 'Kelly Slab', sans-serif;
-  background-color: #EBA742;
-  padding: 10px 25px;
-  border-radius: 9px;
-
-  font-size: 35px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.menu a:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-.menu-image {
-  background-image: url("../../images/background/restaurante.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 95%;
-  height: 80%;
-}
-/* ⬆︎ ESTILIZAÇÃO DA SECTION MENU ⬆︎ */
-
-
-/* ⬇︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬇︎ */
-.container-eventos {
-  width: 100%;
-  height: 65vh;
-}
-
-.container-card {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-
-  justify-items: center;
-  align-items: center;
-  height: 73%;
-}
-
-.container-eventos section h1 {
-  font-family: 'kelly slab', sans-serif;
-  font-size: 50px;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.eventos-card {
-  display: flex;
-  flex-direction: column;
-
-  width: 250px;
-  height: 300px;
-  background-color: rgb(43, 43, 43);
-
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid #EBA742;
-  cursor: default;
-
-  transition: 0.3s;
-}
-
-.eventos-card:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-.evento-img {
-  height: 100%;
-}
-
-.evento-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top: 1px solid #EBA742;
-}
-
-.evento-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 80%;
-}
-
-.evento-info p {
-  font-family: 'Inter', sans-serif;
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 17px;
-  color: #fff;
-  padding: 5px;
-}
-
-.evento-info div {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.evento-info span {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #EBA742;
-  padding: 5px;
-}
-/* ⬆︎ ESTILIZAÇÃO DA SECTION EVENTOS ⬆︎ */
-
-
-/* ⬇︎ ESTILIZAÇÃO DO FOOTER ⬇︎ */
-.footer-container {
-  width: 100%;
-  height: 40vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(1deg, #0000008e, #353535bb);
-}
-
-.container-social{
-  width: 40%;
-  height: 10%;
-  font-size: 20px;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
-}
-
-.container-social i{
-  color:#EBA742;
-  margin-right: 5px;
-  font-size: 23px;
-}
-
-.container-redes{
-
-  width: 40%;
-  height: 20%;
-  font-size: 20px;
-  color: #ffffff;
-  margin-top: 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  filter: drop-shadow(0px 4px 4px rgb(0, 0, 0));
-}
-
-.redes-sociais{
-  font-size: 30px;
-  margin-bottom: 5px;
-  color: #EBA742;
-}
-/* ⬆︎ ESTILIZAÇÃO DO FOOTER ⬆︎ */
