@@ -3,6 +3,6 @@ const sacolaController = require('../controllers/sacolaController');
 
 const router = express.Router();
 
-router.get('/sacola', sacolaController.exibirSacola);
+router.get('/pedido', sacolaController.exibirSacola);
 
 module.exports = router
