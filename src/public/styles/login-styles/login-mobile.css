@@ -1,11 +1,23 @@
-@media (max-width: 768px) {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Archivo", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #929292;
+  }
 
 
     form {
         display: flex;
         flex-direction: column;
-        width: 350px;
-        height: 500px;
+        width: 320px;
+        height: 480px;
         background-color: #353535;
         margin-top: 100px;
         padding: 50px;
@@ -74,7 +86,7 @@
     }
 
     p {
-        color: #fff;
+        color: #ffffff;
         margin-top: 20px;
 
     }
@@ -84,4 +96,3 @@
     }
 
 
-}
