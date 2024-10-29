@@ -22,6 +22,8 @@ async function logarUsuario(request, response) {
     return;
   }
 
+  request.session.user = usuario;
+
   console.log("passou aqui")
   response.redirect('/');
 }
