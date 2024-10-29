@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/menu-styles/menu-desk.css">
   <link rel="stylesheet" href="styles/menu-styles/menu-mobile.css">
+  <link rel="stylesheet" href="styles/menu-styles/menu-desk.css">
   <link rel="stylesheet" href="styles/menu-styles/menu-tablet.css">
 
 
@@ -22,10 +22,25 @@
 <body>
 
   <header class="header-container">
-    <section class="logo"><span style="color: #EBA742;">Master</span>Chedd</section>
+    <section class="logo">
+      <span style="color: #EBA742;">Master</span>Chedd
+    </section>
+
+    <!-- Menu de navegação para dispositivos móveis -->
+    <div class="menu-mobile" id="mobile-menu">
+      <button class="menu-toggle"><i class="fa fa-bars"></i></button> <!-- Botão de menu sanduíche -->
+      <ul class="mobile-nav-list">
+        <!-- <li><a href="/reserva"><i class="fa-solid fa-caret-right"></i> Fazer reserva</a></li> -->
+        <li><a href="/sacola"><i class="fa-solid fa-caret-right"></i> Sacola</i></a></li>
+        <li><a href="/login"><i class="fa-solid fa-caret-right"></i> login</a></li>
+      </ul>
+    </div>
+
+    <!-- Menu de navegação para tablets e desktops -->
     <section class="nav-bar">
+      <a href="/reserva">Fazer reserva</a>
       <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
-      <a class="btn" href="/login">login</a>
+      <a href="/login">login</a>
     </section>
   </header>
 
@@ -261,6 +276,38 @@
 
 
   </main>
+  <script>
+    // Função para abrir e fechar o menu no mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNavList = document.querySelector('.mobile-nav-list');
+
+    menuToggle.addEventListener('click', () => {
+      mobileNavList.classList.toggle('active');
+    });
+
+    const btnHorarios = document.getElementById('btnHorarios');
+    const cardHorarios = document.getElementById('cardHorarios');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Função para abrir o card
+    btnHorarios.addEventListener('click', function () {
+      cardHorarios.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+
+    // Função para fechar o card
+    closeBtn.addEventListener('click', function () {
+      cardHorarios.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+
+    // Fecha o card se clicar no overlay
+    overlay.addEventListener('click', function () {
+      cardHorarios.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
