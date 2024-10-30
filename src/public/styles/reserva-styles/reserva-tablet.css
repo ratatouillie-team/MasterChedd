@@ -1,17 +1,12 @@
 @media (min-width: 768px) and (max-width: 1093px) {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    
+ 
     
 }
