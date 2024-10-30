@@ -41,6 +41,7 @@
         <li><a href="/sacola"><i class="fa-solid fa-caret-right"></i> Sacola</a></li>
 
         <% if (logado) { %>
+          <li><a href="/perfil"><i class="fa-solid fa-caret-right"></i> Perfil</a></li>
           <li><a href="/deslogar"><i class="fa-solid fa-caret-right"></i> Deslogar</a></li>
           <% } else { %>
             <li><a href="/login"><i class="fa-solid fa-caret-right"></i> Login</a></li>
@@ -53,7 +54,10 @@
       <a href="/reserva">Fazer reserva</a>
       <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
       <% if (logado) { %>
-        <a href="/deslogar">Deslogar</a>
+        <!-- Ícone de perfil para abrir o popup -->
+        <div class="profile-icon" onclick="togglePopup()">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Ícone do perfil">
+        </div>
         <% } else { %>
           <a href="/login">login</a>
           <% } %>
@@ -61,7 +65,28 @@
   </header>
 
 
+  <!-- Popup do perfil -->
+  <div id="profilePopup" class="profile-popup">
+    <div class="popup-header">
+      <span><a href="/blabla.html">Perfil <i class="fa-solid fa-caret-right"></i></a> </span>
+      <span class="close-btn2"> <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a></span>
+    </div>
 
+    <div class="profile-content">
+      <div class="profile-info">
+        <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
+        <p>Nome do parceiro</p>
+      </div>
+
+      <div class="profile-options">
+        <a id="btn-01" href="/sacola">Compras</a>
+        <a id="btn-02">Favoritos ⭐</a>
+        <a id="btn-03">Reclame Aqui !</a>
+        <a id="btn-04" href="/reserva">Reserva</a>
+        <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+      </div>
+    </div>
+  </div>
 
   <main class="main-container">
     <section class="container-info">
@@ -343,6 +368,11 @@
       cardHorarios.style.display = 'none';
       overlay.style.display = 'none';
     });
+
+    function togglePopup() {
+      const popup = document.getElementById("profilePopup");
+      popup.style.display = popup.style.display === "block" ? "none" : "block";
+    }
   </script>
 </body>
 

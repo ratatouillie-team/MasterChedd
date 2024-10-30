@@ -585,3 +585,185 @@ main {
 }
 
 /* ⬆︎ ESTILIZAÇÃO DO FOOTER ⬆︎ */
+
+
+/* PERFIL */
+.profile-icon img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.profile-popup {
+  font-family: 'Inter', sans-serif;
+  display: none;
+  position: fixed;
+  top: 80px;
+  right: 120px;
+  width: 320px;
+  background-color: #353535;
+  border-radius: 20px 0 20px 0;
+  border: #EBA742 solid 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  color: #fff;
+  z-index: 1;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+}
+
+.popup-header span {
+  border-bottom: #EBA742 solid 1px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.popup-header a {
+  color: #fff;
+  text-decoration: none;
+  /* width: 100%; */
+  padding: 0 15px;
+}
+
+.popup-header i.fa-xmark {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-header .close-btn2 {
+  border-left: #EBA742 solid 1px;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn2 a:hover i.fa-xmark {
+  color: #ff5b5b;
+}
+
+.popup-header a:hover {
+  color: #EBA742;
+}
+
+.popup-header a {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px 1fr;
+}
+
+.profile-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: #EBA742 solid 1px;
+}
+
+.profile-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-options {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 40px);
+  padding: 20px;
+  justify-items: center;
+  align-items: center;  
+}
+
+.profile-options a {
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  background-color: rgba(146, 146, 146, 0.466);
+  font-size: 15px;
+}
+
+#btn-01 {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px 0 0 0;
+  cursor: pointer;
+}
+
+#btn-02 {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 20px 0 0;
+}
+
+
+#btn-03 {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#btn-04 {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 0 0 20px;
+}
+
+#btn-05 {
+  grid-column: 2;
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 0 20px 0;
+}
+
+.profile-options a:hover {
+  background-color: #EBA742;
+  color: #000;
+  transition: all 0.3s ease;
+}
