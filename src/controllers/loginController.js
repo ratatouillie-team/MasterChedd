@@ -17,12 +17,13 @@ async function logarUsuario(request, response) {
     return;
   }
   console.log('passou no if de user')
-  if(md5(senha) == user.senha){
+  if(md5(senha) !== user.senha){
+    console.log('passou no if de senha')
     response.redirect('/login');
     return;
   }
 
-  request.session.user = usuario;
+  request.session.user = user;
 
   console.log("passou aqui")
   response.redirect('/');
