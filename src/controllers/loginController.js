@@ -29,4 +29,12 @@ async function logarUsuario(request, response) {
   response.redirect('/');
 }
 
-module.exports = {exibirLogin, logarUsuario}
+function deslogarUsuario(request, response) {
+  // Remover a sessão do usuário
+  request.session.destroy()
+
+  // Redirecionar o usuário para a página de login
+  response.redirect('/')
+}
+
+module.exports = {exibirLogin, logarUsuario, deslogarUsuario}

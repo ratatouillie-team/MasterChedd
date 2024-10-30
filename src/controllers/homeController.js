@@ -11,8 +11,9 @@ async function exibirHome(request, response) {
   //   }
   // })
 
-  const logado = request.session.usuario ? true : false
-  response.render('home', /*{eventos}*/ {logado})
+  const logado = request.session.user ? true : false
+  response.render('home', { logado })
 }
 
-module.exports = {exibirHome}
+
+module.exports = { exibirHome }
