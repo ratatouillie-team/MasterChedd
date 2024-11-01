@@ -5,6 +5,7 @@ CREATE TABLE `Usuario` (
     `email` VARCHAR(255) NULL,
     `senha` VARCHAR(255) NULL,
     `cargo` VARCHAR(255) NULL,
+    `icone` VARCHAR(255) NULL,
     `criadoEm` DATE NULL,
 
     UNIQUE INDEX `email`(`email`),

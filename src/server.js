@@ -5,14 +5,17 @@ const bodyParser = require('body-parser');
 const enableHotReload = require("./hot-reload");
 
 // Puxando os controladores da aplicação
-const homeRouter = require("./routes/homeRoute");
-const menuRouter = require("./routes/menuRoute");
-const loginRouter = require("./routes/loginRoute");
-const criarContaRouter = require("./routes/criarContaRoute");
-const sacolaRouter = require("./routes/sacolaRoute");
-const reservaRouter = require("./routes/reservaRouter");
-const eventosRouter = require("./routes/eventosRoute");
-const criarEventosRouter = require("./routes/criarEventosRoute");
+const homeRouter = require("./routes/home.routes");
+const menuRouter = require("./routes/menu.routes");
+const loginRouter = require("./routes/login.routes");
+const criarContaRouter = require("./routes/criarConta.routes");
+const sacolaRouter = require("./routes/sacola.routes");
+const reservaRouter = require("./routes/reserva.routes");
+const eventosRouter = require("./routes/eventos.routes");
+const criarEventosRouter = require("./routes/criarEventos.routes");
+const perfilRouter = require("./routes/perfil.routes");
+
+
 const session = require('express-session');
 
 // Chamando o express
@@ -51,6 +54,7 @@ app.use("/", sacolaRouter);
 app.use("/", reservaRouter);
 app.use("/", eventosRouter);
 app.use("/", criarEventosRouter);
+app.use("/", perfilRouter);
 
 // Inicie o servidor
 const port = 3000;
