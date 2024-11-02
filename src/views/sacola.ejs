@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/sacola-styles/sacola-desk.css">
   <link rel="stylesheet" href="styles/sacola-styles/sacola-mobile.css">
   <link rel="stylesheet" href="styles/sacola-styles/sacola-tablet.css">
 
@@ -30,55 +29,91 @@
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
         <section class="card-info">
           <p>Limonada</p>
           <small> - Suco de limão com ortelã e rodelas</small>
-          <span>R$ 14,99</span>
+          <small>Quantidade:
+            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
+              id="subtractButton">-</button>
+            <div class="result" id="result"></div>
+          </small>
         </section>
         <div class="risco"></div>
       </section>
@@ -94,16 +129,13 @@
             <option value="Cartão"></option>
           </datalist>
 
-          <button class="confirmarpagamento" id="confirmar">Confirmar</button>
 
           <script>
-            document.getElementById("confirmar").addEventListener("click", function () {
-              const formaPagamento = document.getElementById("pagamento").value;
+            const pagamentoInput = document.getElementById('pagamento');
 
-              if (formaPagamento === "Pix") {
-                alert("CHAVE PIX:  16 99625-6589");
-              } else {
-                alert("Forma de pagamento: " + formaPagamento);
+            pagamentoInput.addEventListener('input', function () {
+              if (pagamentoInput.value === 'Pix') {
+                alert('CHAVE PIX: 16 99625-6589');
               }
             });
           </script>
@@ -119,6 +151,33 @@
 
     </section>
   </main>
+  <script>
+    let quantity = 0;
+
+    const quantityDisplay = document.getElementById('quantity');
+    const resultDisplay = document.getElementById('result');
+    const addButton = document.getElementById('addButton');
+    const subtractButton = document.getElementById('subtractButton');
+
+    addButton.addEventListener('click', () => {
+      quantity++;
+      updateDisplay();
+    });
+
+    subtractButton.addEventListener('click', () => {
+      if (quantity > 0) {
+        quantity--;
+      }
+      updateDisplay();
+    });
+
+    function updateDisplay() {
+      quantityDisplay.textContent = quantity;
+      //const preço = preco-card;
+      const resultado = quantity * 14.99;
+      resultDisplay.textContent = ( "Preço:" resultado.toFixed(2));
+    }
+  </script>
 
 </body>
 
