@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="styles/eventos-styles/eventos-desk.css">
     <link rel="stylesheet" href="styles/eventos-styles/eventos-mobile.css">
@@ -25,12 +25,13 @@
         <div>
             <ul>
                 <a href="/criar-eventos">Criar um evento</a>
-                
-                <li class="listagemdeeventos">
-                    <strong>Nome:</strong> Máquina do tempo
-                    <strong>Data:</strong> 26/12/2024
-                    <strong>Horário:</strong> 13h à 18h
-                </li>
+
+                <% eventos.forEach(evento=> { %>
+
+                    <li class="listagemdeeventos">
+                        <strong>Nome:</strong> <%= evento.nome %> <strong>Data:</strong> <%= evento.data.toLocaleDateString('pt-BR') %> <strong>Local:</strong> <%= evento.local %>
+                    </li>
+                    <% }); %>
             </ul>
         </div>
     </div>
