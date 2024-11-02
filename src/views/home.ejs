@@ -47,13 +47,21 @@
       <a href="/reserva">Fazer reserva</a>
       <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
       <% if (logado) { %>
-        <!-- Ícone de perfil para abrir o popup -->
-        <div class="profile-icon" onclick="togglePopup()">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Ícone do perfil">
-        </div>
-        <% } else { %>
-          <a href="/login">login</a>
-          <% } %>
+
+        <% if (user.icone==null) { %>
+          <div class="profile-icon" onclick="togglePopup()">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Ícone do perfil">
+          </div>
+          <% } else { %>
+            <!-- Ícone de perfil para abrir o popup -->
+            <div class="profile-icon" onclick="togglePopup()">
+              <img src="uploads/<%= user.icone %>" alt="Ícone do perfil">
+            </div>
+            <% } %>
+
+              <% } else { %>
+                <a href="/login">login</a>
+                <% } %>
     </section>
   </header>
 
@@ -67,8 +75,15 @@
 
     <div class="profile-content">
       <div class="profile-info">
-        <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
-        <p>Nome do parceiro</p>
+        <% if (logado) { %>
+          <img class="profile-image" src="uploads/<%= user.icone %>" alt="Avatar">
+          <p>
+            <%= user.nome %>
+          </p>
+          <% } else { %>
+            <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
+            <p>Nome de Usuário</p>
+            <% } %>
       </div>
 
       <div class="profile-options">
