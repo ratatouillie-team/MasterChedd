@@ -590,8 +590,11 @@ main {
 /* PERFIL */
 .profile-icon img {
   width: 50px;
+  border-radius: 50%;
   cursor: pointer;
 }
+
+
 
 .profile-popup {
   font-family: 'Inter', sans-serif;
@@ -687,6 +690,7 @@ main {
   height: 90px;
   border-radius: 50%;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .profile-options {

@@ -12,7 +12,8 @@ async function exibirHome(request, response) {
   // })
 
   const logado = request.session.user ? true : false
-  response.render('home', { logado })
+  const user = request.session.user
+  response.render('home', { logado, user })
 }
 
 
