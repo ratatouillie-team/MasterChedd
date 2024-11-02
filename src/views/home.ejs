@@ -50,7 +50,7 @@
 
         <% if (user.icone==null) { %>
           <div class="profile-icon" onclick="togglePopup()">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Ícone do perfil">
+            <img src="images/icons/iconPerfilDefault.png" alt="Ícone do perfil">
           </div>
           <% } else { %>
             <!-- Ícone de perfil para abrir o popup -->
@@ -76,14 +76,23 @@
     <div class="profile-content">
       <div class="profile-info">
         <% if (logado) { %>
-          <img class="profile-image" src="uploads/<%= user.icone %>" alt="Avatar">
-          <p>
-            <%= user.nome %>
-          </p>
-          <% } else { %>
-            <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
-            <p>Nome de Usuário</p>
-            <% } %>
+
+          <% if (user.icone==null) { %>
+            <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
+
+            <% } else { %>
+              <img class="profile-image" src="uploads/<%= user.icone %>" alt="Avatar">
+              <% } %>
+
+
+                <p>
+                  <%= user.nome %>
+                </p>
+
+                <% } else { %>
+                  <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
+                  <p>Nome de Usuário</p>
+                  <% } %>
       </div>
 
       <div class="profile-options">
@@ -279,50 +288,29 @@
       </section>
       <section class="container-card">
 
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>
-              NOME DO EVENTO
-            </p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
-              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
-            </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
+        <% eventos.sort((a, b)=> new Date(a.data) - new Date(b.data)); %>
+          <% eventos.slice(0, 4).forEach(evento=> { %>
 
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>
-              NOME DO EVENTO
-            </p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
-              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
-            </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
+            <section class="eventos-card">
+              <div class="evento-info">
+                <p>
+                  <%= evento.nome %>
+                </p>
+                <div>
+                  <span><i class="fa-solid fa-calendar-days"></i>
+                    <%= evento.data.toLocaleDateString('pt-BR') %>
+                  </span>
+                  <span><i class="fa-solid fa-clock"></i>
+                    <%= evento.local %>
+                  </span>
+                </div>
+              </div>
+              <div class="evento-img">
+                <img src="images/background/imageEvento.png">
+              </div>
+            </section>
+            <% }); %>
 
-        <section class="eventos-card">
-          <div class="evento-info">
-            <p>
-              NOME DO EVENTO
-            </p>
-            <div>
-              <span><i class="fa-solid fa-calendar-days"></i> LOCALIZAÇÃO</span>
-              <span><i class="fa-solid fa-clock"></i> DATA EVENTO</span>
-            </div>
-          </div>
-          <div class="evento-img">
-            <img src="images/background/imageEvento.png">
-          </div>
-        </section>
 
       </section>
     </section>
