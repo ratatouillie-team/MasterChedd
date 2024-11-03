@@ -134,142 +134,41 @@
       </section>
 
       <section class="organzando-caixa">
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/frango.webp">
-          </div>
 
-          <div class="caixa-info">
-            <p>Frango assado</p>
-            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
-            <span>R$ 45,95</span>
-          </div>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <input value="5" type="radio" name="star" id="star5">
-              <label for="star5"><i class="fa-solid fa-star"></i></label>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-              <input value="4" type="radio" name="star" id="star4">
-              <label for="star4"><i class="fa-solid fa-star"></i></label>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>" <%= prato.userAvaliacao === i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+              </form>
 
-              <input value="3" type="radio" name="star" id="star3">
-              <label for="star3"><i class="fa-solid fa-star"></i></label>
+                <div class="btn-adicionar">
+                  <button>Adicionar</button>
+                </div>
+              </div>
+            </section>
+          <% }); %>
 
-              <input value="2" type="radio" name="star" id="star2">
-              <label for="star2"><i class="fa-solid fa-star"></i></label>
 
-              <input value="1" type="radio" name="star" id="star1">
-              <label for="star1"><i class="fa-solid fa-star"></i></label>
-            </div>
-
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/frango.webp">
-          </div>
-
-          <div class="caixa-info">
-            <p>Frango assado</p>
-            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
-            <span>R$ 45,95</span>
-          </div>
-
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <input value="5" type="radio" name="star" id="star2-5">
-              <label for="star5"><i class="fa-solid fa-star"></i></label>
-
-              <input value="4" type="radio" name="star" id="star2-4">
-              <label for="star4"><i class="fa-solid fa-star"></i></label>
-
-              <input value="3" type="radio" name="star" id="star2-3">
-              <label for="star3"><i class="fa-solid fa-star"></i></label>
-
-              <input value="2" type="radio" name="star" id="star2-2">
-              <label for="star2"><i class="fa-solid fa-star"></i></label>
-
-              <input value="1" type="radio" name="star" id="star2-1">
-              <label for="star1"><i class="fa-solid fa-star"></i></label>
-            </div>
-
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/frango.webp">
-          </div>
-
-          <div class="caixa-info">
-            <p>Frango assado</p>
-            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
-            <span>R$ 45,95</span>
-          </div>
-
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <input value="5" type="radio" name="star" id="star5">
-              <label for="star5"><i class="fa-solid fa-star"></i></label>
-
-              <input value="4" type="radio" name="star" id="star4">
-              <label for="star4"><i class="fa-solid fa-star"></i></label>
-
-              <input value="3" type="radio" name="star" id="star3">
-              <label for="star3"><i class="fa-solid fa-star"></i></label>
-
-              <input value="2" type="radio" name="star" id="star2">
-              <label for="star2"><i class="fa-solid fa-star"></i></label>
-
-              <input value="1" type="radio" name="star" id="star1">
-              <label for="star1"><i class="fa-solid fa-star"></i></label>
-            </div>
-
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-        <section class="caixa">
-          <div class="caixa-img">
-            <img src="images/background/frango.webp">
-          </div>
-
-          <div class="caixa-info">
-            <p>Frango assado</p>
-            <small> - Frango assado ao molho de batatas e vegetais cozidos.</small>
-            <span>R$ 45,95</span>
-          </div>
-
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <input value="5" type="radio" name="star" id="star5">
-              <label for="star5"><i class="fa-solid fa-star"></i></label>
-
-              <input value="4" type="radio" name="star" id="star4">
-              <label for="star4"><i class="fa-solid fa-star"></i></label>
-
-              <input value="3" type="radio" name="star" id="star3">
-              <label for="star3"><i class="fa-solid fa-star"></i></label>
-
-              <input value="2" type="radio" name="star" id="star2">
-              <label for="star2"><i class="fa-solid fa-star"></i></label>
-
-              <input value="1" type="radio" name="star" id="star1">
-              <label for="star1"><i class="fa-solid fa-star"></i></label>
-            </div>
-
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
       </section>
     </section>
 
