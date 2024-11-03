@@ -338,7 +338,7 @@ main {
   gap: 2px;
 }
 
-.avaliacao input {
+.avaliacao input[type="radio"] {
   display: none;
 }
 
@@ -348,14 +348,9 @@ main {
   transition: color 0.3s ease;
 }
 
-.avaliacao input:checked~label,
 .avaliacao label:hover,
-.avaliacao label:hover~label {
-  color: #EBA742;
-}
-
-.avaliacao input:checked~label:hover,
-.avaliacao input:checked~label:hover~label {
+.avaliacao label:hover ~ label,
+.avaliacao input[type="radio"]:checked ~ label {
   color: #EBA742;
 }
 
