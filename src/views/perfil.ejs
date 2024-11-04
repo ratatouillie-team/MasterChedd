@@ -3,13 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="styles/perfil-styles/perfil-mobile.css">
+    <link rel="stylesheet" href="styles/perfil-styles/perfil-tablet.css">
+    <link rel="stylesheet" href="styles/perfil-styles/perfil-desk.css">
+
+    <title>Perfil</title>
+
 </head>
 <body>
     <form action="/file" method="post" enctype="multipart/form-data">
-        <label for="file">Escolha sua foto de perfil</label>
+        <label for="file" class="profile-circle"></label>
         <input type="file" name="file" id="file">
-        <input type="submit" value="enviar">
-      </form>
+        <input type="submit" value="Enviar" id="submitBtn" disabled> <!-- Botão inicialmente desabilitado -->
+    </form>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const profileCircle = document.querySelector('.profile-circle');
+        const submitBtn = document.getElementById('submitBtn');
+
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileCircle.style.backgroundImage = `url(${e.target.result})`;
+                    profileCircle.style.color = "transparent"; // Oculta o ícone após o upload
+                };
+                reader.readAsDataURL(file);
+                submitBtn.disabled = false; // Habilita o botão quando um arquivo é selecionado
+            } else {
+                profileCircle.style.backgroundImage = ""; // Remove a imagem de fundo se não houver arquivo
+                submitBtn.disabled = true; // Desabilita o botão se nenhum arquivo foi selecionado
+            }
+        });
+    </script>
 </body>
 </html>

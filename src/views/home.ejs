@@ -84,23 +84,35 @@
               <img class="profile-image" src="uploads/<%= user.icone %>" alt="Avatar">
               <% } %>
 
+                <% if (logado && user.cargo=='admin' ) { %>
+                  <div>
+                    <p>
+                      <%= user.nome %>
+                    </p><img src="images/icons/badgeAdm.png" alt="Admin" style="width: 15px;">
+                  </div>
+                  <% } else { %>
+                    <p>
+                      <%= user.nome %>
+                    </p>
+                    <% } %>
 
-                <p>
-                  <%= user.nome %>
-                </p>
-
-                <% } else { %>
-                  <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Avatar">
-                  <p>Nome de Usuário</p>
-                  <% } %>
+                      <% } else { %>
+                        <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
+                          alt="Avatar">
+                        <p>Nome de Usuário</p>
+                        <% } %>
       </div>
 
       <div class="profile-options">
         <a id="btn-01" href="/sacola">Compras</a>
         <a id="btn-02">Favoritos ⭐</a>
-        <a id="btn-03">Reclame Aqui !</a>
-        <a id="btn-04" href="/reserva">Reserva</a>
-        <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+        <% if (logado && user.cargo=='admin' ) {%>
+          <a id="btn-03" href="/administracao">ADMINISTRADOR</a>
+          <% } else {%>
+            <a id="btn-03">Reclame Aqui !</a>
+            <% } %>
+              <a id="btn-04" href="/reserva">Reserva</a>
+              <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
     </div>
   </div>
@@ -155,21 +167,22 @@
               <div class="avaliacao-container">
                 <div class="avaliacao">
                   <% for (let i=5; i>= 1; i--) { %>
-                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>" <%= prato.userAvaliacao === i ? 'checked' : '' %>>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
                     <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
                     <% } %>
                 </div>
-              </form>
+          </form>
 
-                <div class="btn-adicionar">
-                  <button>Adicionar</button>
-                </div>
-              </div>
-            </section>
-          <% }); %>
-
-
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
+          </div>
+          </div>
       </section>
+      <% }); %>
+
+
+    </section>
     </section>
 
     <section class="container-menu">

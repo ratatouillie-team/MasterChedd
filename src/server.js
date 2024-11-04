@@ -12,7 +12,7 @@ const criarContaRouter = require("./routes/criarConta.routes");
 const sacolaRouter = require("./routes/sacola.routes");
 const reservaRouter = require("./routes/reserva.routes");
 const eventosRouter = require("./routes/eventos.routes");
-// const criarEventosRouter = require("./routes/criarEventos.routes");
+const admRouter = require("./routes/admPage.routes")
 const perfilRouter = require("./routes/perfil.routes");
 
 
@@ -53,7 +53,7 @@ app.use("/", criarContaRouter);
 app.use("/", sacolaRouter);
 app.use("/", reservaRouter);
 app.use("/", eventosRouter);
-// app.use("/", criarEventosRouter);
+app.use("/", admRouter);
 app.use("/", perfilRouter);
 
 // Inicie o servidor
