@@ -1,4 +1,4 @@
-function protegerRotausuario(req, res, next) {
+function protegerRotaUsuario(req, res, next) {
     if (req.session.user) {
         next();
     } else {
@@ -6,15 +6,16 @@ function protegerRotausuario(req, res, next) {
     }
 }
 
-// function protegerRotaAdmin(req, res, next) {
-//     if (req.session.admin) {
-//         next();
-//     } else {
-//         res.redirect('/criar-eventos');
-//     }
-// }
+function protegerRotaAdmin(req, res, next) {
+    if (req.session.user && req.session.user.cargo === 'admin') {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
 
 module.exports = {
-    protegerRotausuario,
-    // protegerRotaAdmin
+    protegerRotaUsuario,
+    protegerRotaAdmin
+    
 }
