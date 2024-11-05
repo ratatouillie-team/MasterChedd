@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 function exibirPaginaPerfil(req, res) {
-    res.render('perfil');
+    const user = req.session.user
+    console.log(user)
+    res.render('perfil', { user });
 }
 
 function deletarArquivo(icone) {
@@ -33,10 +35,16 @@ async function enviarArquivo(req, res) {
     });
 
     req.session.user.icone = userUpdate.icone
-    res.redirect('/')
+    res.redirect('/perfil')
     return userUpdate
 }
 
+function atualizarPerfil(req, res) {
+    const { nome, email, senha } = req.body
+    console.log(nome, email, senha)
+
+    res.redirect('/perfil')
+}
 
 
 
@@ -44,5 +52,6 @@ async function enviarArquivo(req, res) {
 
 module.exports = {
     exibirPaginaPerfil,
-    enviarArquivo
+    enviarArquivo,
+    atualizarPerfil
 }

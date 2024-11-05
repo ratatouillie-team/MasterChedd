@@ -11,14 +11,14 @@ async function adicionarEventos(nome, data, local) {
             criadoEm: new Date()
         }
     })
-    console.log (eventos) 
+    // console.log (eventos) 
     return eventos
 }
 
 async function listarEventos() {
     const eventos = await prisma.evento.findMany()
 
-    console.log(eventos)
+    // console.log(eventos)
 
     return eventos
 }

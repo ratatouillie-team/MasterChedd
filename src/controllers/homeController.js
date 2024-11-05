@@ -48,7 +48,7 @@ function avaliarPrato(request, response) {
     prato.avaliacao.push(avaliacao);
   }
 
-  console.log(prato.avaliacao);
+  // console.log(prato.avaliacao);
   response.redirect('/');
 }
 
@@ -69,7 +69,7 @@ async function exibirHome(request, response) {
 
   const logado = request.session.user ? true : false
   const user = request.session.user
-  console.log(user)
+  // console.log(user)
   response.render('home', { logado, user, eventos, pratos })
 }
 
