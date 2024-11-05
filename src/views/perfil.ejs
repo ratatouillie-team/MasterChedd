@@ -1,44 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
-    
     <link rel="stylesheet" href="styles/perfil-styles/perfil-mobile.css">
     <link rel="stylesheet" href="styles/perfil-styles/perfil-tablet.css">
     <link rel="stylesheet" href="styles/perfil-styles/perfil-desk.css">
-
     <title>Perfil</title>
-
 </head>
+
 <body>
-    <form action="/file" method="post" enctype="multipart/form-data">
-        <label for="file" class="profile-circle"></label>
-        <input type="file" name="file" id="file">
-        <input type="submit" value="Enviar" id="submitBtn" disabled> <!-- Botão inicialmente desabilitado -->
-    </form>
+    <main>
+        <form id="photoForm" action="/file" method="post" enctype="multipart/form-data">
+            <label for="file" class="profile-circle">
+                <img id="profileImage" src="uploads/<%= user.icone %>" alt="Profile Image">
+            </label>
+            <input type="file" name="file" id="file" accept="image/*">
+            <input type="submit" value="Enviar Foto" id="submitPhotoBtn" style="display: none;" disabled>
+        </form>
+
+        <form id="profileForm" action="/atualizar" method="post">
+            <div id="profileFields">
+                <div class="profileField">
+                    <label for="nome">Nome:</label>
+                    <span id="nomeLabel"><%= user.nome %></span>
+                    <input type="text" name="nome" id="nome" value="<%= user.nome %>" style="display: none;">
+                </div>
+                <div class="profileField">
+                    <label for="email">Email:</label>
+                    <span id="emailLabel"><%= user.email %></span>
+                    <input type="email" name="email" id="email" value="<%= user.email %>" style="display: none;">
+                </div>
+                <div class="profileField">
+                    <label for="senha">Senha:</label>
+                    <span id="senhaLabel">********</span>
+                    <input type="password" name="senha" id="senha" value="" style="display: none;">
+                </div>
+            </div>
+            <button type="button" id="editProfileBtn">Editar</button>
+            <input type="submit" value="Salvar Alterações" id="submitProfileBtn" style="display: none;" disabled>
+        </form>
+    </main>
 
     <script>
         const fileInput = document.getElementById('file');
-        const profileCircle = document.querySelector('.profile-circle');
-        const submitBtn = document.getElementById('submitBtn');
+        const profileImage = document.getElementById('profileImage');
+        const submitPhotoBtn = document.getElementById('submitPhotoBtn');
+        const submitProfileBtn = document.getElementById('submitProfileBtn');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const senhaInput = document.getElementById('senha');
+        const editProfileBtn = document.getElementById('editProfileBtn');
 
-        fileInput.addEventListener('change', function() {
+        // Armazena a imagem original e os valores iniciais
+        const originalImageSrc = profileImage.src;
+        const originalNome = nomeInput.value;
+        const originalEmail = emailInput.value;
+
+        // Função para verificar se o botão de atualizar dados deve ser habilitado
+        function checkProfileButtonState() {
+            const nomeChanged = nomeInput.value !== originalNome;
+            const emailChanged = emailInput.value !== originalEmail;
+            const senhaChanged = senhaInput.value !== ""; // Apenas verifica se a senha foi preenchida
+
+            // Mostra o botão de salvar apenas se houver alterações
+            submitProfileBtn.style.display = (nomeChanged || emailChanged || senhaChanged) ? "inline" : "none";
+            submitProfileBtn.disabled = !(nomeChanged || emailChanged || senhaChanged); // Habilita/desabilita o botão
+        }
+
+        fileInput.addEventListener('change', function () {
             const file = fileInput.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
-                    profileCircle.style.backgroundImage = `url(${e.target.result})`;
-                    profileCircle.style.color = "transparent"; // Oculta o ícone após o upload
+                reader.onload = function (e) {
+                    profileImage.src = e.target.result; // Atualiza a imagem diretamente
+                    submitPhotoBtn.style.display = "inline"; // Mostra o botão de envio da foto
+                    submitPhotoBtn.disabled = false; // Habilita o botão de envio da foto
                 };
                 reader.readAsDataURL(file);
-                submitBtn.disabled = false; // Habilita o botão quando um arquivo é selecionado
             } else {
-                profileCircle.style.backgroundImage = ""; // Remove a imagem de fundo se não houver arquivo
-                submitBtn.disabled = true; // Desabilita o botão se nenhum arquivo foi selecionado
+                profileImage.src = originalImageSrc; // Retorna à imagem original se não houver arquivo
+                submitPhotoBtn.style.display = "none"; // Esconde o botão de envio da foto
+                submitPhotoBtn.disabled = true; // Desabilita o botão de envio da foto
             }
+        });
+
+        // Habilitar edição dos campos
+        editProfileBtn.addEventListener('click', function () {
+            // Esconder labels e mostrar inputs
+            document.querySelectorAll('.profileField span').forEach(label => label.style.display = 'none');
+            document.querySelectorAll('.profileField input').forEach(input => {
+                input.style.display = 'block';
+                input.disabled = false;
+            });
+
+            // Ocultar o botão "Editar"
+            editProfileBtn.style.display = 'none';
+
+            // Adicionando eventos para os inputs de texto do perfil
+            nomeInput.addEventListener('input', checkProfileButtonState);
+            emailInput.addEventListener('input', checkProfileButtonState);
+            senhaInput.addEventListener('input', checkProfileButtonState);
+            checkProfileButtonState(); // Verifica imediatamente para habilitar o botão de salvar se necessário
         });
     </script>
 </body>
+
 </html>
