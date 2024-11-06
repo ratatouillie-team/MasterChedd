@@ -5,20 +5,32 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+  
+  body {
+      font-family: "Archivo", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #929292;
+      height: 100vh;
+      width: 100%;
+  }
+  
+  .formulario{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+ 
   h1 {
     font-family: "Kelly Slab", sans-serif;
     color: #fff;
+    margin-top: 0px;
 }
 
 
-body {
-    font-family: "Archivo", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #929292;
-}
 
 
 form {
