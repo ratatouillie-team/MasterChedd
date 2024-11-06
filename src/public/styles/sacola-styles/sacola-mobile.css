@@ -5,68 +5,24 @@
 }
 
 body {
-    font-family: "Archivo", sans-serif;
+    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #929292;
+    background-color: #353535;
     height: 100vh;
 }
 
-.caixona {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 70%;
-    background-color: #353535;
-    padding: 25px;
-    border-radius: 20px;
-    border: 3px solid #EBA742;
-}
-
-.titulo-carrinho h1 {
-    font-family: "Kelly Slab", sans-serif;
-    font-size: 35px;
-    color: #fff;
-}
-
-.container-info {
-    width: 100%;
-    height: 75%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-div {
-    border: 1px solid #EBA742;
-    width: 90%;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.caixa-pedido {
+.pedidos {
     width: 100%;
     min-height: 50%;
     display: flex;
     flex-direction: column;
-
-    border-radius: 3px;
     overflow-y: auto;
 }
 
-.caixa-pagamento {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.caixa-pagamento form {
+.pagamento {
     height: 100%;
     width: 90%;
     display: flex;
@@ -74,96 +30,77 @@ div {
     flex-direction: column;
 }
 
-.titulo-total {
-    font-size: 25px;
-    margin-top: 20px;
-
-    width: 165px;
-    padding: 10px;
-    height: 40px;
-    font-size: 16px;
-    margin-top: 20px;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #686868;
-    background: #fff;
-    border: none;
-}
-
-.caixa-info {
-    display: flex;
-    flex-direction: column;
-}
-
-p {
+h1 {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: #EBA742;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-small {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
     color: #fff;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
-span {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: #ffffff;
-    padding: 5px;
+.linha {
+    border: 1px solid #EBA742;
+    margin-top: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70%;
+    padding: 20px;
+}
+
+.titulo {
+    font-family: "Kelly Slab", sans-serif;
+    font-size: 40px;
+    color: #fff;
+}
+
+.total {
+    font-size: 17px;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 4px;
+    background: #fff;
+    color: #686868;
+    border: none;
 }
 
 label {
-    font-weight: bold;
-    margin-top: 25px;
-    height: 20%;
-    gap: 12px;
+    font-size: 17px;
     color: #fff;
-    font-size: 15px;
+    margin-top: 20px;
+    border: none;
+    font-weight: bold;
 }
 
 input {
-    margin-right: 10px;
-    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
     height: 40px;
     border: none;
-    border-radius: 4px;
     font-weight: bold;
-    color: #000000;
-    background: #fff;
+    padding: 10px;
 }
 
 input:focus {
     outline: 0;
 }
 
-
 button {
-    margin-right: 50px;
-    border: 2px solid #EBA742;
-    padding: 10px;
-    margin-top: 30px;
-    border-radius: 8px;
-    font-size: 15px;
-    color: #201f1f;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
+    font-size: 15px;
     color: #fff;
-    background-color: #df921e;
-    backdrop-filter: blur (10px);
-    transition: background 0.3s;
     border: none;
-    margin-right: 10px;
-}
-
-button:hover {
-    background-color: #df921e;
-    transition: background 0.3s;
+    padding: 10px;
+    background-color: #EBA742;
+    border-radius: 4px;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 /* Define o estilo da área de conteúdo */

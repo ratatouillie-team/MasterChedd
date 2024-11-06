@@ -18,139 +18,79 @@
 </head>
 
 <body>
-  <main class="caixona">
-    <section class="titulo-carrinho">
-      <h1>Seu pedido</h1>
+  <h1 class="titulo">Seu pedido</h1>
+
+
+  <form class="pedidos">
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
     </section>
-
-    <section class="container-info">
-
-      <section class="caixa-pedido">
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-        <section class="card-info">
-          <p>Limonada</p>
-          <small> - Suco de limão com ortelã e rodelas</small>
-          <small>Quantidade:
-            <button class="addButton" id="addButton">+</button><span id="quantity">0</span><button class="addButton"
-              id="subtractButton">-</button>
-            <div class="result" id="result"></div>
-          </small>
-        </section>
-        <div class="risco"></div>
-      </section>
-
-      <section class="caixa-pagamento">
-
-        <form>
-          <p class="titulo-total">Total:</p>
-          <label for="formasdepagamento">Qual a forma de pagamento?</label>
-          <input class="formaPagamento" list="formasdepagamento" id="pagamento" placeholder="Insira aqui">
-          <datalist id="formasdepagamento">
-            <option value="Pix"></option>
-            <option value="Cartão"></option>
-          </datalist>
-
-
-          <script>
-            const pagamentoInput = document.getElementById('pagamento');
-
-            pagamentoInput.addEventListener('input', function () {
-              if (pagamentoInput.value === 'Pix') {
-                alert('CHAVE PIX: 16 99625-6589');
-              }
-            });
-          </script>
-
-          <label for="observacao">Adicione uma observação</label>
-          <input type="observacao" name="observacao" id="observacao" placeholder="Escreva aqui">
-          <button type="submit">Finalizar pedido</button>
-
-
-        </form>
-
-      </section>
-
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
     </section>
-  </main>
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
+    </section>
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
+    </section>
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
+    </section>
+    <section class="pedido">
+      <h1>- Suco de limão com hortelã e rodelas.</h1>
+      <button class="addButton" id="addButton">+</button><span id="quantity">0</span>
+      <button class="addButton" id="subtractButton">-</button>
+      <div class="result" id="result"></div>
+      <div class="linha"></div>
+    </section>
+  </form>
+
+
+  <form class="pagamento">
+    <h1 class="total">Total:</h1>
+    <label for="formasdepagamento">Qual a forma de pagamento?</label>
+    <input class="formaPagamento" list="formasdepagamento" id="pagamento" placeholder="Insira aqui">
+    <datalist id="formasdepagamento">
+      <option value="Pix"></option>
+      <option value="Cartão"></option>
+    </datalist>
+
+    <script>
+      const pagamentoInput = document.getElementById('pagamento');
+
+      pagamentoInput.addEventListener('input', function () {
+        if (pagamentoInput.value === 'Pix') {
+          alert('CHAVE PIX: 16 99625-6589');
+        }
+      });
+    </script>
+
+    <label for="observacao">Adicione uma observação</label>
+    <input type="observacao" name="observacao" id="observacao" placeholder="Escreva aqui">
+    <button type="submit">Finalizar pedido</button>
+  </form>
+
   <script>
     let quantity = 0;
 
@@ -175,10 +115,9 @@
       quantityDisplay.textContent = quantity;
       //const preço = preco-card;
       const resultado = quantity * 14.99;
-      resultDisplay.textContent = ( "Preço:", resultado.toFixed(2));
+      resultDisplay.textContent = resultado.toFixed(2);
     }
   </script>
-
 </body>
 
 </html>
