@@ -11,8 +11,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="styles/menu-styles/menu-mobile.css">
-  <!-- <link rel="stylesheet" href="styles/menu-styles/menu-tablet.css">
-  <link rel="stylesheet" href="styles/menu-styles/menu-desk.css"> -->
+   <link rel="stylesheet" href="styles/menu-styles/menu-tablet.css">
+  <link rel="stylesheet" href="styles/menu-styles/menu-desk.css">
 
 
   <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
@@ -53,78 +53,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-        
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
-        
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
+
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
+          </div>
+          </div>
+      </section>
+      <% }); %>
       </section>
 
     </section>
@@ -141,77 +102,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
+          </div>
+      </section>
+      <% }); %>
 
       </section>
 
@@ -228,77 +151,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
+          </div>
+      </section>
+      <% }); %>
 
       </section>
 
@@ -314,78 +199,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
-
+          </div>
+      </section>
+      <% }); %>
       </section>
 
     </section>
@@ -399,77 +245,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
+          </div>
+      </section>
+      <% }); %>
 
       </section>
 
@@ -485,78 +293,40 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
+          </div>
+      </section>
+      <% }); %>
+
 
       </section>
 
@@ -572,77 +342,39 @@
 
       <section class="container-itens">
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
+          <form action="/avaliar/<%= prato.id %>" method="POST">
+            <section class="caixa" id="<%= prato.id %>">
+              <div class="caixa-img">
+                <img src="<%= prato.imagem %>">
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="caixa-info">
+                <p>
+                  <%= prato.nome %>
+                </p>
+                <small>
+                  <%= prato.descricao %>
+                </small>
+                <span>R$ <%= prato.preco %></span>
+              </div>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
-          </div>
-        </section>
+              <div class="avaliacao-container">
+                <div class="avaliacao">
+                  <% for (let i=5; i>= 1; i--) { %>
+                    <input value="<%= i %>" type="radio" name="avaliar" id="star<%= i %>-<%= prato.id %>"
+                      <%=prato.userAvaliacao===i ? 'checked' : '' %>>
+                    <label for="star<%= i %>-<%= prato.id %>"><i class="fa-solid fa-star"></i></label>
+                    <% } %>
+                </div>
+          </form>
 
-        <section class="itens">
-          <section class="card-itens">
-            <img src="images/pratos/saladas/legumes-grelhados-com-tiras-de-frango-no-azeite.jpg">
-            <p class="titulo-card">Legumes Grelhados Com Tiras De Frango</p>
-            <small class="descricao-card"> - Legumes grelhados com tiras de frango no azeite.</small>
-            <span class="preco-card">R$ 45,95</span>
-          </section>
-          <div class="avaliacao-container">
-            <div class="avaliacao">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <div class="btn-adicionar">
-              <button>Adicionar</button>
-            </div>
+          <div class="btn-adicionar">
+            <button>Adicionar</button>
           </div>
-        </section>
+          </div>
+      </section>
+      <% }); %>
 
       </section>
 
