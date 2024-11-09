@@ -175,7 +175,8 @@
           </form>
 
           <div class="btn-adicionar">
-            <button>Adicionar</button>
+            
+            <a onclick='adicionarPrato( <%= JSON.stringify(prato) %> )'>Adicionar</a>
           </div>
           </div>
       </section>
@@ -246,6 +247,7 @@
   </footer>
 
   <script>
+
     // Função para abrir e fechar o menu no mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileNavList = document.querySelector('.mobile-nav-list');
@@ -280,6 +282,20 @@
     function togglePopup() {
       const popup = document.getElementById("profilePopup");
       popup.style.display = popup.style.display === "block" ? "none" : "block";
+    }
+
+    function adicionarPrato(prato) {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+
+      const pratoVerificado = pratosStorage.some(pratoStorago => pratoStorago.id === prato.id)
+
+      if (!pratoVerificado) {
+        pratosStorage.push(prato);
+        localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+      }
+
+      console.log('Pratos:', pratosStorage)
+
     }
   </script>
 </body>
