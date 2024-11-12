@@ -1,8 +1,10 @@
 const express = require('express');
-const encomendaController = require('../controllers/encomendaController');
-
 const router = express.Router();
 
-router.get('/encomenda', encomendaController.exibirEncomenda);
+const encomendaController = require('../controllers/encomendaController');
+const autenticar = require('../middlewares/autenticar')
+
+
+router.get('/encomenda',/*autenticar.protegerRotaUsuario,*/ encomendaController.exibirEncomenda);
 
 module.exports = router
