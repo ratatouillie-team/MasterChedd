@@ -46,7 +46,9 @@
     <section class="nav-bar">
       <a href="/reserva">Fazer reserva</a>
 
-      <a href="/encomenda"><i class="fa-solid fa-bag-shopping"></i></a>
+      <a href="/encomenda"><i class="fa-solid fa-bag-shopping"></i>
+        <div id="prato-quantidade" style="margin-left: 5px;"></div>
+      </a>
       <% if (logado) { %>
 
         <% if (user.icone==null) { %>
@@ -176,8 +178,10 @@
           </form>
 
           <div class="btn-adicionar">
-            
-            <a onclick='adicionarPrato( <%= JSON.stringify(prato) %> )'>Adicionar</a>
+            <a id="btn-adicionar-<%= prato.id %>"
+              onclick="adicionarPrato(JSON.parse('<%= JSON.stringify(prato) %>'))">Adicionar</a>
+            <a id="btn-remover-<%= prato.id %>" onclick="removerPrato(JSON.parse('<%= JSON.stringify(prato) %>'))"
+              style="display: none;">Remover</a>
           </div>
           </div>
       </section>
@@ -285,19 +289,51 @@
       popup.style.display = popup.style.display === "block" ? "none" : "block";
     }
 
+
+    function verificarPratoNoStorage(pratoId) {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      const pratoNoStorage = pratosStorage.some(pratoStorage => pratoStorage.id === pratoId);
+      document.getElementById(`btn-adicionar-${pratoId}`).style.display = pratoNoStorage ? 'none' : 'inline';
+      document.getElementById(`btn-remover-${pratoId}`).style.display = pratoNoStorage ? 'inline' : 'none';
+      atualizarQuantidade(pratosStorage.length);
+    }
+
     function adicionarPrato(prato) {
       const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
-
-      const pratoVerificado = pratosStorage.some(pratoStorago => pratoStorago.id === prato.id)
+      const pratoVerificado = pratosStorage.some(pratoStorage => pratoStorage.id === prato.id);
 
       if (!pratoVerificado) {
         pratosStorage.push(prato);
         localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+        atualizarQuantidade(pratosStorage.length);
+        verificarPratoNoStorage(prato.id);
       }
-
-      console.log('Pratos:', pratosStorage)
-
     }
+
+    function removerPrato(prato) {
+      let pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      pratosStorage = pratosStorage.filter(pratoStorage => pratoStorage.id !== prato.id);
+      localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+      atualizarQuantidade(pratosStorage.length);
+      verificarPratoNoStorage(prato.id);
+    }
+
+    function atualizarQuantidade(quantidade) {
+      const quantidadeElement = document.getElementById('prato-quantidade');
+      if (quantidadeElement) {
+        quantidadeElement.style.display = quantidade === 0 ? 'none' : 'inline';
+        quantidadeElement.textContent = quantidade > 9 ? '9+' : quantidade;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      atualizarQuantidade(pratosStorage.length);
+
+      // Verifica o estado dos botões para todos os pratos armazenados
+      pratosStorage.forEach(prato => verificarPratoNoStorage(prato.id));
+    });
+
   </script>
 </body>
 

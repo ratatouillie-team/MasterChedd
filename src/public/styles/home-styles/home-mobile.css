@@ -363,6 +363,7 @@ main {
   padding: 5px 15px;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .btn-adicionar a:hover {
