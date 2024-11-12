@@ -5,6 +5,6 @@ const encomendaController = require('../controllers/encomendaController');
 const autenticar = require('../middlewares/autenticar')
 
 
-router.get('/encomenda',/*autenticar.protegerRotaUsuario,*/ encomendaController.exibirEncomenda);
+router.get('/encomenda',/* autenticar.protegerRotaUsuario,*/ encomendaController.exibirEncomenda);
 
 module.exports = router
