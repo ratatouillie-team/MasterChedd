@@ -30,8 +30,8 @@
     <div class="menu-mobile" id="mobile-menu">
       <button class="menu-toggle"><i class="fa fa-bars"></i></button> <!-- Botão de menu sanduíche -->
       <ul class="mobile-nav-list">
-        <li><a href="/reserva"><i class="fa-solid fa-caret-right"></i> Fazer reserva</a></li>
-        <li><a href="/sacola"><i class="fa-solid fa-caret-right"></i> Sacola</a></li>
+        <!-- <li><a href="/reserva"><i class="fa-solid fa-caret-right"></i> Fazer reserva</a></li> -->
+        <li><a href="/encomenda"><i class="fa-solid fa-caret-right"></i> Encomenda</a></li>
 
         <% if (logado) { %>
           <li><a href="/perfil"><i class="fa-solid fa-caret-right"></i> Perfil</a></li>
@@ -44,8 +44,11 @@
 
     <!-- Menu de navegação para tablets e desktops -->
     <section class="nav-bar">
-      <a href="/reserva">Fazer reserva</a>
-      <a href="/sacola"><i class="fa-solid fa-bag-shopping"></i></a>
+      <!-- <a href="/reserva">Fazer reserva</a> -->
+
+      <a href="/encomenda"><i class="fa-solid fa-bag-shopping"></i>
+        <div id="prato-quantidade" style="margin-left: 5px;"></div>
+      </a>
       <% if (logado) { %>
 
         <% if (user.icone==null) { %>
@@ -104,14 +107,14 @@
       </div>
 
       <div class="profile-options">
-        <a id="btn-01" href="/sacola">Compras</a>
+        <a id="btn-01" href="/encomenda">Compras</a>
         <a id="btn-02">Favoritos ⭐</a>
         <% if (logado && user.cargo=='admin' ) {%>
           <a id="btn-03" href="/administracao">ADMINISTRADOR</a>
           <% } else {%>
             <a id="btn-03">Reclame Aqui !</a>
             <% } %>
-              <a id="btn-04" href="/reserva">Reserva</a>
+              <a id="btn-04" ></a>
               <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
     </div>
@@ -175,7 +178,10 @@
           </form>
 
           <div class="btn-adicionar">
-            <button>Adicionar</button>
+            <a id="btn-adicionar-<%= prato.id %>"
+              onclick="adicionarPrato(JSON.parse('<%= JSON.stringify(prato) %>'))">Adicionar</a>
+            <a id="btn-remover-<%= prato.id %>" onclick="removerPrato(JSON.parse('<%= JSON.stringify(prato) %>'))"
+              style="display: none;">Remover</a>
           </div>
           </div>
       </section>
@@ -246,6 +252,7 @@
   </footer>
 
   <script>
+
     // Função para abrir e fechar o menu no mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileNavList = document.querySelector('.mobile-nav-list');
@@ -281,6 +288,52 @@
       const popup = document.getElementById("profilePopup");
       popup.style.display = popup.style.display === "block" ? "none" : "block";
     }
+
+
+    function verificarPratoNoStorage(pratoId) {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      const pratoNoStorage = pratosStorage.some(pratoStorage => pratoStorage.id === pratoId);
+      document.getElementById(`btn-adicionar-${pratoId}`).style.display = pratoNoStorage ? 'none' : 'inline';
+      document.getElementById(`btn-remover-${pratoId}`).style.display = pratoNoStorage ? 'inline' : 'none';
+      atualizarQuantidade(pratosStorage.length);
+    }
+
+    function adicionarPrato(prato) {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      const pratoVerificado = pratosStorage.some(pratoStorage => pratoStorage.id === prato.id);
+
+      if (!pratoVerificado) {
+        pratosStorage.push(prato);
+        localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+        atualizarQuantidade(pratosStorage.length);
+        verificarPratoNoStorage(prato.id);
+      }
+    }
+
+    function removerPrato(prato) {
+      let pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      pratosStorage = pratosStorage.filter(pratoStorage => pratoStorage.id !== prato.id);
+      localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+      atualizarQuantidade(pratosStorage.length);
+      verificarPratoNoStorage(prato.id);
+    }
+
+    function atualizarQuantidade(quantidade) {
+      const quantidadeElement = document.getElementById('prato-quantidade');
+      if (quantidadeElement) {
+        quantidadeElement.style.display = quantidade === 0 ? 'none' : 'inline';
+        quantidadeElement.textContent = quantidade > 9 ? '9+' : quantidade;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+      atualizarQuantidade(pratosStorage.length);
+
+      // Verifica o estado dos botões para todos os pratos armazenados
+      pratosStorage.forEach(prato => verificarPratoNoStorage(prato.id));
+    });
+
   </script>
 </body>
 
