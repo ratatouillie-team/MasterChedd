@@ -313,7 +313,23 @@ hr {
   gap: 35px;
 }
 
+::-webkit-scrollbar {
+  width: 9px;
 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #EBA742;
+  border-radius: 10px 0 0 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bb8a40;
+}
 
 
 

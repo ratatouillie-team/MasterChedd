@@ -354,7 +354,7 @@ main {
   color: #EBA742;
 }
 
-.btn-adicionar a {
+.btn-adicionar button {
   border: 1px solid #EBA742;
   border-radius: 5px;
   color: #ffffff;
@@ -363,10 +363,9 @@ main {
   padding: 5px 15px;
   cursor: pointer;
   transition: 0.3s;
-  text-decoration: none;
 }
 
-.btn-adicionar a:hover {
+.btn-adicionar button:hover {
   background-color: #EBA742;
   transform: scale(1.02);
   transition: 0.3s;
