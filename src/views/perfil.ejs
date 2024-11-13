@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/perfil-styles/perfil-mobile.css">
     <link rel="stylesheet" href="styles/perfil-styles/perfil-tablet.css">
     <link rel="stylesheet" href="styles/perfil-styles/perfil-desk.css">
@@ -12,36 +19,71 @@
 </head>
 
 <body>
-    <main>
-        <form id="photoForm" action="/file" method="post" enctype="multipart/form-data">
-            <label for="file" class="profile-circle">
-                <img id="profileImage" src="uploads/<%= user.icone %>" alt="Profile Image">
-            </label>
-            <input type="file" name="file" id="file" accept="image/*">
-            <input type="submit" value="Enviar Foto" id="submitPhotoBtn" style="display: none;" disabled>
-        </form>
+    <header class="header-container">
+        <section class="voltar">
 
-        <form id="profileForm" action="/atualizar" method="post">
-            <div id="profileFields">
-                <div class="profileField">
-                    <label for="nome">Nome:</label>
-                    <span id="nomeLabel"><%= user.nome %></span>
-                    <input type="text" name="nome" id="nome" value="<%= user.nome %>" style="display: none;">
+            <span><a href="/"><i class="fa-solid fa-caret-left"></i> Voltar</a> </span>
+        </section>
+        <section class="logo">
+            <span style="color: #EBA742;">Master</span>Chedd
+        </section>
+
+    </header>
+    <main>
+        <section class="perfil-form">
+            <form id="photoForm" action="/file" method="post" enctype="multipart/form-data">
+                <label for="file" class="profile-circle">
+                    <% if (user.icone==null) { %>
+                        <img id="profileImage"src="images/icons/iconPerfilDefault.png" alt="Avatar">
+                        <% } else { %>
+                          <img id="profileImage" src="uploads/<%= user.icone %>" alt="Avatar">
+                          <% } %>
+                </label>
+                <input type="file" name="file" id="file" accept="image/*">
+                <p>
+                    <%= user.nome %>
+                </p>
+                <input class="perfil-botao" type="submit" value="Enviar Foto" id="submitPhotoBtn" style="display: none;"
+                    disabled>
+            </form>
+        </section>
+
+        <section class="perfil-info">
+            <form id="profileForm" action="/atualizar" method="post">
+                <div id="profileFields">
+                    <div class="profileField">
+                        <label for="nome">Nome:</label>
+                        <span id="nomeLabel">
+                            <%= user.nome %>
+                        </span>
+                        <input type="text" name="nome" id="nome" value="<%= user.nome %>" style="display: none;">
+                    </div>
+                    <div class="profileField">
+                        <label for="email">Email:</label>
+                        <span id="emailLabel">
+                            <%= user.email %>
+                        </span>
+                        <input type="email" name="email" id="email" value="<%= user.email %>" style="display: none;">
+                    </div>
+                    <div class="profileField">
+                        <label for="senha">Senha:</label>
+                        <span id="senhaLabel">********</span>
+                        <input  class="perfil-senha" type="password" name="senha" id="senha" style="display: none;">
+                    </div>
                 </div>
-                <div class="profileField">
-                    <label for="email">Email:</label>
-                    <span id="emailLabel"><%= user.email %></span>
-                    <input type="email" name="email" id="email" value="<%= user.email %>" style="display: none;">
-                </div>
-                <div class="profileField">
-                    <label for="senha">Senha:</label>
-                    <span id="senhaLabel">********</span>
-                    <input type="password" name="senha" id="senha" value="" style="display: none;">
-                </div>
-            </div>
-            <button type="button" id="editProfileBtn">Editar</button>
-            <input type="submit" value="Salvar Alterações" id="submitProfileBtn" style="display: none;" disabled>
-        </form>
+                <button class="perfil-botao" type="button" id="editProfileBtn">Editar</button>
+                <input class="perfil-botao" type="submit" value="Salvar Alterações" id="submitProfileBtn" style="display: none;" disabled>
+            </form>
+        </section>
+
+        <section class="container-favoritos">
+            <h2>Favoritos</h2>
+        </section>
+
+        <section class="container-historico">
+            <h2>Compras</h2>
+        </section>
+
     </main>
 
     <script>
