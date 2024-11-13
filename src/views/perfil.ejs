@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -34,10 +34,10 @@
             <form id="photoForm" action="/file" method="post" enctype="multipart/form-data">
                 <label for="file" class="profile-circle">
                     <% if (user.icone==null) { %>
-                        <img id="profileImage"src="images/icons/iconPerfilDefault.png" alt="Avatar">
+                        <img id="profileImage" src="images/icons/iconPerfilDefault.png" alt="Avatar">
                         <% } else { %>
-                          <img id="profileImage" src="uploads/<%= user.icone %>" alt="Avatar">
-                          <% } %>
+                            <img id="profileImage" src="uploads/<%= user.icone %>" alt="Avatar">
+                            <% } %>
                 </label>
                 <input type="file" name="file" id="file" accept="image/*">
                 <p>
@@ -68,16 +68,23 @@
                     <div class="profileField">
                         <label for="senha">Senha:</label>
                         <span id="senhaLabel">********</span>
-                        <input  class="perfil-senha" type="password" name="senha" id="senha" style="display: none;">
+                        <input class="perfil-senha" type="password" name="senha" value="" id="senha"
+                            style="display: none;">
                     </div>
                 </div>
                 <button class="perfil-botao" type="button" id="editProfileBtn">Editar</button>
-                <input class="perfil-botao" type="submit" value="Salvar Alterações" id="submitProfileBtn" style="display: none;" disabled>
+                <input class="perfil-botao" type="submit" value="Salvar Alterações" id="submitProfileBtn"
+                    style="display: none;" disabled>
             </form>
         </section>
 
         <section class="container-favoritos">
             <h2>Favoritos</h2>
+            <section class="favoritos-caixa">
+                <section class="favorito">
+
+                </section>
+            </section>
         </section>
 
         <section class="container-historico">
