@@ -1,187 +1,45 @@
-@media (min-width: 1095px) {
+@media (min-width: 1094px) {
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    body {
-        font-family: "Inter", sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    body{
         background-color: #929292;
-        height: 100vh;
-        width: 100%;
     }
 
+
     .tudo {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        flex-direction: row;
         width: 90%;
         height: 90%;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100px 1fr;
+
+
         background-color: #353535;
-        padding: 25px;
+        /* padding: 25px; */
         border-radius: 20px;
         border: 3px solid #EBA742;
     }
+    .titulo{
+        grid-row: 1;
+        grid-column: 1/3;
 
-    .titulo {
-        font-family: "Kelly Slab", sans-serif;
-        font-size: 40px;
-        color: #fff;
-        margin-top: 10px;
+        padding: 15px;
+        font-size: 50px;
     }
 
-    .pedidos {
-        width: 100%;
-        height: 75%;
+    .pedidos{
+        padding: 15px;
+    }
+
+    .pagamento{
         display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .pedidos {
-        display: flex;
-        flex-direction: column;
-    }
-
-    h2 {
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        color: #fff;
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .quantidade-do-produto {
-        width: 100%;
-        padding: 0px 15px 0px 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .calculo-divs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .calculo-divs button {
-        display: flex;
-        align-items: center;
-        height: 30px;
-        font-weight: bold;
-    }
-
-    .calculo-divs button:hover {
-        cursor: pointer;
-        background-color: #c48b37;
-    }
-
-    .numeroquantidade,
-    .result {
-        color: white;
-        font-weight: 900;
-        margin-top: 30px;
-    }
-
-    .pagamento {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    h2 {
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        color: #fff;
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .linha {
-        border: 1px solid #EBA742;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    form {
-        height: 100%;
-        width: 90%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .total {
-        font-size: 17px;
-        width: 200px;
-        height: 40px;
-        padding: 10px;
-        border-radius: 4px;
-        background: #fff;
-        color: #686868;
-        border: none;
-    }
-
-    label {
-        font-size: 17px;
-        color: #fff;
-        margin-top: 20px;
-        border: none;
-        font-weight: bold;
-    }
-
-    input {
-        border-radius: 4px;
-        margin-top: 5px;
-        height: 40px;
-        border: none;
-        font-weight: bold;
-        padding: 10px;
-        background-color: rgb(228, 227, 227)8;
-    }
-
-    input:focus {
-        outline: 0;
-    }
-
-    button {
-        font-family: 'Inter', sans-serif;
-        text-decoration: none;
-        font-size: 15px;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        background-color: #EBA742;
-        border-radius: 4px;
-        margin-top: 30px;
-        font-weight: bold;
-    }
-
-    button:hover {
-        cursor: pointer;
-        background-color: #c48b37;
-    }
-
-
-    .content {
-        height: 300px;
-        /* Altura limitada para forçar a rolagem */
-        overflow-y: scroll;
-        /* Habilita a rolagem */
-        padding: 20px;
-        border: 1px solid #ddd;
+        justify-content: end;
     }
 
     /* Barra de rolagem transparente */

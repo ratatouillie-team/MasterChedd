@@ -21,118 +21,52 @@
 
 <body>
   <section class="tudo">
+
     <h1 class="titulo">Seu pedido</h1>
 
     <!-- Lista de produtos -->
-    <section class="pedidos">
+    <div class="pedidos">
       <div class="pedido" data-id="1">
-        <h2>- Suco de limão com hortelã e rodelas.</h2>
-  
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-  
-        <div class="linha"></div>
-      </div>
-  
-      <div class="pedido" data-id="2">
-        <h2>- Suco de laranja com gengibre e hortelã.</h2>
-  
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-  
-        <div class="linha"></div>
-      </div>
-  
-      <div class="pedido" data-id="3">
-        <h2>- Suco de laranja com gengibre e hortelã.</h2>
-  
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-  
-        <div class="linha"></div>
-      </div>
-  
-      <div class="pedido" data-id="4">
-        <h2>- Suco de laranja com gengibre e hortelã.</h2>
-  
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-  
-        <div class="linha"></div>
-      </div>
-  
-      <div class="pedido" data-id="5">
-        <h2>- Suco de laranja com gengibre e hortelã.</h2>
-  
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-  
-        <div class="linha"></div>
-      </div>
-    </section>
-  
-    <!-- Formulário de pagamento -->
-    <form class="pagamento">
-      <h1 class="total">Total: R$ 0,00</h1>
-      <label for="formasdepagamento">Qual a forma de pagamento?</label>
-      <input class="formaPagamento" list="formasdepagamento" id="pagamento" placeholder="Insira aqui">
-      <datalist id="formasdepagamento">
-        <option value="Pix"></option>
-        <option value="Cartão"></option>
-      </datalist>
-  
-      <script>
-        const pagamentoInput = document.getElementById('pagamento');
-  
-        pagamentoInput.addEventListener('input', function () {
-          if (pagamentoInput.value === 'Pix') {
-            alert('CHAVE PIX: 16 99625-6589');
-          }
-        });
-      </script>
-  
-      <label for="observacao">Adicione uma observação</label>
-      <input type="text" name="observacao" id="observacao" placeholder="Escreva aqui">
-      <button type="submit">Finalizar pedido</button>
-    </form>
-  </section>
- 
+        <h2 class="descricao">- Suco de limão com hortelã e rodelas.</h2>
 
+        <div class="quantidade-do-produto">
+          <div class="calculo-divs">
+            <button type="button" class="Buttonadicionar subtractButton">-</button>
+            <span class="numeroquantidade">1</span>
+            <button type="button" class="Buttonadicionar addButton">+</button>
+          </div>
+          <div class="result">R$ 14,99</div>
+          <button class="remover-item">Remover</button>
+        </div>
+
+        <div class="linha"></div>
+      </div>
+    </div>
+
+    <section class="retirada">
+
+      <h1 class="total">Total: R$ 0,00</h1>
+      <label for="retirada">Insira o horário da retirada</label>
+      <input type="time" name="retirada" id="retirada">
+      <label for="retirador">Nome de quem vai retirar o pedido</label>
+      <input type="text" name="retirador" id="retirador" placeholder="Insira aqui">
+
+      <button type="submit">Finalizar pedido</button>
+      <a href="/menu">Continuar comprando</a>
+    </section>
+
+    <section class="retirada">
+
+      <h1 class="total">Total: R$ 0,00</h1>
+     <label for="retirada">Insira o horário da retirada</label>
+     <input type="time" name="retirada" id="retirada">
+     <label for="retirador">Nome de quem vai retirar o pedido</label>
+     <input type="text" name="retirador" id="retirador" placeholder="Insira aqui">
+
+     <button type="submit">Finalizar pedido</button>
+     <a href="/menu">Continuar comprando</a>
+   </section>
+    </section>
   <script>
     // Preço dos produtos
     const precoUnitario = 14.99;
