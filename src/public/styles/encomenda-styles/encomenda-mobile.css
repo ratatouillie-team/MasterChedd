@@ -92,7 +92,8 @@ body {
 
 .retirada {
     height: 100%;
-    width: 90%;
+    width: 100%;
+    padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -158,7 +159,7 @@ a {
     padding: 10px;
     background-color: #EBA742;
     border-radius: 4px;
-    margin-top: 30px;
+    margin-top: 15px;
     font-weight: bold;
     display: flex;
     justify-content: center;
