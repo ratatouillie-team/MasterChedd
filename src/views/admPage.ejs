@@ -1,1 +1,65 @@
-<h1>EU SOU ADMINISTRADOR! HEHEHEHE</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMINISTRADOR</title>
+</head>
+<body>
+    <header>
+        <h1>ADMINISTRADOR</h1>
+    </header>
+    <main>
+        <section class="container-evento">
+            <h2>EVENTOS</h2>
+
+            <form action="/criar-evento" method="POST">
+                <input type="submit" value="Criar Evento">
+            </form>
+
+        </section>
+
+        <section class="container-pratos">
+            <h2>PRATOS</h2>
+
+            <form action="/criar-prato" method="POST">
+                <input type="submit" value="Criar Prato" class="criar-prato" placeholder="Criar Prato">
+            </form>
+        </section>
+
+        <section class="container-prato-do-dia">
+            <h2>PRATO DO DIA</h2>
+            
+            <form action="/criar-prato-do-dia" method="POST">
+                <input type="submit" value="Criar Prato do Dia" class="criar-prato-do-dia" placeholder="Criar Prato do Dia">
+            </form>
+        </section>
+
+        <section class="container-pedidos">
+            <h2>PEDIDOS</h2>
+            
+            <form action="/criar-pedido" method="POST">
+                <input type="submit" value="Criar Pedido" class="criar-pedido" placeholder="Criar Pedido" >
+            </form>
+            
+        </section>
+
+        <section class="container-adminsitrador">
+            <h2>ADMINISTRADORES</h2>
+            
+            <form action="/criar-admin" method="POST">
+                <input type="submit" value="Criar Administrador" class="criar-admin" placeholder="Criar Administrador">
+            </form>
+        </section>
+
+        <section class="container-feedback">
+            <h2>FEEDBACK</h2>
+
+            <form action="/criar-feedback" method="POST">
+                <input type="submit" value="Criar Feedback" class="criar-feedback" placeholder=" Deixe aqui seu Feedback!!">
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

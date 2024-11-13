@@ -1,7 +1,7 @@
 
 
-function adicionarEncomenda(data_pedido, total_pedido, status_pedido) {   
-
+function adicionarEncomenda(data_pedido, total_pedido, status_pedido) {  
+   
 }
 
 function exibirEncomenda(request, response) {
