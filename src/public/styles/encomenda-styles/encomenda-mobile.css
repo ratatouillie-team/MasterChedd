@@ -26,20 +26,22 @@ body {
     font-family: "Kelly Slab", sans-serif;
     font-size: 40px;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .pedidos {
-    margin-top: 25px;
+    margin-top: 20px;
     width: 100%;
     min-height: 40%;
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
     overflow-y: auto;
+    padding: 20px;
 }
 
-h2 {
+.descricao {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #fff;
@@ -82,35 +84,18 @@ h2 {
     margin-top: 30px;
 }
 
-.pagamento {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-h2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    color: #fff;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
 .linha {
     border: 1px solid #EBA742;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.retirada {
+    height: 100%;
     width: 90%;
-    height: 70%;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .total {
@@ -164,15 +149,27 @@ button:hover {
     background-color: #c48b37;
 }
 
+a {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    background-color: #EBA742;
+    border-radius: 4px;
+    margin-top: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
 
-.content {
-    height: 300px;
-    /* Altura limitada para forçar a rolagem */
-    overflow-y: scroll;
-    /* Habilita a rolagem */
-    padding: 20px;
-    border: 1px solid #ddd;
 }
+
+a:hover {
+    cursor: pointer;
+    background-color: #c48b37;
+}
+
 
 /* Barra de rolagem transparente */
 ::-webkit-scrollbar {
