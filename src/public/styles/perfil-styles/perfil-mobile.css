@@ -168,6 +168,8 @@ main {
       height: 28px;
       font-size: 15px;
       padding: 5px 2px;
+      color: white;
+      background-color: #575757;
       border-bottom: 1px solid #EBA742;
     }
 
