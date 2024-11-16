@@ -594,6 +594,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  border:#EBA742 2px solid;
 
   & img {
     width: 100%;
@@ -710,6 +711,7 @@ main {
   margin-bottom: 10px;
   overflow: hidden;
   object-fit: cover;
+  border: #EBA742 solid 2px;
 
   & img {
     width: 100%;
