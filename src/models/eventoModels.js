@@ -1,17 +1,18 @@
 const {PrismaClient} = require('@prisma/client');
 const prisma = new PrismaClient();
 
-async function adicionarEventos(nome, data, local) { 
+async function criarEventos(nome, data, horario, banner) { 
     console.log ("entrounolog") 
     const eventos = await prisma.evento.create({
         data: {
             nome: nome,
             data: new Date(data).toISOString(),
-            local: local,
+            horario: horario,
+            banner: banner,
             criadoEm: new Date()
         }
     })
-    // console.log (eventos) 
+    console.log ("Evento add:",eventos) 
     return eventos
 }
 
@@ -24,6 +25,6 @@ async function listarEventos() {
 }
 
 module.exports = {
-    adicionarEventos,
+    criarEventos,
     listarEventos
 }

@@ -8,19 +8,17 @@ generator client {
 }
 
 model Usuario {
-  id        Int        @id @default(autoincrement())
-  nome      String?    @db.VarChar(255)
-  email     String?    @unique(map: "email") @db.VarChar(255)
-  senha     String?    @db.VarChar(255)
-  cargo     String?    @db.VarChar(255)
-  icone     String?    @db.VarChar(255)
-  criadoEm  DateTime?  @db.Date
-
+  id       Int       @id @default(autoincrement())
+  nome     String?   @db.VarChar(255)
+  email    String?   @unique(map: "email") @db.VarChar(255)
+  senha    String?   @db.VarChar(255)
+  cargo    String?   @db.VarChar(255)
+  icone    String?   @db.VarChar(255)
+  criadoEm DateTime? @db.Date
 
   // Relações
   avaliacao Avaliacao[]
   pedido    Pedido[]
-  reserva   Reserva[]
 }
 
 model Avaliacao {
@@ -40,7 +38,8 @@ model Evento {
   id       Int       @id @default(autoincrement())
   nome     String?   @db.VarChar(255)
   data     DateTime? @db.Date
-  local    String?   @db.VarChar(255)
+  horario  String?   @db.VarChar(255)
+  banner   String?   @db.VarChar(255)
   criadoEm DateTime? @db.Date
 }
 
@@ -61,27 +60,14 @@ model Pedido {
 }
 
 model Prato {
-  id              Int      @id @default(autoincrement())
-  nome            String?  @db.VarChar(255)
-  descricao       String?  @db.VarChar(255)
-  preco           String?  @db.VarChar(255)
-  tipo_comida     String?  @db.VarChar(255)
-  disponibilidade String?  @db.VarChar(255)
+  id              Int     @id @default(autoincrement())
+  nome            String? @db.VarChar(255)
+  descricao       String? @db.VarChar(255)
+  preco           String? @db.VarChar(255)
+  imagem          String? @db.VarChar(255)
+  tipo_comida     String? @db.VarChar(255)
+  disponibilidade String? @db.VarChar(255)
 
   // Relação com Pedido
   pedido Pedido[]
 }
-
-model Reserva {
-  id         Int       @id @default(autoincrement())
-  id_usuario Int?
-  data       DateTime? @db.Date
-  hora       String?   @db.VarChar(255)
-  quantidade Int?
-
-  // Relação com Usuario
-  usuario Usuario? @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "reserva_ibfk_1")
-
-  @@index([id_usuario], map: "id_usuario")
-}
- 

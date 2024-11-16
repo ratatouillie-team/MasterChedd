@@ -40,14 +40,14 @@ function exibirMenu(request, response) {
   response.render('menu', { pratos })
 }
 
-async function criarMenu(request, response) {
+function adicionarPrato(request, response) {
   const { nome, preco } = request.body
-  await menuModels.adicionarMenu(nome, preco)
-  response.redirect('/menu')
-
+  console.log("entrei na função de add prato")
+  
+  response.redirect('/administracao')
 }
 
 module.exports = {
   exibirMenu,
-  criarMenu
+  adicionarPrato
 }

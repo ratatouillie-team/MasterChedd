@@ -29,7 +29,8 @@ CREATE TABLE `Evento` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(255) NULL,
     `data` DATE NULL,
-    `local` VARCHAR(255) NULL,
+    `horario` VARCHAR(255) NULL,
+    `banner` VARCHAR(255) NULL,
     `criadoEm` DATE NULL,
 
     PRIMARY KEY (`id`)
@@ -55,21 +56,10 @@ CREATE TABLE `Prato` (
     `nome` VARCHAR(255) NULL,
     `descricao` VARCHAR(255) NULL,
     `preco` VARCHAR(255) NULL,
+    `imagem` VARCHAR(255) NULL,
     `tipo_comida` VARCHAR(255) NULL,
     `disponibilidade` VARCHAR(255) NULL,
 
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
-CREATE TABLE `Reserva` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `id_usuario` INTEGER NULL,
-    `data` DATE NULL,
-    `hora` VARCHAR(255) NULL,
-    `quantidade` INTEGER NULL,
-
-    INDEX `id_usuario`(`id_usuario`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -81,6 +71,3 @@ ALTER TABLE `Pedido` ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_usuario`) R
 
 -- AddForeignKey
 ALTER TABLE `Pedido` ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_prato`) REFERENCES `Prato`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- AddForeignKey
-ALTER TABLE `Reserva` ADD CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
