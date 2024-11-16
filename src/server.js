@@ -10,7 +10,6 @@ const menuRouter = require("./routes/menu.routes");
 const loginRouter = require("./routes/login.routes");
 const criarContaRouter = require("./routes/criarConta.routes");
 const encomendaRouter = require("./routes/encomenda.routes");
-const reservaRouter = require("./routes/reserva.routes");
 const admRouter = require("./routes/admPage.routes")
 const perfilRouter = require("./routes/perfil.routes");
 
@@ -50,7 +49,6 @@ app.use("/", menuRouter);
 app.use("/", loginRouter);
 app.use("/", criarContaRouter);
 app.use("/", encomendaRouter);
-app.use("/", reservaRouter);
 app.use("/", admRouter);
 app.use("/", perfilRouter);
 

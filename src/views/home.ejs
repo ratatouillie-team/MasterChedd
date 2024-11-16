@@ -55,7 +55,7 @@
           <% } else { %>
             <!-- Ícone de perfil para abrir o popup -->
             <div class="profile-icon" onclick="togglePopup()">
-              <img src="uploads/<%= user.icone %>" alt="Ícone do perfil">
+              <img src="uploads/user/<%= user.icone %>" alt="Ícone do perfil">
             </div>
             <% } %>
 
@@ -81,7 +81,7 @@
             <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
 
             <% } else { %>
-              <img class="profile-image" src="uploads/<%= user.icone %>" alt="Avatar">
+              <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
               <% } %>
 
                 <% if (logado && user.cargo=='admin' ) { %>
@@ -216,12 +216,12 @@
                     <%= evento.data.toLocaleDateString('pt-BR') %>
                   </span>
                   <span><i class="fa-solid fa-clock"></i>
-                    <%= evento.local %>
+                    <%= evento.horario %>
                   </span>
                 </div>
               </div>
               <div class="evento-img">
-                <img src="images/background/imageEvento.png">
+                <img src="uploads/banner/<%= evento.banner %>">
               </div>
             </section>
             <% }); %>

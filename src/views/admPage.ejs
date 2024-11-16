@@ -13,18 +13,18 @@
         <section class="container-evento">
             <h2>EVENTOS</h2>
 
-            <form action="/criar-evento" method="POST">
+            <form action="/criar-evento" method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
                 <label for="data">Data</label>
-                <input type="date" id="data" nome="data" placeholder="Data do Evento">
+                <input type="date" id="data" name="data" placeholder="Data do Evento">
 
                 <label for="horario">Horario</label>
                 <input type="time" id="horario" name="horario" placeholder="Horario do evento">
 
                 <label for="banner">Banner</label>
-                <input type="file" id="banner" name="banner">
+                <input type="file" id="banner" name="file">
 
                 <button>Criar Evento</button>
             </form>
@@ -34,7 +34,7 @@
         <section class="container-pratos">
             <h2>PRATOS</h2>
 
-            <form action="/prato" method="POST">
+            <form action="/adicionar-prato" method="POST" enctype="multipart/form-data">
                 <label for="nome"> Nome do Prato</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
 
@@ -45,7 +45,7 @@
                 <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
 
                 <label for="imagem">Imagem</label>
-                <input type="file" id="imagem" name="imagem">
+                <input type="file" id="imagem" name="file">
 
                 <button>Criar Prato</button>
                 
