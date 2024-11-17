@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRADOR</title>
 </head>
+
 <body>
     <header>
         <h1>ADMINISTRADOR</h1>
@@ -29,6 +31,10 @@
                 <button>Criar Evento</button>
             </form>
 
+            <P>Listagem dos eventos</P>
+            <ul>
+                <li>id: 1 - Evento 1 - 01/01/2023 - 12:00 - banner</li>
+            </ul>
         </section>
 
         <section class="container-pratos">
@@ -41,6 +47,19 @@
                 <label for="descricao">Descricao</label>
                 <input type="text" id="descricao" name="descricao" placeholder="Descricao do Prato">
 
+                <label for="">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option value="" disabled selected>Selecionar...</option>
+                    <option value="bebida">Bebida</option>
+                    <option value="comida_japonesa">Comida Japonesa</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="hamburguer">Hamburguer</option>
+                    <option value="risoto">Risoto</option>
+                    <option value="salada">Salada</option>
+                    <option value="sobremesa">Sobremesa</option>
+                    <option value="variedade">Variedade</option>
+                </select>
+
                 <label for="preco">Preco</label>
                 <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
 
@@ -48,19 +67,19 @@
                 <input type="file" id="imagem" name="file">
 
                 <button>Criar Prato</button>
-                
+
             </form>
         </section>
 
         <section class="container-prato-do-dia">
             <h2>PRATO DO DIA</h2>
-        
+
             <form action="/criar-prato-do-dia" method="POST">
                 <label for="nome"> Nome do Prato</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
 
 
-            
+
             </form>
         </section>
 
@@ -72,28 +91,29 @@
                 <span>id: 01 nome:salmão preco:50r$ quantidade:1></span>
                 <span>preco total:50</span>
                 <span>horario: 12:00</span>
-                
+
             </div>
-        
+
         </section>
 
         <section class="container-adminsitrador">
             <h2>ADMINISTRADORES</h2>
-        
+
             <form action="atribuir-admin" method="POST">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email do Administrador">
-                
+
                 <label for="adicionar permissao">Adicionar Permissao</label>
-                <input type="adicionar permissao" id="adicionar permissao" name="adicionar permissao" placeholder="Adicionar Permissao">
-                
+                <input type="adicionar permissao" id="adicionar permissao" name="adicionar permissao"
+                    placeholder="Adicionar Permissao">
+
                 <button>Enviar informacao</button>
             </form>
         </section>
 
         <section class="container-feedback">
             <h2>FEEDBACK</h2>
-    
+
             <form action="/criar-feedback" method="POST">
                 <label for="feedback">Feedback</label>
                 <input type="text" id="feedback" name="feedback" placeholder="Deixe aqui seu Feedback!!">
@@ -104,6 +124,5 @@
     </main>
 
 </body>
-</html>
 
- 
+</html>

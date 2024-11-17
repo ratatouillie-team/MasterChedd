@@ -22,17 +22,29 @@
 <body>
 
     <header class="header-container">
-        <section class="logo">
-            <span style="color: #EBA742;">Master</span>Chedd
+        <section style="display: flex; flex-direction: row; align-items: center; gap: 10px">
+
+            <section class="voltar">
+    
+                <span><a href="/"><i class="fa-solid fa-caret-left"></i> Voltar</a> </span>
+            </section>
+            <!-- <section class="logo">
+                <span style="color: #EBA742;">Master</span>Chedd
+            </section> -->
         </section>
 
         <!-- Menu de navegação para dispositivos móveis -->
         <div class="menu-mobile" id="mobile-menu">
             <button class="menu-toggle"><i class="fa fa-bars"></i></button> <!-- Botão de menu sanduíche -->
             <ul class="mobile-nav-list">
-                <!-- <li><a href="/reserva"><i class="fa-solid fa-caret-right"></i> Fazer reserva</a></li> -->
-                <li><a href="/encomenda"><i class="fa-solid fa-caret-right"></i> Sacola</i></a></li>
-                <li><a href="/login"><i class="fa-solid fa-caret-right"></i> login</a></li>
+                <li><a href="/encomenda"><i class="fa-solid fa-caret-right"></i> Encomenda</a></li>
+
+                <% if (logado) { %>
+                    <li><a href="/perfil"><i class="fa-solid fa-caret-right"></i> Perfil</a></li>
+                    <li><a href="/deslogar"><i class="fa-solid fa-caret-right"></i> Deslogar</a></li>
+                    <% } else { %>
+                        <li><a href="/login"><i class="fa-solid fa-caret-right"></i> Login</a></li>
+                        <% } %>
             </ul>
         </div>
 
@@ -41,24 +53,91 @@
             <a href="/encomenda"><i class="fa-solid fa-bag-shopping"></i>
                 <div id="prato-quantidade" style="margin-left: 5px;"></div>
             </a>
-            <a href="/login">login</a>
+            <% if (logado) { %>
+
+                <% if (user.icone==null) { %>
+                    <div class="profile-icon" onclick="togglePopup()">
+                        <img src="images/icons/iconPerfilDefault.png" alt="Ícone do perfil">
+                    </div>
+                    <% } else { %>
+                        <!-- Ícone de perfil para abrir o popup -->
+                        <div class="profile-icon" onclick="togglePopup()">
+                            <img src="uploads/user/<%= user.icone %>" alt="Ícone do perfil">
+                        </div>
+                        <% } %>
+
+                            <% } else { %>
+                                <a href="/login">login</a>
+                                <% } %>
         </section>
     </header>
 
+      <!-- Popup do perfil -->
+  <div id="profilePopup" class="profile-popup">
+    <div class="popup-header">
+      <span><a href="/perfil">Perfil <i class="fa-solid fa-caret-right"></i></a> </span>
+      <span class="close-btn2"> <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a></span>
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-info">
+        <% if (logado) { %>
+
+          <% if (user.icone==null) { %>
+            <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
+
+            <% } else { %>
+              <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
+              <% } %>
+
+                <% if (logado && user.cargo=='admin' ) { %>
+                  <div>
+                    <p>
+                      <%= user.nome %>
+                    </p><img src="images/icons/badgeAdm.png" alt="Admin" style="width: 15px;">
+                  </div>
+                  <% } else { %>
+                    <p>
+                      <%= user.nome %>
+                    </p>
+                    <% } %>
+
+                      <% } else { %>
+                        <img class="profile-image" src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
+                          alt="Avatar">
+                        <p>Nome de Usuário</p>
+                        <% } %>
+      </div>
+
+      <div class="profile-options">
+        <a id="btn-01" href="/encomenda">Compras</a>
+        <a id="btn-02">Favoritos ⭐</a>
+        <% if (logado && user.cargo=='admin' ) {%>
+          <a id="btn-03" href="/administracao">ADMINISTRADOR</a>
+          <% } else {%>
+            <a id="btn-03">Reclame Aqui !</a>
+            <% } %>
+              <a id="btn-04" href="/reserva">Reserva</a>
+              <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+      </div>
+    </div>
+  </div>
+
     <main>
+
         <section class="container-menu">
             <section class="header-menu">
-                <p>Bebidas</p>
+                <p>Entradas</p>
                 <hr>
             </section>
 
             <section class="container-itens">
 
-                <% pratos.forEach(prato=> { %>
+                <% entrada.forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
-                                <img src="<%= prato.imagem %>">
+                                <img src="uploads/pratos/<%= prato.imagem %>">
                             </div>
 
                             <div class="caixa-info">
@@ -94,11 +173,58 @@
             </section>
             <% }); %>
         </section>
-
         </section>
 
 
+        <section class="container-menu">
+            <section class="header-menu">
+                <p>Bebidas</p>
+                <hr>
+            </section>
 
+            <section class="container-itens">
+
+                <% bebidas.forEach(prato=> { %>
+                    <form action="/avaliar/<%= prato.id %>" method="POST">
+                        <section class="caixa" id="<%= prato.id %>">
+                            <div class="caixa-img">
+                                <img src="uploads/pratos/<%= prato.imagem %>">
+                            </div>
+
+                            <div class="caixa-info">
+                                <p>
+                                    <%= prato.nome %>
+                                </p>
+                                <small>
+                                    <%= prato.descricao %>
+                                </small>
+                                <span>R$ <%= prato.preco %></span>
+                            </div>
+
+                            <div class="avaliacao-container">
+                                <div class="avaliacao">
+                                    <% for (let i=5; i>= 1; i--) { %>
+                                        <input value="<%= i %>" type="radio" name="avaliar"
+                                            id="star<%= i %>-<%= prato.id %>" <%=prato.userAvaliacao===i ? 'checked'
+                                            : '' %>>
+                                        <label for="star<%= i %>-<%= prato.id %>"><i
+                                                class="fa-solid fa-star"></i></label>
+                                        <% } %>
+                                </div>
+                    </form>
+
+                    <div class="btn-adicionar">
+                        <a id="btn-adicionar-<%= prato.id %>"
+                            onclick="adicionarPrato(JSON.parse('<%= JSON.stringify(prato) %>'))">Adicionar</a>
+                        <a id="btn-remover-<%= prato.id %>"
+                            onclick="removerPrato(JSON.parse('<%= JSON.stringify(prato) %>'))"
+                            style="display: none;">Remover</a>
+                    </div>
+                    </div>
+            </section>
+            <% }); %>
+        </section>
+        </section>
 
 
         <section class="container-menu">
@@ -109,11 +235,11 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% comidaJaponesa.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
-                                <img src="<%= prato.imagem %>">
+                                <img src="uploads/pratos/<%= prato.imagem %>">
                             </div>
 
                             <div class="caixa-info">
@@ -139,17 +265,18 @@
                     </form>
 
                     <div class="btn-adicionar">
-                        <button>Adicionar</button>
+                        <a id="btn-adicionar-<%= prato.id %>"
+                            onclick="adicionarPrato(JSON.parse('<%= JSON.stringify(prato) %>'))">Adicionar</a>
+                        <a id="btn-remover-<%= prato.id %>"
+                            onclick="removerPrato(JSON.parse('<%= JSON.stringify(prato) %>'))"
+                            style="display: none;">Remover</a>
                     </div>
                     </div>
             </section>
             <% }); %>
 
         </section>
-
         </section>
-
-
 
 
         <section class="container-menu">
@@ -160,7 +287,7 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% hamburguer.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
@@ -197,9 +324,7 @@
             <% }); %>
 
         </section>
-
         </section>
-
 
 
         <section class="container-menu">
@@ -210,7 +335,7 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% risoto.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
@@ -246,7 +371,6 @@
             </section>
             <% }); %>
         </section>
-
         </section>
 
 
@@ -258,7 +382,7 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% salada.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
@@ -295,9 +419,7 @@
             <% }); %>
 
         </section>
-
         </section>
-
 
 
         <section class="container-menu">
@@ -308,7 +430,7 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% sobremesa.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
@@ -346,9 +468,7 @@
 
 
         </section>
-
         </section>
-
 
 
         <section class="container-menu">
@@ -359,7 +479,7 @@
 
             <section class="container-itens">
 
-                <% pratos.slice(0, 4).forEach(prato=> { %>
+                <% variedades.slice(0, 4).forEach(prato=> { %>
                     <form action="/avaliar/<%= prato.id %>" method="POST">
                         <section class="caixa" id="<%= prato.id %>">
                             <div class="caixa-img">
@@ -396,7 +516,6 @@
             <% }); %>
 
         </section>
-
         </section>
 
 
@@ -411,28 +530,10 @@
             mobileNavList.classList.toggle('active');
         });
 
-        const btnHorarios = document.getElementById('btnHorarios');
-        const cardHorarios = document.getElementById('cardHorarios');
-        const overlay = document.getElementById('overlay');
-        const closeBtn = document.querySelector('.close-btn');
-
-        // Função para abrir o card
-        btnHorarios.addEventListener('click', function () {
-            cardHorarios.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-
-        // Função para fechar o card
-        closeBtn.addEventListener('click', function () {
-            cardHorarios.style.display = 'none';
-            overlay.style.display = 'none';
-        });
-
-        // Fecha o card se clicar no overlay
-        overlay.addEventListener('click', function () {
-            cardHorarios.style.display = 'none';
-            overlay.style.display = 'none';
-        });
+        function togglePopup() {
+            const popup = document.getElementById("profilePopup");
+            popup.style.display = popup.style.display === "block" ? "none" : "block";
+        }
 
         function verificarPratoNoStorage(pratoId) {
             const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];

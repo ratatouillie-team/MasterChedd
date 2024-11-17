@@ -1,125 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="styles/encomenda-styles/encomenda-mobile.css">
   <link rel="stylesheet" href="styles/encomenda-styles/encomenda-tablet.css">
   <link rel="stylesheet" href="styles/encomenda-styles/encomenda-desk.css">
-
-
   <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+
   <title>Carrinho MasterChedd</title>
 </head>
 
 <body>
   <section class="tudo">
-
     <h1 class="titulo">Seu pedido</h1>
-
-    <!-- Lista de produtos -->
-    <div class="pedidos">
-      <div class="pedido" data-id="1">
-        <h2 class="descricao">- Suco de limão com hortelã e rodelas.</h2>
-
-        <div class="quantidade-do-produto">
-          <div class="calculo-divs">
-            <button type="button" class="Buttonadicionar subtractButton">-</button>
-            <span class="numeroquantidade">1</span>
-            <button type="button" class="Buttonadicionar addButton">+</button>
-          </div>
-          <div class="result">R$ 14,99</div>
-          <button class="remover-item">Remover</button>
-        </div>
-
-        <div class="linha"></div>
-      </div>
-    </div>
-
+    <div class="pedidos" id="pedidosContainer"></div>
     <section class="retirada">
-
       <h1 class="total">Total: R$ 0,00</h1>
-     <label for="retirada">Insira o horário da retirada</label>
-     <input type="time" name="retirada" id="retirada">
-     <label for="retirador">Nome de quem vai retirar o pedido</label>
-     <input type="text" name="retirador" id="retirador" placeholder="Insira aqui">
-
-     <button type="submit">Finalizar pedido</button>
-     <a href="/menu">Continuar comprando</a>
-   </section>
+      <label for="retirada">Insira o horário da retirada</label>
+      <input type="time" name="retirada" id="retirada">
+      <label for="retirador">Nome de quem vai retirar o pedido</label>
+      <input type="text" name="retirador" id="retirador" placeholder="Insira aqui">
+      <button type="submit">Finalizar pedido</button>
+      <a href="/menu">Continuar comprando</a>
     </section>
+  </section>
+
   <script>
-    // Preço dos produtos
-    const precoUnitario = 14.99;
+    // Função para carregar itens do localStorage e exibir na página
+    function carregarItens() {
+      const pedidosContainer = document.getElementById('pedidosContainer');
+      pedidosContainer.innerHTML = '';
+      const produtos = JSON.parse(localStorage.getItem('pratos')) || [];
+
+      produtos.forEach((produto, index) => {
+        // Define uma quantidade inicial para cada item se não existir
+        if (!produto.quantidade) produto.quantidade = 1;
+
+        const produtoElement = document.createElement('div');
+        produtoElement.classList.add('pedido');
+        produtoElement.dataset.id = produto.id;
+        produtoElement.dataset.preco = parseFloat(produto.preco);
+
+        produtoElement.innerHTML = `
+          <h2 class="descricao">- ${produto.nome}</h2>
+          <div class="quantidade-do-produto">
+            <div class="calculo-divs">
+              <button type="button" class="Buttonadicionar subtractButton">-</button>
+              <span class="numeroquantidade">${produto.quantidade}</span>
+              <button type="button" class="Buttonadicionar addButton">+</button>
+            </div>
+            <div class="result">R$ ${(produto.quantidade * produtoElement.dataset.preco).toFixed(2)}</div>
+            <button class="remover-item">Remover</button>
+          </div>
+          <div class="linha"></div>
+        `;
+        pedidosContainer.appendChild(produtoElement);
+      });
+      atualizarTotal();
+    }
 
     // Função para atualizar a quantidade e o valor total de cada produto
-    function updateDisplay(produtoElement) {
+    function atualizarDisplay(produtoElement) {
       const quantidadeDisplay = produtoElement.querySelector('.numeroquantidade');
       const resultadoDisplay = produtoElement.querySelector('.result');
       const quantidade = parseInt(quantidadeDisplay.textContent, 10);
+      const precoUnitario = parseFloat(produtoElement.dataset.preco);
       const total = quantidade * precoUnitario;
       resultadoDisplay.textContent = `R$ ${total.toFixed(2)}`;
     }
 
-    // Atualiza todos os totais
-    function updateTotal() {
-      let totalPedido = 0; // Começa com 0, não 1
-      const produtos = document.querySelectorAll('.pedido'); // Refaz a seleção dos produtos após remoção
+    // Função para atualizar o valor total do pedido
+    function atualizarTotal() {
+      let totalPedido = 0;
+      const produtos = document.querySelectorAll('.pedido');
       produtos.forEach(produto => {
         const quantidade = parseInt(produto.querySelector('.numeroquantidade').textContent, 10);
+        const precoUnitario = parseFloat(produto.dataset.preco);
         totalPedido += quantidade * precoUnitario;
       });
-      const totalElement = document.querySelector('.total');
-      totalElement.textContent = `Total: R$ ${totalPedido.toFixed(2)}`;
+      document.querySelector('.total').textContent = `Total: R$ ${totalPedido.toFixed(2)}`;
     }
 
-    // Inicializa o total e as quantidades ao carregar a página
-    window.addEventListener('DOMContentLoaded', () => {
+    // Função para salvar itens no localStorage com a quantidade atualizada
+    function salvarNoLocalStorage() {
+      const produtosAtualizados = [];
       document.querySelectorAll('.pedido').forEach(produto => {
-        updateDisplay(produto); // Atualiza o display individual do produto
+        produtosAtualizados.push({
+          id: produto.dataset.id,
+          nome: produto.querySelector('.descricao').textContent.slice(2),
+          descricao: produto.querySelector('.descricao').textContent.slice(2),
+          preco: produto.dataset.preco,
+          quantidade: parseInt(produto.querySelector('.numeroquantidade').textContent, 10),
+        });
       });
-      updateTotal(); // Atualiza o total geral
+      localStorage.setItem('pratos', JSON.stringify(produtosAtualizados));
+    }
+
+    // Eventos para manipular quantidade e remover produtos
+    document.addEventListener('click', (event) => {
+      if (event.target.classList.contains('addButton') || event.target.classList.contains('subtractButton') || event.target.classList.contains('remover-item')) {
+        const produtoElement = event.target.closest('.pedido');
+        const quantidadeDisplay = produtoElement.querySelector('.numeroquantidade');
+        let quantidade = parseInt(quantidadeDisplay.textContent, 10);
+
+        if (event.target.classList.contains('addButton')) {
+          quantidade++;
+        } else if (event.target.classList.contains('subtractButton') && quantidade > 1) {
+          quantidade--;
+        } else if (event.target.classList.contains('remover-item')) {
+          produtoElement.remove();
+          atualizarTotal();
+          salvarNoLocalStorage();
+          return;
+        }
+
+        quantidadeDisplay.textContent = quantidade;
+        atualizarDisplay(produtoElement);
+        atualizarTotal();
+        salvarNoLocalStorage();
+      }
     });
 
-    // Evento de adicionar e subtrair quantidade
-    document.querySelectorAll('.pedido').forEach(produto => {
-      const addButton = produto.querySelector('.addButton');
-      const subtractButton = produto.querySelector('.subtractButton');
-      const quantidadeDisplay = produto.querySelector('.numeroquantidade');
-
-      addButton.addEventListener('click', () => {
-        let quantidade = parseInt(quantidadeDisplay.textContent, 10);
-        quantidade++;
-        quantidadeDisplay.textContent = quantidade;
-        updateDisplay(produto);
-        updateTotal();
-      });
-
-      subtractButton.addEventListener('click', () => {
-        let quantidade = parseInt(quantidadeDisplay.textContent, 10);
-        if (quantidade > 1) {
-          quantidade--;
-          quantidadeDisplay.textContent = quantidade;
-          updateDisplay(produto);
-          updateTotal();
-        }
-      });
-
-      // Evento de remover produto
-      const removerButton = produto.querySelector('.remover-item');
-      removerButton.addEventListener('click', () => {
-        produto.remove(); // Remove o card de produto
-        updateTotal(); // Atualiza o total após remoção
-      });
+    // Inicializa o carrinho ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      carregarItens();
     });
   </script>
 </body>
-
 </html>
