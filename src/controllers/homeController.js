@@ -48,7 +48,7 @@ function avaliarPrato(request, response) {
     prato.avaliacao.push(avaliacao);
   }
 
-  // console.log(prato.avaliacao);
+  console.log(prato.avaliacao);
   response.redirect('/');
 }
 

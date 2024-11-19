@@ -24,12 +24,14 @@ model Usuario {
 model Avaliacao {
   id             Int       @id @default(autoincrement())
   id_usuario     Int?
+  id_prato       Int
   comentario     String?   @db.VarChar(255)
   avaliacao      String?   @db.VarChar(255)
   data_avaliacao DateTime? @db.Date
 
   // Relação com Usuario
   usuario Usuario? @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "avaliacao_ibfk_1")
+  prato   Prato?   @relation(fields: [id_prato], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "avaliacao_ibfk_2")
 
   @@index([id_usuario], map: "id_usuario")
 }
@@ -69,5 +71,6 @@ model Prato {
   disponibilidade String? @db.VarChar(255)
 
   // Relação com Pedido
-  pedido Pedido[]
+  pedido    Pedido[]
+  Avaliacao Avaliacao[]
 }
