@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,24 +88,53 @@
 
     // Função para salvar itens no localStorage com a quantidade atualizada
     function salvarNoLocalStorage() {
-      const produtosAtualizados = [];
+      // Obtém os dados existentes do localStorage, ou cria um array vazio se não houver dados
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+
+      // Itera sobre todos os elementos com a classe "pedido"
       document.querySelectorAll('.pedido').forEach(produto => {
-        produtosAtualizados.push({
-          id: produto.dataset.id,
-          nome: produto.querySelector('.descricao').textContent.slice(2),
-          descricao: produto.querySelector('.descricao').textContent.slice(2),
-          preco: produto.dataset.preco,
-          quantidade: parseInt(produto.querySelector('.numeroquantidade').textContent, 10),
-        });
+        const idProduto = produto.dataset.id; // Obtém o ID do produto como string
+        const nome = produto.querySelector('.descricao').textContent.slice(2); // Nome
+        const descricao = produto.querySelector('.descricao').textContent.slice(2); // Descrição
+        const preco = parseFloat(produto.dataset.preco); // Converte o preço para float
+        const quantidade = parseInt(produto.querySelector('.numeroquantidade').textContent, 10); // Quantidade como inteiro
+
+        // Verifica se o item já existe no localStorage pelo ID
+        const pratoExistente = pratosStorage.find(
+          prato => String(prato.id) === String(idProduto)
+        );
+
+        if (pratoExistente) {
+          // Atualiza a quantidade do prato existente
+          pratoExistente.quantidade = quantidade;
+        } else {
+          // Adiciona um novo prato à lista
+          pratosStorage.push({
+            id: idProduto,
+            nome,
+            descricao,
+            preco,
+            quantidade
+          });
+        }
       });
-      localStorage.setItem('pratos', JSON.stringify(produtosAtualizados));
+
+      // Salva os pratos atualizados no localStorage
+      localStorage.setItem('pratos', JSON.stringify(pratosStorage));
     }
+
+
 
     // Eventos para manipular quantidade e remover produtos
     document.addEventListener('click', (event) => {
-      if (event.target.classList.contains('addButton') || event.target.classList.contains('subtractButton') || event.target.classList.contains('remover-item')) {
+      if (
+        event.target.classList.contains('addButton') ||
+        event.target.classList.contains('subtractButton') ||
+        event.target.classList.contains('remover-item')
+      ) {
         const produtoElement = event.target.closest('.pedido');
         const quantidadeDisplay = produtoElement.querySelector('.numeroquantidade');
+        const idProduto = produtoElement.dataset.id; // Obtém o ID do produto
         let quantidade = parseInt(quantidadeDisplay.textContent, 10);
 
         if (event.target.classList.contains('addButton')) {
@@ -112,12 +142,20 @@
         } else if (event.target.classList.contains('subtractButton') && quantidade > 1) {
           quantidade--;
         } else if (event.target.classList.contains('remover-item')) {
+          // Remove o elemento do DOM
           produtoElement.remove();
+
+          // Remove o item do localStorage pelo ID
+          const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+          const pratosAtualizados = pratosStorage.filter(prato => String(prato.id) !== String(idProduto));
+          localStorage.setItem('pratos', JSON.stringify(pratosAtualizados));
+
+          // Atualiza o total
           atualizarTotal();
-          salvarNoLocalStorage();
           return;
         }
 
+        // Atualiza a quantidade no display e no localStorage
         quantidadeDisplay.textContent = quantidade;
         atualizarDisplay(produtoElement);
         atualizarTotal();
@@ -129,6 +167,8 @@
     window.addEventListener('DOMContentLoaded', () => {
       carregarItens();
     });
+
   </script>
 </body>
+
 </html>
