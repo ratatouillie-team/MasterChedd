@@ -1,53 +1,77 @@
 const menuModels = require('../models/menuModels')
-const pratos = [
-  {
-    id: 1,
-    nome: 'Hambúrguer',
-    descricao: 'Delicioso hambúrguer com molho especial.',
-    preco: 9.99,
-    imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTdUFIOLbxqbRWXUzJ_dR8Mzaw_vSmpowy7A&s',
-    avaliacao: []
-  },
 
-  {
-    id: 2,
-    nome: 'Pizza',
-    descricao: 'Recheada com mussarela, tomate e azeitona.',
-    preco: 12.99,
-    imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFMeKsutTGdZdN5Nc0ylAmBtGFMovnnADsZQ&s',
-    avaliacao: []
-  },
 
-  {
-    id: 3,
-    nome: 'Lasanha',
-    descricao: 'Deliciosa lasanha preparada com ingredientes variados.',
-    preco: 14.99,
-    imagem: 'https://www.saboresajinomoto.com.br/uploads/images/recipes/Lasanha_tradicional.webp',
-    avaliacao: []
-  },
+async function exibirMenu(request, response) {
+  const pratos = await menuModels.listarPratos();
 
-  {
-    id: 4,
-    nome: 'Sushi',
-    descricao: 'Sushi fresco e delicioso.',
-    preco: 10.99,
-    imagem: 'https://static.wixstatic.com/media/f9b308_1c5f63bb08554629a0bad7ea90247378~mv2.jpg/v1/fill/w_1000,h_665,al_c,q_85,usm_0.66_1.00_0.01/f9b308_1c5f63bb08554629a0bad7ea90247378~mv2.jpg',
-    avaliacao: []
-  }
-]
-function exibirMenu(request, response) {
-  response.render('menu', { pratos })
+
+  const logado = request.session.user ? true : false
+  const user = request.session.user
+  response.render('menu', {
+    bebidas: pratos.bebidas,
+    comidaJaponesa: pratos.comidaJaponesa,
+    entrada: pratos.entrada,
+    hamburguer: pratos.hamburguer,
+    risoto: pratos.risoto,
+    salada: pratos.salada,
+    sobremesa: pratos.sobremesa,
+    variedades: pratos.variedades,
+    logado, user
+  });
 }
 
-async function criarMenu(request, response) {
-  const { nome, preco } = request.body
-  await menuModels.adicionarMenu(nome, preco)
-  response.redirect('/menu')
+async function adicionarPrato(request, response) {
+  const { nome, descricao, preco, categoria } = request.body
+  const imagem = request.file.filename
 
+  await menuModels.criarPrato(nome, descricao, preco, categoria, imagem)
+
+  response.redirect('/administracao')
 }
+
+async function editarPrato(request, response) {
+  const { idprato, nome, descricao, preco, categoria } = request.body
+  const imagem = request.file.filename
+
+  const editarPrato = await menuModels.editarPrato(idprato, nome, descricao, preco, categoria, imagem)
+
+  response.redirect('/administracao')
+  return editarPrato
+}
+
+async function removerPrato(request, response) {
+  const { idprato } = request.body
+
+  const removerPrato = await menuModels.deletarPrato(idprato)
+  
+  response.redirect('/administracao')
+  return removerPrato
+}
+
+
+
+async function adicionarPratoDoDia(request, response) {
+  const { pratododia1, pratododia2, pratododia3, pratododia4 } = request.body
+  const pratoDoDia = await menuModels.adicionarPratoDoDia(pratododia1, pratododia2, pratododia3, pratododia4)
+
+  response.redirect('/administracao')
+  return pratoDoDia
+}
+
+async function removerPratoDoDia(request, response) {
+  const { iddoprato } = request.body
+  const pratoDoDia = await menuModels.removerPratoDoDia(iddoprato)
+
+  response.redirect('/administracao')
+  return pratoDoDia
+}
+
 
 module.exports = {
   exibirMenu,
-  criarMenu
+  adicionarPrato,
+  adicionarPratoDoDia,
+  removerPratoDoDia,
+  editarPrato,
+  removerPrato
 }

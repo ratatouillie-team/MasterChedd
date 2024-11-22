@@ -9,7 +9,8 @@ function exibirPaginaPerfil(req, res) {
 }
 
 function deletarArquivo(icone) {
-    const uploadDir = path.join(__dirname, '..', 'public', 'uploads');
+    const uploadDir = path.join(__dirname, '..', 'public', 'uploads', 'user');
+
     // Verificar se já existe um arquivo de perfil do usuário
     const arquivos = fs.readdirSync(uploadDir);
     const arquivoAntigo = arquivos.find(file => file === icone);

@@ -1,26 +1,37 @@
 const eventoModels = require('../models/eventoModels')
 
-function exibirCriarEventos(request, response) {
-  response.render('criarEventos')
-}
-
-async function exibirEventos(request, response) {
-  const eventos = await eventoModels.listarEventos()
-
-
-  response.render('eventos', { eventos })
-}
-
 async function adicionarEventos(request, response) {
-  const { nome, data, local } = request.body
-  await eventoModels.adicionarEventos(nome, data, local)
+  const { nome, data, horario } = request.body
+  const banner = request.file.filename
 
-  response.redirect('/eventos')
+  await eventoModels.criarEventos(nome, data, horario, banner)
+
+  response.redirect('/administracao')
+}
+
+async function editarEvento(request, response) {
+  const { idevento, nome, data, horario } = request.body
+  const banner = request.file.filename
+
+  const editarEvento = await eventoModels.editarEventos(idevento, nome, data, horario, banner)
+  
+  response.redirect('/administracao')
+  return editarEvento
+}
+
+
+async function removerEvento(request, response) {
+  const { idevento} = request.body
+
+  const deletarEvento = await eventoModels.deletarEventos(idevento)
+ 
+  response.redirect('/administracao')
+  return deletarEvento
 }
 
 
 module.exports = {
-  exibirEventos,
   adicionarEventos,
-  exibirCriarEventos
+  editarEvento,
+  removerEvento
 }

@@ -9,9 +9,7 @@ const homeRouter = require("./routes/home.routes");
 const menuRouter = require("./routes/menu.routes");
 const loginRouter = require("./routes/login.routes");
 const criarContaRouter = require("./routes/criarConta.routes");
-const sacolaRouter = require("./routes/sacola.routes");
-const reservaRouter = require("./routes/reserva.routes");
-const eventosRouter = require("./routes/eventos.routes");
+const encomendaRouter = require("./routes/encomenda.routes");
 const admRouter = require("./routes/admPage.routes")
 const perfilRouter = require("./routes/perfil.routes");
 
@@ -50,9 +48,7 @@ app.use("/", homeRouter);
 app.use("/", menuRouter);
 app.use("/", loginRouter);
 app.use("/", criarContaRouter);
-app.use("/", sacolaRouter);
-app.use("/", reservaRouter);
-app.use("/", eventosRouter);
+app.use("/", encomendaRouter);
 app.use("/", admRouter);
 app.use("/", perfilRouter);
 

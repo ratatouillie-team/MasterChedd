@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/encomenda-styles/encomenda-mobile.css">
+  <link rel="stylesheet" href="styles/encomenda-styles/encomenda-tablet.css">
+  <link rel="stylesheet" href="styles/encomenda-styles/encomenda-desk.css">
+  <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
+
+  <title>Carrinho MasterChedd</title>
+</head>
+
+<body>
+  <section class="tudo">
+    <h1 class="titulo">Seu pedido</h1>
+    <div class="pedidos" id="pedidosContainer"></div>
+    <section class="retirada">
+      <h1 class="total">Total: R$ 0,00</h1>
+      <label for="retirada">Insira o horário da retirada</label>
+      <input type="time" name="retirada" id="retirada">
+      <label for="retirador">Nome de quem vai retirar o pedido</label>
+      <input type="text" name="retirador" id="retirador" placeholder="Insira aqui">
+      <button type="submit">Finalizar pedido</button>
+      <a href="/menu">Continuar comprando</a>
+    </section>
+  </section>
+
+  <script>
+    // Função para carregar itens do localStorage e exibir na página
+    function carregarItens() {
+      const pedidosContainer = document.getElementById('pedidosContainer');
+      pedidosContainer.innerHTML = '';
+      const produtos = JSON.parse(localStorage.getItem('pratos')) || [];
+
+      produtos.forEach((produto, index) => {
+        // Define uma quantidade inicial para cada item se não existir
+        if (!produto.quantidade) produto.quantidade = 1;
+
+        const produtoElement = document.createElement('div');
+        produtoElement.classList.add('pedido');
+        produtoElement.dataset.id = produto.id;
+        produtoElement.dataset.preco = parseFloat(produto.preco);
+
+        produtoElement.innerHTML = `
+          <h2 class="descricao">- ${produto.nome}</h2>
+          <div class="quantidade-do-produto">
+            <div class="calculo-divs">
+              <button type="button" class="Buttonadicionar subtractButton">-</button>
+              <span class="numeroquantidade">${produto.quantidade}</span>
+              <button type="button" class="Buttonadicionar addButton">+</button>
+            </div>
+            <div class="result">R$ ${(produto.quantidade * produtoElement.dataset.preco).toFixed(2)}</div>
+            <button class="remover-item">Remover</button>
+          </div>
+          <div class="linha"></div>
+        `;
+        pedidosContainer.appendChild(produtoElement);
+      });
+      atualizarTotal();
+    }
+
+    // Função para atualizar a quantidade e o valor total de cada produto
+    function atualizarDisplay(produtoElement) {
+      const quantidadeDisplay = produtoElement.querySelector('.numeroquantidade');
+      const resultadoDisplay = produtoElement.querySelector('.result');
+      const quantidade = parseInt(quantidadeDisplay.textContent, 10);
+      const precoUnitario = parseFloat(produtoElement.dataset.preco);
+      const total = quantidade * precoUnitario;
+      resultadoDisplay.textContent = `R$ ${total.toFixed(2)}`;
+    }
+
+    // Função para atualizar o valor total do pedido
+    function atualizarTotal() {
+      let totalPedido = 0;
+      const produtos = document.querySelectorAll('.pedido');
+      produtos.forEach(produto => {
+        const quantidade = parseInt(produto.querySelector('.numeroquantidade').textContent, 10);
+        const precoUnitario = parseFloat(produto.dataset.preco);
+        totalPedido += quantidade * precoUnitario;
+      });
+      document.querySelector('.total').textContent = `Total: R$ ${totalPedido.toFixed(2)}`;
+    }
+
+    // Função para salvar itens no localStorage com a quantidade atualizada
+    function salvarNoLocalStorage() {
+      // Obtém os dados existentes do localStorage, ou cria um array vazio se não houver dados
+      const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+
+      // Itera sobre todos os elementos com a classe "pedido"
+      document.querySelectorAll('.pedido').forEach(produto => {
+        const idProduto = produto.dataset.id; // Obtém o ID do produto como string
+        const nome = produto.querySelector('.descricao').textContent.slice(2); // Nome
+        const descricao = produto.querySelector('.descricao').textContent.slice(2); // Descrição
+        const preco = parseFloat(produto.dataset.preco); // Converte o preço para float
+        const quantidade = parseInt(produto.querySelector('.numeroquantidade').textContent, 10); // Quantidade como inteiro
+
+        // Verifica se o item já existe no localStorage pelo ID
+        const pratoExistente = pratosStorage.find(
+          prato => String(prato.id) === String(idProduto)
+        );
+
+        if (pratoExistente) {
+          // Atualiza a quantidade do prato existente
+          pratoExistente.quantidade = quantidade;
+        } else {
+          // Adiciona um novo prato à lista
+          pratosStorage.push({
+            id: idProduto,
+            nome,
+            descricao,
+            preco,
+            quantidade
+          });
+        }
+      });
+
+      // Salva os pratos atualizados no localStorage
+      localStorage.setItem('pratos', JSON.stringify(pratosStorage));
+    }
+
+
+
+    // Eventos para manipular quantidade e remover produtos
+    document.addEventListener('click', (event) => {
+      if (
+        event.target.classList.contains('addButton') ||
+        event.target.classList.contains('subtractButton') ||
+        event.target.classList.contains('remover-item')
+      ) {
+        const produtoElement = event.target.closest('.pedido');
+        const quantidadeDisplay = produtoElement.querySelector('.numeroquantidade');
+        const idProduto = produtoElement.dataset.id; // Obtém o ID do produto
+        let quantidade = parseInt(quantidadeDisplay.textContent, 10);
+
+        if (event.target.classList.contains('addButton')) {
+          quantidade++;
+        } else if (event.target.classList.contains('subtractButton') && quantidade > 1) {
+          quantidade--;
+        } else if (event.target.classList.contains('remover-item')) {
+          // Remove o elemento do DOM
+          produtoElement.remove();
+
+          // Remove o item do localStorage pelo ID
+          const pratosStorage = JSON.parse(localStorage.getItem('pratos')) || [];
+          const pratosAtualizados = pratosStorage.filter(prato => String(prato.id) !== String(idProduto));
+          localStorage.setItem('pratos', JSON.stringify(pratosAtualizados));
+
+          // Atualiza o total
+          atualizarTotal();
+          return;
+        }
+
+        // Atualiza a quantidade no display e no localStorage
+        quantidadeDisplay.textContent = quantidade;
+        atualizarDisplay(produtoElement);
+        atualizarTotal();
+        salvarNoLocalStorage();
+      }
+    });
+
+    // Inicializa o carrinho ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      carregarItens();
+    });
+
+  </script>
+</body>
+
+</html>

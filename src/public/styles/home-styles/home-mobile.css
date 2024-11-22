@@ -354,7 +354,7 @@ main {
   color: #EBA742;
 }
 
-.btn-adicionar button {
+.btn-adicionar a {
   border: 1px solid #EBA742;
   border-radius: 5px;
   color: #ffffff;
@@ -363,9 +363,10 @@ main {
   padding: 5px 15px;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
 }
 
-.btn-adicionar button:hover {
+.btn-adicionar a:hover {
   background-color: #EBA742;
   transform: scale(1.02);
   transition: 0.3s;
@@ -485,7 +486,7 @@ main {
 }
 
 .evento-img {
-  height: 100%;
+  height: 50%;
 }
 
 .evento-img img {
@@ -593,6 +594,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  border:#EBA742 2px solid;
 
   & img {
     width: 100%;
@@ -709,6 +711,7 @@ main {
   margin-bottom: 10px;
   overflow: hidden;
   object-fit: cover;
+  border: #EBA742 solid 2px;
 
   & img {
     width: 100%;
