@@ -69,7 +69,7 @@
   <!-- Popup do perfil -->
   <div id="profilePopup" class="profile-popup">
     <div class="popup-header">
-      <span><a href="/perfil">Perfil <i class="fa-solid fa-caret-right"></i></a> </span>
+      <span><a href="/perfil">Ver perfil <i class="fa-solid fa-caret-right"></i></a> </span>
       <span class="close-btn2"> <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a></span>
     </div>
 
@@ -111,7 +111,7 @@
           <% } else {%>
             <a id="btn-03">Reclame Aqui !</a>
             <% } %>
-              <a id="btn-04" href="/reserva">Reserva</a>
+              <a id="btn-04" href="#"></a>
               <a href="/deslogar" id="btn-05">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
     </div>
@@ -147,11 +147,11 @@
 
       <section class="organzando-caixa">
 
-        <% pratos.slice(0, 4).forEach(prato=> { %>
+        <% pratos.forEach(prato=> { %>
           <form action="/avaliar/<%= prato.id %>" method="POST">
             <section class="caixa" id="<%= prato.id %>">
               <div class="caixa-img">
-                <img src="<%= prato.imagem %>">
+                <img src="uploads/pratos/<%= prato.imagem %>">
               </div>
 
               <div class="caixa-info">
