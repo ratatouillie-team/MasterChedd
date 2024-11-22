@@ -62,13 +62,13 @@ model Pedido {
 }
 
 model Prato {
-  id              Int     @id @default(autoincrement())
-  nome            String? @db.VarChar(255)
-  descricao       String? @db.VarChar(255)
-  preco           String? @db.VarChar(255)
-  imagem          String? @db.VarChar(255)
-  tipo_comida     String? @db.VarChar(255)
-  disponibilidade String? @db.VarChar(255)
+  id          Int      @id @default(autoincrement())
+  nome        String?  @db.VarChar(255)
+  descricao   String?  @db.VarChar(255)
+  preco       String?  @db.VarChar(255)
+  imagem      String?  @db.VarChar(255)
+  tipo_comida String?  @db.VarChar(255)
+  prato_dia   Boolean
 
   // Relação com Pedido
   pedido    Pedido[]

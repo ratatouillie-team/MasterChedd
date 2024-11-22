@@ -4,28 +4,20 @@ const menuModels = require('../models/menuModels')
 async function exibirMenu(request, response) {
   const pratos = await menuModels.listarPratos();
 
-  console.log('bebidas:', pratos.bebidas)
-  console.log('comidaJaponesa:', pratos.comidaJaponesa)
-  console.log('entrada:', pratos.entrada)
-  console.log('hamburguer:', pratos.hamburguer)
-  console.log('risoto:', pratos.risoto)
-  console.log('salada:', pratos.salada)
-  console.log('sobremesa:', pratos.sobremesa)
-  console.log('variedades:', pratos.variedades)
 
   const logado = request.session.user ? true : false
   const user = request.session.user
-    response.render('menu', {
-      bebidas: pratos.bebidas,
-      comidaJaponesa: pratos.comidaJaponesa,
-      entrada: pratos.entrada,
-      hamburguer: pratos.hamburguer,
-      risoto: pratos.risoto,
-      salada: pratos.salada,
-      sobremesa: pratos.sobremesa,
-      variedades: pratos.variedades,
-      logado, user
-});
+  response.render('menu', {
+    bebidas: pratos.bebidas,
+    comidaJaponesa: pratos.comidaJaponesa,
+    entrada: pratos.entrada,
+    hamburguer: pratos.hamburguer,
+    risoto: pratos.risoto,
+    salada: pratos.salada,
+    sobremesa: pratos.sobremesa,
+    variedades: pratos.variedades,
+    logado, user
+  });
 }
 
 async function adicionarPrato(request, response) {
@@ -33,11 +25,30 @@ async function adicionarPrato(request, response) {
   const imagem = request.file.filename
 
   await menuModels.criarPrato(nome, descricao, preco, categoria, imagem)
-  
+
   response.redirect('/administracao')
 }
 
+async function adicionarPratoDoDia(request, response) {
+  const { pratododia1, pratododia2, pratododia3, pratododia4 } = request.body
+  const pratoDoDia = await menuModels.adicionarPratoDoDia(pratododia1, pratododia2, pratododia3, pratododia4)
+
+  response.redirect('/administracao')
+  return pratoDoDia
+}
+
+async function removerPratoDoDia(request, response) {
+  const { iddoprato } = request.body
+  const pratoDoDia = await menuModels.removerPratoDoDia(iddoprato)
+
+  response.redirect('/administracao')
+  return pratoDoDia
+}
+
+
 module.exports = {
   exibirMenu,
-  adicionarPrato
+  adicionarPrato,
+  adicionarPratoDoDia,
+  removerPratoDoDia
 }
