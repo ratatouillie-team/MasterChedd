@@ -20,6 +20,31 @@ async function criarPrato(nome, descricao, preco, categoria, imagem) {
   return pratos
 }
 
+async function editarPrato(idprato, nome, descricao, preco, categoria, imagem) {
+  const pratos = await prisma.prato.update({
+    where:{
+      id: parseInt(idprato)
+    },
+    data:{
+      nome: nome,
+      descricao: descricao,
+      preco: preco,
+      tipo_comida: categoria,
+      imagem: imagem
+    }
+  })
+  return pratos
+}
+
+async function deletarPrato(idprato){
+  const pratos = await prisma.prato.delete({
+    where: {
+      id: parseInt(idprato)
+    }
+  })
+  return pratos
+}
+
 async function listarPratos() {
   const [bebidas, comidaJaponesa, entrada, hamburguer, risoto, salada, sobremesa, variedades] = await Promise.all([
     prisma.prato.findMany({ where: { tipo_comida: 'bebida' } }),
@@ -39,6 +64,7 @@ async function listarTodosOsPratos() {
   const pratos = await prisma.prato.findMany()
   return pratos
 }
+
 
 
 async function listarPratosDoDia() {
@@ -98,4 +124,4 @@ async function removerPratoDoDia(pratoId) {
 }
 
 
-module.exports = { criarPrato, listarPratos, listarPratosDoDia, adicionarPratoDoDia, removerPratoDoDia, listarTodosOsPratos }
+module.exports = { criarPrato, listarPratos, listarPratosDoDia, adicionarPratoDoDia, removerPratoDoDia, listarTodosOsPratos, editarPrato, deletarPrato }

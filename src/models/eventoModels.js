@@ -19,12 +19,37 @@ async function criarEventos(nome, data, horario, banner) {
 async function listarEventos() {
     const eventos = await prisma.evento.findMany()
 
-    // console.log(eventos)
+    return eventos
+}
 
+async function editarEventos(idevento, nome, data, horario, banner) {
+    const eventos = await prisma.evento.update({
+        where: {
+            id: parseInt(idevento)
+        },
+        data: {
+            nome: nome,
+            data: new Date(data).toISOString(),
+            horario: horario,
+            banner: banner,
+            criadoEm: new Date()
+        }
+    })
+    return eventos
+}
+
+async function deletarEventos(idevento) {
+    const eventos = await prisma.evento.delete({
+        where: {
+            id: parseInt(idevento)
+        }
+    })
     return eventos
 }
 
 module.exports = {
     criarEventos,
-    listarEventos
+    listarEventos,
+    editarEventos,
+    deletarEventos
 }

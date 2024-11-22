@@ -5,56 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRADOR</title>
+
+    <link rel="stylesheet" href="styles/admPage-styles/adm-mobile.css">
+    <link rel="stylesheet" href="styles/admPage-styles/adm-tablet.css">
+    <link rel="stylesheet" href="styles/admPage-styles/adm-desk.css">
 </head>
 
 <body>
     <header>
         <h1>ADMINISTRADOR</h1>
     </header>
+
+    <nav>
+        <button class="nav-btn" data-target="container-1">Evento</button>
+        <button class="nav-btn" data-target="container-2">Pratos</button>
+        <button class="nav-btn" data-target="container-3">Prato do Dia</button>
+        <button class="nav-btn" data-target="container-4">Pedido</button>
+        <button class="nav-btn" data-target="container-5">Administrador</button>
+        <button class="nav-btn" data-target="container-6">Feedback</button>
+    </nav>
+
     <main>
 
-        <section class="container-usuario">
-
-            <div class="profile-info">
-                <% if (logado) { %>
-
-                    <% if (user.icone==null) { %>
-                        <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
-
-                        <% } else { %>
-                            <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
-                            <% } %>
-
-                                <% if (logado && user.cargo=='admin' ) { %>
-                                    <div>
-                                        <p>
-                                            <%= user.nome %>
-                                        </p><img src="images/icons/badgeAdm.png" alt="Admin" style="width: 15px;">
-                                    </div>
-                                    <% } else { %>
-                                        <p>
-                                            <%= user.nome %>
-                                        </p>
-                                        <% } %>
-
-                                            <% } else { %>
-                                                <img class="profile-image"
-                                                    src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
-                                                    alt="Avatar">
-                                                <p>Nome de Usuário</p>
-                                                <% } %>
-            </div>
-
+        <section class="container container-usuario">
         </section>
 
+        <section class="container container-1">
+            <h2>Evento</h2>
+            <button class="form-btn" data-target="form-adicionar-eventos">Adicionar</button>
+            <button class="form-btn" data-target="form-editar-eventos">Editar</button>
+            <button class="form-btn" data-target="form-remover-eventos">Remover</button>
 
+            <form id="form-adicionar-eventos" class="form" action="/criar-evento" method="POST"
+                enctype="multipart/form-data">
+                <h3>Adicionar Eventos</h3>
 
-
-
-        <section class="container-evento">
-            <h2>EVENTOS</h2>
-
-            <form action="/criar-evento" method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
@@ -70,16 +55,56 @@
                 <button>Criar Evento</button>
             </form>
 
+            <form id="form-editar-eventos" class="form" action="/editar-evento" method="POST"
+                enctype="multipart/form-data">
+                <h3>Editar Eventos</h3>
+
+                <label for="idevento">ID do Evento</label>
+                <input type="number" id="idevento" name="idevento">
+
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
+
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" placeholder="Data do Evento">
+
+                <label for="horario">Horario</label>
+                <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+
+                <label for="banner">Banner</label>
+                <input type="file" id="banner" name="file">
+
+                <button>Editar evento</button>
+            </form>
+
+            <form id="form-remover-eventos" class="form" action="/remover-evento" method="POST">
+                <h3>Remover Eventos</h3>
+
+                <label for="idevento">ID do Evento para remover:</label>
+                <input type="number" id="idevento" name="idevento">
+
+                <button>Remover Evento</button>
+            </form>
+
             <P>Listagem dos eventos</P>
             <ul>
-                <li>id: 1 - Evento 1 - 01/01/2023 - 12:00 - banner</li>
+                <% eventos.forEach(evento=> { %>
+                    <li>ID: <%= evento.id %> - NOME: <%= evento.nome %> - DATA: <%= evento.data %> - HORARIO: <%=
+                                        evento.horario %>
+                    </li>
+                    <% }) %>
             </ul>
+
         </section>
 
-        <section class="container-pratos">
-            <h2>PRATOS</h2>
+        <section class="container container-2">
+            <h2>Pratos</h2>
+            <button class="form-btn" data-target="form-adicionar-pratos">Adicionar</button>
+            <button class="form-btn" data-target="form-editar-pratos">Editar</button>
+            <button class="form-btn" data-target="form-remover-pratos">Remover</button>
 
-            <form action="/adicionar-prato" method="POST" enctype="multipart/form-data">
+            <form id="form-adicionar-pratos" class="form" action="/adicionar-prato" method="POST"
+                enctype="multipart/form-data">
                 <label for="nome"> Nome do Prato</label>
                 <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
 
@@ -106,20 +131,65 @@
                 <input type="file" id="imagem" name="file">
 
                 <button>Criar Prato</button>
+            </form>
 
+            <form id="form-editar-pratos" class="form" action="/editar-prato" method="POST"
+                enctype="multipart/form-data">
+                <label for="idprato">ID do Prato</label>
+                <input type="number" id="idprato" name="idprato">
+
+                <label for="nome"> Nome do Prato</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
+
+                <label for="descricao">Descricao</label>
+                <input type="text" id="descricao" name="descricao" placeholder="Descricao do Prato">
+
+                <label for="">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option value="" disabled selected>Selecionar...</option>
+                    <option value="bebida">Bebida</option>
+                    <option value="comida_japonesa">Comida Japonesa</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="hamburguer">Hamburguer</option>
+                    <option value="risoto">Risoto</option>
+                    <option value="salada">Salada</option>
+                    <option value="sobremesa">Sobremesa</option>
+                    <option value="variedade">Variedade</option>
+                </select>
+
+                <label for="preco">Preco</label>
+                <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
+
+                <label for="imagem">Imagem</label>
+                <input type="file" id="imagem" name="file">
+
+                <button>Editar Prato</button>
+            </form>
+
+            <form id="form-remover-pratos" class="form" action="/remover-prato" method="POST">
+                <label for="idprato">ID do Prato para remover:</label>
+                <input type="number" id="idprato" name="idprato">
+
+                <button>Remover Prato</button>
             </form>
 
             <P>Listagem dos pratos</P>
             <ul>
-                <li>ID: 01 - NOME: Prato 1 - DESCRICAO: Descricao do Prato 1 - PRECO: 50R$ - CATEGORIA: Hamburguer -
-                    IMAGEM</li>
+                <% pratosMenu.forEach(prato=> { %>
+                    <li> ID: <%= prato.id %> - NOME: <%= prato.nome %> - DESCRICAO: <%= prato.descricao %> - PRECO: <%=
+                                        prato.preco %> - CATEGORIA: <%= prato.categoria %>
+                    </li>
+                    <% }) %>
             </ul>
+
         </section>
 
-        <section class="container-prato-do-dia">
-            <h2>PRATO DO DIA</h2>
+        <section class="container container-3">
+            <h2>Prato do Dia</h2>
+            <button class="form-btn" data-target="form-adicionar-pratododia">Adicionar</button>
+            <button class="form-btn" data-target="form-remover-pratododia">Remover</button>
 
-            <form action="/adicionar-pratododia" method="POST">
+            <form id="form-adicionar-pratododia" class="form" action="/adicionar-pratododia" method="POST">
 
                 <select name="pratododia1" id="pratododia1">
                     <option disabled selected>Selecionar...</option>
@@ -148,20 +218,25 @@
                 <button>Definir Prato do Dia</button>
             </form>
 
-            <p>Pratos ativos:</p>
-            <ul>
-                <li>ID: 01 - NOME: Prato 1 - DESCRICAO: Descricao do Prato 1 - PRECO: 50R$ - CATEGORIA: Hamburguer</li>
-            </ul>
-
-            <form action="/remover-pratododia" method="POST">
+            <form id="form-remover-pratododia" class="form" action="/remover-pratododia" method="POST">
                 <label for="iddoprato">ID do Prato para remover:</label>
                 <input type="number" id="iddoprato" name="iddoprato" placeholder="ID do prato">
 
                 <button>Remover Prato do Dia</button>
             </form>
+
+            <p>Pratos ativos:</p>
+            <ul>
+                <% pratoDoDia.forEach(prato=> { %>
+                    <li>ID: <%= prato.id %> - NOME: <%= prato.nome %> - DESCRICAO: <%= prato.descricao %> - PRECO: <%=
+                                        prato.preco %> - CATEGORIA: <%= prato.categoria %>
+                    </li>
+                    <% }) %>
+            </ul>
+
         </section>
 
-        <section class="container-pedido">
+        <section class="container container-4">
             <h2>PEDIDOS</h2>
 
             <div>
@@ -173,10 +248,11 @@
 
         </section>
 
-        <section class="container-adminsitrador">
-            <h2>ADMINISTRADORES</h2>
+        <section class="container container-5">
+            <h2>Administrador</h2>
+            <button class="form-btn" data-target="form-adicionar-adicionaradm">Adicionar</button>
 
-            <form action="atribuir-admin" method="POST">
+            <form id="form-adicionar-adicionaradm" class="form" action="atribuir-admin" method="POST">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email do Administrador">
 
@@ -193,12 +269,15 @@
 
             <P>Administrador Ativos:</P>
             <ul>
-                <li>Usuario - Email</li>
+                <% adm.forEach(admin=> { %>
+                    <li>ID: <%= admin.id %> - EMAIL: <%= admin.email %> - PERMISSAO: <%= admin.cargo %>
+                    </li>
+                    <% }) %>
             </ul>
         </section>
 
-        <section class="container-feedback">
-            <h2>FEEDBACK</h2>
+        <section class="container container-6">
+            <h2>Feedback</h2>
 
             <form action="/criar-feedback" method="POST">
                 <label for="feedback">Feedback</label>
@@ -207,7 +286,50 @@
                 <button>Enviar Feedback</button>
             </form>
         </section>
+
     </main>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll(".nav-btn");
+            const containers = document.querySelectorAll(".container");
+            const formButtons = document.querySelectorAll(".form-btn");
+            const forms = document.querySelectorAll(".form");
+
+            // Controle de containers
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const targetClass = button.getAttribute("data-target");
+
+                    containers.forEach((container) => {
+                        container.classList.remove("active");
+                    });
+
+                    const targetContainer = document.querySelector(`.${targetClass}`);
+                    if (targetContainer) {
+                        targetContainer.classList.add("active");
+                    }
+                });
+            });
+
+            // Controle de formulários
+            formButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const targetFormId = button.getAttribute("data-target");
+
+                    forms.forEach((form) => {
+                        form.classList.remove("active");
+                    });
+
+                    const targetForm = document.getElementById(targetFormId);
+                    if (targetForm) {
+                        targetForm.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

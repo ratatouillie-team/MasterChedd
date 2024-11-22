@@ -12,10 +12,15 @@ async function atualizarPerm(email, data) {
   })
 
   return userUpdate
+}
 
+async function listarAdm(){
 
+  const adm = await prisma.usuario.findMany({where: {cargo: 'admin'}})
+
+  return adm
 }
 
 
 
-module.exports = { atualizarPerm }
+module.exports = { atualizarPerm, listarAdm }

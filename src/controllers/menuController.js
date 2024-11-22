@@ -29,6 +29,27 @@ async function adicionarPrato(request, response) {
   response.redirect('/administracao')
 }
 
+async function editarPrato(request, response) {
+  const { idprato, nome, descricao, preco, categoria } = request.body
+  const imagem = request.file.filename
+
+  const editarPrato = await menuModels.editarPrato(idprato, nome, descricao, preco, categoria, imagem)
+
+  response.redirect('/administracao')
+  return editarPrato
+}
+
+async function removerPrato(request, response) {
+  const { idprato } = request.body
+
+  const removerPrato = await menuModels.deletarPrato(idprato)
+  
+  response.redirect('/administracao')
+  return removerPrato
+}
+
+
+
 async function adicionarPratoDoDia(request, response) {
   const { pratododia1, pratododia2, pratododia3, pratododia4 } = request.body
   const pratoDoDia = await menuModels.adicionarPratoDoDia(pratododia1, pratododia2, pratododia3, pratododia4)
@@ -50,5 +71,7 @@ module.exports = {
   exibirMenu,
   adicionarPrato,
   adicionarPratoDoDia,
-  removerPratoDoDia
+  removerPratoDoDia,
+  editarPrato,
+  removerPrato
 }
