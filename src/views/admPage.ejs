@@ -27,7 +27,58 @@
 
     <main>
 
-        <section class="container container-usuario">
+        <section class="container-usuario">
+            <div id="profilePopup" class="profile-popup">
+                <div class="popup-header">
+                    <span><a href="/perfil">Ver perfil <i class="fa-solid fa-caret-right"></i></a> </span>
+                    <span class="close-btn2"> <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a></span>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <% if (logado) { %>
+
+                            <% if (user.icone==null) { %>
+                                <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
+
+                                <% } else { %>
+                                    <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
+                                    <% } %>
+
+                                        <% if (logado && user.cargo=='admin' ) { %>
+                                            <div>
+                                                <p>
+                                                    <%= user.nome %>
+                                                </p><img src="images/icons/badgeAdm.png" alt="Admin"
+                                                    style="width: 15px;">
+                                            </div>
+                                            <% } else { %>
+                                                <p>
+                                                    <%= user.nome %>
+                                                </p>
+                                                <% } %>
+
+                                                    <% } else { %>
+                                                        <img class="profile-image"
+                                                            src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
+                                                            alt="Avatar">
+                                                        <p>Nome de Usuário</p>
+                                                        <% } %>
+                    </div>
+
+                    <div class="profile-options">
+                        <a id="btn-01" href="/encomenda">Compras</a>
+                        <a id="btn-02">Favoritos ⭐</a>
+                        <% if (logado && user.cargo=='admin' ) {%>
+                            <a id="btn-03" href="/administracao">ADMINISTRADOR</a>
+                            <% } else {%>
+                                <a id="btn-03">Reclame Aqui !</a>
+                                <% } %>
+                                    <a href="/deslogar" id="btn-05">Sair <i
+                                            class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="container container-1">
