@@ -34,6 +34,8 @@
 
         <% if (logado) { %>
           <li><a href="/perfil"><i class="fa-solid fa-caret-right"></i> Perfil</a></li>
+          <% if(user.cargo=='admin') %>
+          <li><a href="/administracao"><i class="fa-solid fa-caret-right"></i> Administrador</a></li>
           <li><a href="/deslogar"><i class="fa-solid fa-caret-right"></i> Deslogar</a></li>
           <% } else { %>
             <li><a href="/login"><i class="fa-solid fa-caret-right"></i> Login</a></li>

@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <title>ADMINISTRADOR</title>
 
     <link rel="stylesheet" href="styles/admPage-styles/adm-mobile.css">
@@ -13,138 +18,139 @@
 
 <body>
     <header>
-        <h1>ADMINISTRADOR</h1>
+        <section class="header-container">
+            <span class="voltar"><a href="/"><i class="fa-solid fa-caret-left"></i> Voltar</a> </span>
+            <p class="logo">
+
+                <span style="color: #EBA742;">Master</span>Chedd
+            </p>
+        </section>
+        <section class="perfil">
+
+            <section class=icon>
+
+                <% if (logado) { %>
+
+                    <% if (user.icone==null) { %>
+                        <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
+
+                        <% } else { %>
+                            <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
+                            <% } %>
+            </section>
+            <section class="name">
+
+                <% if (logado && user.cargo=='admin' ) { %>
+                    <div class="nome-cargo">
+
+                        <p>
+                            <%= user.nome %>
+                        </p>
+                        <img src="images/icons/badgeAdm.png" alt="Admin" style="width: 15px;">
+                    </div>
+                    <div class="email">
+
+                        <p>
+                            <%= user.email %>
+                        </p>
+                    </div>
+
+                    <% } %>
+
+                        <% } %>
+            </section>
+        </section>
+
+        <nav>
+            <p class="nav-title">Gerenciamento</p>
+            <button class="nav-btn" data-target="container-1">Eventos</button>
+            <button class="nav-btn" data-target="container-2">Pratos</button>
+            <button class="nav-btn" data-target="container-3">Menu Diario</button>
+            <button class="nav-btn" data-target="container-4">Pedidos</button>
+            <button class="nav-btn" data-target="container-5">Administrador</button>
+            <button class="nav-btn" data-target="container-6">Feedback</button>
+        </nav>
     </header>
 
-    <nav>
-        <button class="nav-btn" data-target="container-1">Evento</button>
-        <button class="nav-btn" data-target="container-2">Pratos</button>
-        <button class="nav-btn" data-target="container-3">Prato do Dia</button>
-        <button class="nav-btn" data-target="container-4">Pedido</button>
-        <button class="nav-btn" data-target="container-5">Administrador</button>
-        <button class="nav-btn" data-target="container-6">Feedback</button>
-    </nav>
 
     <main>
 
-        <section class="container-usuario">
-            <div id="profilePopup" class="profile-popup">
-                <div class="popup-header">
-                    <span><a href="/perfil">Ver perfil <i class="fa-solid fa-caret-right"></i></a> </span>
-                    <span class="close-btn2"> <a onclick="togglePopup()"><i class="fa-solid fa-xmark"></i></a></span>
-                </div>
-
-                <div class="profile-content">
-                    <div class="profile-info">
-                        <% if (logado) { %>
-
-                            <% if (user.icone==null) { %>
-                                <img class="profile-image" src="images/icons/iconPerfilDefault.png" alt="Avatar">
-
-                                <% } else { %>
-                                    <img class="profile-image" src="uploads/user/<%= user.icone %>" alt="Avatar">
-                                    <% } %>
-
-                                        <% if (logado && user.cargo=='admin' ) { %>
-                                            <div>
-                                                <p>
-                                                    <%= user.nome %>
-                                                </p><img src="images/icons/badgeAdm.png" alt="Admin"
-                                                    style="width: 15px;">
-                                            </div>
-                                            <% } else { %>
-                                                <p>
-                                                    <%= user.nome %>
-                                                </p>
-                                                <% } %>
-
-                                                    <% } else { %>
-                                                        <img class="profile-image"
-                                                            src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
-                                                            alt="Avatar">
-                                                        <p>Nome de Usuário</p>
-                                                        <% } %>
-                    </div>
-
-                    <div class="profile-options">
-                        <a id="btn-01" href="/encomenda">Compras</a>
-                        <a id="btn-02">Favoritos ⭐</a>
-                        <% if (logado && user.cargo=='admin' ) {%>
-                            <a id="btn-03" href="/administracao">ADMINISTRADOR</a>
-                            <% } else {%>
-                                <a id="btn-03">Reclame Aqui !</a>
-                                <% } %>
-                                    <a href="/deslogar" id="btn-05">Sair <i
-                                            class="fa-solid fa-right-from-bracket"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="container container-1">
-            <h2>Evento</h2>
-            <button class="form-btn" data-target="form-adicionar-eventos">Adicionar</button>
-            <button class="form-btn" data-target="form-editar-eventos">Editar</button>
-            <button class="form-btn" data-target="form-remover-eventos">Remover</button>
+            <h2>Gerenciar Eventos</h2>
+            <section class="form-buttons">
+                <button class="form-btn" data-target="form-adicionar-eventos">Adicionar </button>
+                <button class="form-btn" data-target="form-editar-eventos">Editar</button>
+                <button class="form-btn" data-target="form-remover-eventos">Remover</button>
+            </section>
 
-            <form id="form-adicionar-eventos" class="form" action="/criar-evento" method="POST"
-                enctype="multipart/form-data">
-                <h3>Adicionar Eventos</h3>
+            <section id="form-adicionar-eventos" class="form">
 
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
+                <form action="/criar-evento" method="POST"
+                    enctype="multipart/form-data">
+                    <h3>Adicionar Eventos</h3>
 
-                <label for="data">Data</label>
-                <input type="date" id="data" name="data" placeholder="Data do Evento">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
-                <label for="horario">Horario</label>
-                <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" placeholder="Data do Evento">
 
-                <label for="banner">Banner</label>
-                <input type="file" id="banner" name="file">
+                    <label for="horario">Horario</label>
+                    <input type="time" id="horario" name="horario" placeholder="Horario do evento">
 
-                <button>Criar Evento</button>
-            </form>
+                    <label for="banner">Banner</label>
+                    <input type="file" id="banner" name="file">
 
-            <form id="form-editar-eventos" class="form" action="/editar-evento" method="POST"
-                enctype="multipart/form-data">
-                <h3>Editar Eventos</h3>
+                    <button>Criar Evento</button>
+                </form>
+            </section>
 
-                <label for="idevento">ID do Evento</label>
-                <input type="number" id="idevento" name="idevento">
+            <section id="form-editar-eventos" class="form">
+                <form  action="/editar-evento" method="POST"
+                    enctype="multipart/form-data">
+                    <h3>Editar Eventos</h3>
 
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
+                    <label for="idevento">ID do Evento</label>
+                    <input type="number" id="idevento" name="idevento">
 
-                <label for="data">Data</label>
-                <input type="date" id="data" name="data" placeholder="Data do Evento">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
-                <label for="horario">Horario</label>
-                <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" placeholder="Data do Evento">
 
-                <label for="banner">Banner</label>
-                <input type="file" id="banner" name="file">
+                    <label for="horario">Horario</label>
+                    <input type="time" id="horario" name="horario" placeholder="Horario do evento">
 
-                <button>Editar evento</button>
-            </form>
+                    <label for="banner">Banner</label>
+                    <input type="file" id="banner" name="file">
 
-            <form id="form-remover-eventos" class="form" action="/remover-evento" method="POST">
-                <h3>Remover Eventos</h3>
+                    <button>Editar evento</button>
+                </form>
+            </section>
+            <section id="form-remover-eventos" class="form">
+                <form  action="/remover-evento" method="POST">
+                    <h3>Remover Eventos</h3>
 
-                <label for="idevento">ID do Evento para remover:</label>
-                <input type="number" id="idevento" name="idevento">
+                    <label for="idevento">ID do Evento para remover:</label>
+                    <input type="number" id="idevento" name="idevento">
 
-                <button>Remover Evento</button>
-            </form>
+                    <button>Remover Evento</button>
+                </form>
+            </section>
 
-            <P>Listagem dos eventos</P>
-            <ul>
-                <% eventos.forEach(evento=> { %>
-                    <li>ID: <%= evento.id %> - NOME: <%= evento.nome %> - DATA: <%= evento.data %> - HORARIO: <%=
-                                        evento.horario %>
-                    </li>
-                    <% }) %>
-            </ul>
+            <section class="listagem">
+
+                <P>Listagem dos eventos</P>
+                <ul>
+                    <% eventos.forEach(evento=> { %>
+                        <li>
+                            ID: <%= evento.id %> - NOME: <%= evento.nome %> - DATA: <%= evento.data %> - HORARIO: <%=
+                                            evento.horario %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </section>
 
         </section>
 
