@@ -32,6 +32,7 @@ async function adicionarPrato(request, response) {
 async function editarPrato(request, response) {
   const { idprato, nome, descricao, preco, categoria } = request.body
   const imagem = request.file.filename
+  console.log("Imagem:", imagem)
 
   const editarPrato = await menuModels.editarPrato(idprato, nome, descricao, preco, categoria, imagem)
 

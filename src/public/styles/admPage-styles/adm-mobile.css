@@ -158,16 +158,20 @@ main {
 
   & .container {
     display: none;
-    width: 100%;
-    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 
-    & h2 {
+    width: 100%;
+    height: 100vh;
+
+    & .titulo {
       color: white;
-      text-align: center;
-      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #EBA742;
+      height: 70px;
     }
 
     & .form-buttons {
@@ -190,67 +194,125 @@ main {
         transition: 0.3s;
       }
     }
+
+    & .form {
+      display: none;
+      border: 1px solid #EBA742;
+      width: 100%;
+      height: 300px;
+      place-items: center;
+
+      & form {
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+
+
+      }
+    }
+
+  
+
+    & .listagem {
+      padding: 15px;
+      color: white;
+
+      & .titulo-card {
+        color: white;
+        border-bottom: 1px solid #EBA742;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 50px;
+        font-size: 25px;
+        font-weight: 700;
+      }
+
+      & .listagem-card {
+        overflow-y: scroll;
+        height: 300px;
+        padding: 15px;
+
+        & .card-listagem {
+          width: 100%;
+          height: 100px;
+          font-size: 15px;
+          margin-bottom: 10px;
+          border: 1px solid #EBA742;
+          border-radius: 5px;
+          background-color: #2c2c2c;
+          overflow: hidden;
+
+          display: flex;
+          flex-direction: row;
+
+          & .card-listagem-info {
+            width: 85%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            & .info-nome{
+              font-size: 18px;
+              font-weight: 600;
+            }
+
+            & .info-desc{
+              font-size: 15px;
+              font-weight: 400;
+              color:#c0c0c0
+            }
+          }
+
+          & .card-listagem-img {
+            height: 100%;
+            width: 15%;
+            overflow: hidden;
+            margin-right: 5px;
+
+            & img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+
+
+
+    }
+
+    & .form.active {
+      display: flex;
+    }
+
   }
 
   & .container.active {
-    display: block;
+    display: flex;
   }
 
-  & .form {
-    display: none;
-    border: 1px solid #EBA742;
-    margin-top: 10px;
-    width: 100%;
-    height: 300px;
-    place-items: center;
 
-    & form {
-      display: flex;
-      width: 70%;
-      flex-direction: column;
+}
 
+::-webkit-scrollbar {
+  width: 9px;
 
-    }
-  }
+}
 
-  & .form.active {
-    display: block;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  & .listagem{
+::-webkit-scrollbar-thumb {
+  background-color: #EBA742;
+  border-radius: 10px 0 0 10px;
+}
 
-    width: 100%;
-    overflow-y: auto;
-    height: auto;
-    padding: 10px;
-    margin-top: 10px;
-    color: white;
-
-    & p {
-      color: white;
-      text-align: center;
-      font-size: 25px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-
-    ::-webkit-scrollbar {
-      width: 9px;
-    
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background-color: #EBA742;
-      border-radius: 10px 0 0 10px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #bb8a40;
-    }
-  }
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bb8a40;
 }
