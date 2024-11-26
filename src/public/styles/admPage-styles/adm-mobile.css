@@ -226,7 +226,7 @@ main {
           flex-direction: row;
           justify-content: space-between;
           width: 100%;
-          margin-bottom: 20px;
+          /* margin-bottom: 20px; */
 
           & section {
             display: flex;
@@ -270,7 +270,7 @@ main {
           height: 50px;
           border: 1px dashed #EBA742;
           background-color: #5c5c5c81;
-
+          margin-top: 15px;
 
           & input {
             border: none;

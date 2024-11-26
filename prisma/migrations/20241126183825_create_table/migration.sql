@@ -40,14 +40,16 @@ CREATE TABLE `Evento` (
 -- CreateTable
 CREATE TABLE `Pedido` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `id_usuario` INTEGER NULL,
-    `id_prato` INTEGER NULL,
-    `data_pedido` DATE NULL,
-    `total_pedido` VARCHAR(255) NULL,
-    `status_pedido` VARCHAR(255) NULL,
+    `id_usuario` INTEGER NOT NULL,
+    `id_prato` INTEGER NOT NULL,
+    `nome_prato` VARCHAR(191) NOT NULL,
+    `data_pedido` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `quantidade` INTEGER NOT NULL,
+    `total_pedido` DOUBLE NOT NULL,
+    `status_pedido` VARCHAR(191) NOT NULL DEFAULT 'Pendente',
 
-    INDEX `id_usuario`(`id_usuario`),
-    INDEX `id_prato`(`id_prato`),
+    INDEX `Pedido_id_usuario_idx`(`id_usuario`),
+    INDEX `Pedido_id_prato_idx`(`id_prato`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -71,7 +73,7 @@ ALTER TABLE `Avaliacao` ADD CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`id_usuar
 ALTER TABLE `Avaliacao` ADD CONSTRAINT `avaliacao_ibfk_2` FOREIGN KEY (`id_prato`) REFERENCES `Prato`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE `Pedido` ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `Pedido` ADD CONSTRAINT `Pedido_id_usuario_fkey` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Pedido` ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_prato`) REFERENCES `Prato`(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `Pedido` ADD CONSTRAINT `Pedido_id_prato_fkey` FOREIGN KEY (`id_prato`) REFERENCES `Prato`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

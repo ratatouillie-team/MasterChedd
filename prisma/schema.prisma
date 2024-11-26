@@ -46,28 +46,31 @@ model Evento {
 }
 
 model Pedido {
-  id            Int       @id @default(autoincrement())
-  id_usuario    Int?
-  id_prato      Int?
-  data_pedido   DateTime? @db.Date
-  total_pedido  String?   @db.VarChar(255)
-  status_pedido String?   @db.VarChar(255)
+  id            Int      @id @default(autoincrement())
+  id_usuario    Int
+  id_prato      Int
+  nome_prato    String
+  data_pedido   DateTime @default(now())
+  quantidade    Int
+  total_pedido  Float
+  status_pedido String   @default("Pendente")
 
   // Relações
-  usuario Usuario? @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_ibfk_1")
-  prato   Prato?   @relation(fields: [id_prato], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedido_ibfk_2")
+  usuario Usuario @relation(fields: [id_usuario], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  prato   Prato   @relation(fields: [id_prato], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
-  @@index([id_usuario], map: "id_usuario")
-  @@index([id_prato], map: "id_prato")
+  // Índices automáticos (nome opcional)
+  @@index([id_usuario])
+  @@index([id_prato])
 }
 
 model Prato {
-  id          Int      @id @default(autoincrement())
-  nome        String?  @db.VarChar(255)
-  descricao   String?  @db.VarChar(255)
-  preco       String?  @db.VarChar(255)
-  imagem      String?  @db.VarChar(255)
-  tipo_comida String?  @db.VarChar(255)
+  id          Int     @id @default(autoincrement())
+  nome        String? @db.VarChar(255)
+  descricao   String? @db.VarChar(255)
+  preco       String? @db.VarChar(255)
+  imagem      String? @db.VarChar(255)
+  tipo_comida String? @db.VarChar(255)
   prato_dia   Boolean
 
   // Relação com Pedido
