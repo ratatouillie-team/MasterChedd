@@ -18,6 +18,7 @@ const session = require('express-session');
 
 // Chamando o express
 const app = express();
+app.use(express.json());
 
 // Configurações do body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // configuração do express-session
 app.use(
   session({
-    secret:"chave-muito-mais muito-secreta",
+    secret: "chave-muito-mais muito-secreta",
     resave: false,
     saveUninitialized: false,
   })

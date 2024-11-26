@@ -14,13 +14,20 @@ async function atualizarPerm(email, data) {
   return userUpdate
 }
 
-async function listarAdm(){
+async function listarAdm() {
 
-  const adm = await prisma.usuario.findMany({where: {cargo: 'admin'}})
+  const adm = await prisma.usuario.findMany({ where: { cargo: 'admin' } })
 
   return adm
 }
 
+async function listarUsers() {
+
+  const users = await prisma.usuario.findMany()
+
+  return users
+}
 
 
-module.exports = { atualizarPerm, listarAdm }
+
+module.exports = { atualizarPerm, listarAdm, listarUsers }

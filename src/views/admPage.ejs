@@ -9,7 +9,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+    <link rel="icon" href="images/icons/iconHomePage.ico" type="image/x-icon">
     <title>ADMINISTRADOR</title>
 
     <link rel="stylesheet" href="styles/admPage-styles/adm-mobile.css">
@@ -255,11 +255,16 @@
             <section id="form-editar-pratos" class="form">
                 <form action="/editar-prato" method="POST" enctype="multipart/form-data">
                     <h3>Editar Prato</h3>
-                    <label for="idprato">ID do Prato</label>
-                    <input type="number" id="idprato" name="idprato" placeholder="ID do Prato a ser editado">
-
-                    <label for="nome"> Nome do Prato</label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
+                    <section class="data-horario">
+                        <section>
+                            <label for="idprato">ID do Prato</label>
+                            <input type="number" id="idprato" name="idprato" placeholder="ID do Prato a ser editado">
+                        </section>
+                        <section>
+                            <label for="nome"> Nome do Prato</label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
+                        </section>
+                    </section>
 
                     <label for="descricao">Descricao</label>
                     <input type="text" id="descricao" name="descricao" placeholder="Descricao do Prato">
@@ -461,28 +466,27 @@
 
             <section class="listagem">
                 <section class="titulo-card">
-                    <p>Listagem dos pedidos dos clientes</p>
+                    <p>Listagem de pedidos</p>
 
                 </section>
                 <section class="listagem-card">
 
-                    <% pratosMenu.forEach(prato=> { %>
-
+                    <% usuarios.forEach(user=> { %>
+                        
                         <section class="card-listagem">
                             <section class="card-listagem-img">
-                                <img src="uploads/pratos/<%= prato.imagem %>" alt="Imagem do prato">
+                                <img src="uploads/banner/<%= user.imagem %>" alt="Imagem do prato">
                             </section>
                             <section class="card-listagem-info">
-                                <p class="info-nome">
-                                    <%= prato.id %>. <%= prato.nome %>
-                                </p>
-                                <p class="info-desc">
-                                    <%= prato.descricao %>
-                                </p>
-                                <p class="info-preco">
-                                    <%= prato.preco %>
-                                </p>
-                            </section>
+                                    <% pedidos.forEach(pedido=> { %>
+                                    <p class="info-nome">
+                                        <%= pedido.id_prato %>. <%= pedido.nome %>
+                                    </p>
+                                    <% }) %>
+                                    <p class="info-desc">
+                                        
+                                    </p>
+                                </section>
                         </section>
                         <% }) %>
                 </section>
