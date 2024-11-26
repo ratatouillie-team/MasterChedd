@@ -9,7 +9,7 @@ body {
   background-color: #353535;
   height: 100vh;
   display: grid;
-  grid-template-columns: 300px 1fr 1fr;
+  grid-template-columns: 350px 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -78,11 +78,11 @@ header {
       height: 90px;
       border: #EBA742 solid 2px;
       border-radius: 50%;
-      object-fit: cover;
       margin-bottom: 5px;
+      overflow: hidden;
 
       & img {
-        overflow: hidden;
+        object-fit: cover;
         width: 100%;
         height: 100%;
       }
@@ -183,6 +183,7 @@ main {
 
       & .form-btn {
         border: none;
+        font-weight: 600;
         padding: 5px 10px;
         border-radius: 5px;
         transition: 0.3s;
@@ -197,21 +198,138 @@ main {
 
     & .form {
       display: none;
-      border: 1px solid #EBA742;
       width: 100%;
-      height: 300px;
-      place-items: center;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
 
       & form {
         display: flex;
         width: 70%;
         flex-direction: column;
 
+        & h3 {
+          color: #fff;
+          font-size: 25px;
+          margin-bottom: 15px;
+        }
+
+        & label {
+          color: #fff;
+          font-size: 15px;
+          font-weight: 600;
+          margin-top: 15px;
+        }
+
+        & .data-horario {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+          margin-bottom: 20px;
+
+          & section {
+            display: flex;
+            flex-direction: column;
+            width: 49%;
+
+          }
+        }
+
+        & select {
+          height: 35px;
+          padding: 0 5px 0 5px;
+          border-bottom: 1px solid #EBA742;
+          background-color: #5c5c5c81;
+          color: #fff;
+
+          & option {
+            background-color: #353535;
+          }
+        }
+
+        & select:focus {
+          outline: none;
+        }
+
+        & input {
+          height: 35px;
+          padding: 0 5px 0 5px;
+          border: 1px solid #818181;
+          border-bottom: 1px solid #EBA742;
+          background-color: #5c5c5c81;
+          color: #fff;
+        }
+
+        & .banner {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 25px;
+          width: 100%;
+          height: 50px;
+          border: 1px dashed #EBA742;
+          background-color: #5c5c5c81;
+
+
+          & input {
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+          }
+        }
+
+
+
+        & input::placeholder {
+          color: #fff;
+        }
+
+        input::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+
+
+        & input:focus {
+          outline: none;
+        }
+
+        & button {
+          border: none;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: #EBA742;
+          color: #fff;
+          font-size: 15px;
+          cursor: pointer;
+          font-weight: 600;
+          margin-top: 15px;
+        }
+
+        & button:hover {
+          background-color: #df921e;
+          transition: 0.3s;
+        }
+
+        & .pratododia {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          & section {
+            display: flex;
+            height: 100px;
+            gap: 10px;
+            flex-direction: column;
+            width: 49%;
+
+          }
+        }
 
       }
     }
-
-  
 
     & .listagem {
       padding: 15px;
@@ -255,21 +373,22 @@ main {
             flex-direction: column;
             justify-content: space-evenly;
 
-            & .info-nome{
+            & .info-nome {
               font-size: 18px;
               font-weight: 600;
             }
 
-            & .info-desc{
+            & .info-desc {
               font-size: 15px;
               font-weight: 400;
-              color:#c0c0c0
+              color: #c0c0c0
             }
           }
 
           & .card-listagem-img {
             height: 100%;
             width: 15%;
+            min-width: 150px;
             overflow: hidden;
             margin-right: 5px;
 

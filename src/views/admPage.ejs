@@ -9,6 +9,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <title>ADMINISTRADOR</title>
 
     <link rel="stylesheet" href="styles/admPage-styles/adm-mobile.css">
@@ -68,7 +69,6 @@
             <button class="nav-btn" data-target="container-3">Menu Diario</button>
             <button class="nav-btn" data-target="container-4">Pedidos</button>
             <button class="nav-btn" data-target="container-5">Administrador</button>
-            <button class="nav-btn" data-target="container-6">Feedback</button>
         </nav>
     </header>
 
@@ -96,14 +96,23 @@
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
-                    <label for="data">Data</label>
-                    <input type="date" id="data" name="data" placeholder="Data do Evento">
+                    <section class="data-horario">
 
-                    <label for="horario">Horario</label>
-                    <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                        <section>
+                            <label for="data">Data</label>
+                            <input type="date" id="data" name="data" placeholder="Data do Evento">
+                        </section>
 
-                    <label for="banner">Banner</label>
-                    <input type="file" id="banner" name="file">
+                        <section>
+                            <label for="horario">Horario</label>
+                            <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                        </section>
+                    </section>
+
+                    <section class="banner">
+
+                        <input type="file" id="banner" name="file">
+                    </section>
 
                     <button>Criar Evento</button>
                 </form>
@@ -116,19 +125,28 @@
                     <h3>Editar Eventos</h3>
 
                     <label for="idevento">ID do Evento</label>
-                    <input type="number" id="idevento" name="idevento">
+                    <input type="number" id="idevento" name="idevento" placeholder="ID do Evento a ser editado">
 
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome do Evento">
 
-                    <label for="data">Data</label>
-                    <input type="date" id="data" name="data" placeholder="Data do Evento">
+                    <section class="data-horario">
 
-                    <label for="horario">Horario</label>
-                    <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                        <section>
+                            <label for="data">Data</label>
+                            <input type="date" id="data" name="data" placeholder="Data do Evento">
+                        </section>
 
-                    <label for="banner">Banner</label>
-                    <input type="file" id="banner" name="file">
+                        <section>
+                            <label for="horario">Horario</label>
+                            <input type="time" id="horario" name="horario" placeholder="Horario do evento">
+                        </section>
+                    </section>
+
+                    <section class="banner">
+
+                        <input type="file" id="banner" name="file">
+                    </section>
 
                     <button>Editar evento</button>
                 </form>
@@ -140,8 +158,8 @@
                 <form action="/remover-evento" method="POST">
                     <h3>Remover Eventos</h3>
 
-                    <label for="idevento">ID do Evento para remover:</label>
-                    <input type="number" id="idevento" name="idevento">
+                    <label for="idevento">ID do Evento</label>
+                    <input type="number" id="idevento" name="idevento" placeholder="ID do Evento a ser removido">
 
                     <button>Remover Evento</button>
                 </form>
@@ -191,30 +209,44 @@
 
             <section id="form-adicionar-pratos" class="form">
                 <form action="/adicionar-prato" method="POST" enctype="multipart/form-data">
+                    <h3>Adicionar Prato</h3>
                     <label for="nome"> Nome do Prato</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
 
                     <label for="descricao">Descricao</label>
                     <input type="text" id="descricao" name="descricao" placeholder="Descricao do Prato">
 
-                    <label for="">Categoria</label>
-                    <select name="categoria" id="categoria">
-                        <option value="" disabled selected>Selecionar...</option>
-                        <option value="bebida">Bebida</option>
-                        <option value="comida_japonesa">Comida Japonesa</option>
-                        <option value="entrada">Entrada</option>
-                        <option value="hamburguer">Hamburguer</option>
-                        <option value="risoto">Risoto</option>
-                        <option value="salada">Salada</option>
-                        <option value="sobremesa">Sobremesa</option>
-                        <option value="variedade">Variedade</option>
-                    </select>
+                    <section class="data-horario">
+                        <section>
 
-                    <label for="preco">Preco</label>
-                    <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
+                            <label for="preco">Preco</label>
+                            <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
 
-                    <label for="imagem">Imagem</label>
-                    <input type="file" id="imagem" name="file">
+                        </section>
+
+                        <section>
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria">
+                                <option value="" disabled selected>Selecionar...</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="comida_japonesa">Comida Japonesa</option>
+                                <option value="entrada">Entrada</option>
+                                <option value="hamburguer">Hamburguer</option>
+                                <option value="risoto">Risoto</option>
+                                <option value="salada">Salada</option>
+                                <option value="sobremesa">Sobremesa</option>
+                                <option value="variedade">Variedade</option>
+                            </select>
+                        </section>
+
+
+                    </section>
+
+
+                    <section class="banner">
+
+                        <input type="file" id="imagem" name="file">
+                    </section>
 
                     <button>Criar Prato</button>
                 </form>
@@ -222,8 +254,9 @@
 
             <section id="form-editar-pratos" class="form">
                 <form action="/editar-prato" method="POST" enctype="multipart/form-data">
+                    <h3>Editar Prato</h3>
                     <label for="idprato">ID do Prato</label>
-                    <input type="number" id="idprato" name="idprato">
+                    <input type="number" id="idprato" name="idprato" placeholder="ID do Prato a ser editado">
 
                     <label for="nome"> Nome do Prato</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome do Prato">
@@ -231,24 +264,37 @@
                     <label for="descricao">Descricao</label>
                     <input type="text" id="descricao" name="descricao" placeholder="Descricao do Prato">
 
-                    <label for="">Categoria</label>
-                    <select name="categoria" id="categoria">
-                        <option value="" disabled selected>Selecionar...</option>
-                        <option value="bebida">Bebida</option>
-                        <option value="comida_japonesa">Comida Japonesa</option>
-                        <option value="entrada">Entrada</option>
-                        <option value="hamburguer">Hamburguer</option>
-                        <option value="risoto">Risoto</option>
-                        <option value="salada">Salada</option>
-                        <option value="sobremesa">Sobremesa</option>
-                        <option value="variedade">Variedade</option>
-                    </select>
+                    <section class="data-horario">
+                        <section>
 
-                    <label for="preco">Preco</label>
-                    <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
+                            <label for="preco">Preco</label>
+                            <input type="text" id="preco" name="preco" placeholder="Preco do Prato">
 
-                    <label for="imagem">Imagem</label>
-                    <input type="file" id="imagem" name="file">
+                        </section>
+
+                        <section>
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria">
+                                <option value="" disabled selected>Selecionar...</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="comida_japonesa">Comida Japonesa</option>
+                                <option value="entrada">Entrada</option>
+                                <option value="hamburguer">Hamburguer</option>
+                                <option value="risoto">Risoto</option>
+                                <option value="salada">Salada</option>
+                                <option value="sobremesa">Sobremesa</option>
+                                <option value="variedade">Variedade</option>
+                            </select>
+                        </section>
+
+
+                    </section>
+
+
+                    <section class="banner">
+
+                        <input type="file" id="imagem" name="file">
+                    </section>
 
                     <button>Editar Prato</button>
                 </form>
@@ -257,8 +303,9 @@
             <section id="form-remover-pratos" class="form">
 
                 <form action="/remover-prato" method="POST">
-                    <label for="idprato">ID do Prato para remover:</label>
-                    <input type="number" id="idprato" name="idprato">
+                    <h3>Remover Prato</h3>
+                    <label for="idprato">ID do Prato</label>
+                    <input type="number" id="idprato" name="idprato" placeholder="ID do Prato a ser removido">
 
                     <button>Remover Prato</button>
                 </form>
@@ -312,45 +359,55 @@
 
 
                 <form action="/adicionar-pratododia" method="POST">
+                    <h3>Definir Prato do Dia</h3>
+                    <section class="pratododia">
+                        <section>
+                            <select name="pratododia1" id="pratododia1">
+                                <option disabled selected>Selecionar...</option>
+                                <% pratosMenu.forEach(prato=> { %>
+                                    <option value="<%= prato.id %>">
+                                        <%= prato.nome %>
+                                    </option>
+                                    <% }) %>
+                            </select>
 
-                    <select name="pratododia1" id="pratododia1">
-                        <option disabled selected>Selecionar...</option>
-                        <% pratosMenu.forEach(prato=> { %>
-                            <option value="<%= prato.id %>">
-                                <%= prato.nome %>
-                            </option>
-                            <% }) %>
-                    </select>
+                            <select name="pratododia2" id="pratododia2">
+                                <option disabled selected>Selecionar...</option>
 
-                    <select name="pratododia2" id="pratododia2">
-                        <option disabled selected>Selecionar...</option>
+                                <% pratosMenu.forEach(prato=> { %>
+                                    <option value="<%= prato.id %>">
+                                        <%= prato.nome %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </section>
 
-                        <% pratosMenu.forEach(prato=> { %>
-                            <option value="<%= prato.id %>">
-                                <%= prato.nome %>
-                            </option>
-                            <% }) %>
-                    </select>
+                        <section>
+                            <select name="pratododia3" id="pratododia3">
+                                <option disabled selected>Selecionar...</option>
 
-                    <select name="pratododia3" id="pratododia3">
-                        <option disabled selected>Selecionar...</option>
+                                <% pratosMenu.forEach(prato=> { %>
+                                    <option value="<%= prato.id %>">
+                                        <%= prato.nome %>
+                                    </option>
+                                    <% }) %>
+                            </select>
 
-                        <% pratosMenu.forEach(prato=> { %>
-                            <option value="<%= prato.id %>">
-                                <%= prato.nome %>
-                            </option>
-                            <% }) %>
-                    </select>
+                            <select name="pratododia4" id="pratododia4">
+                                <option disabled selected>Selecionar...</option>
 
-                    <select name="pratododia4" id="pratododia4">
-                        <option disabled selected>Selecionar...</option>
+                                <% pratosMenu.forEach(prato=> { %>
+                                    <option value="<%= prato.id %>">
+                                        <%= prato.nome %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </section>
+                    </section>
 
-                        <% pratosMenu.forEach(prato=> { %>
-                            <option value="<%= prato.id %>">
-                                <%= prato.nome %>
-                            </option>
-                            <% }) %>
-                    </select>
+
+
+
 
                     <button>Definir Prato do Dia</button>
                 </form>
@@ -360,8 +417,9 @@
             <section id="form-remover-pratododia" class="form">
 
                 <form action="/remover-pratododia" method="POST">
-                    <label for="iddoprato">ID do Prato para remover:</label>
-                    <input type="number" id="iddoprato" name="iddoprato" placeholder="ID do prato">
+                    <h3>Remover Prato do Dia</h3>
+                    <label for="iddoprato">ID do Prato</label>
+                    <input type="number" id="iddoprato" name="iddoprato" placeholder="ID do prato a ser removido">
 
                     <button>Remover Prato do Dia</button>
                 </form>
@@ -400,55 +458,103 @@
         </section>
 
         <section class="container container-4">
-            <h2>PEDIDOS</h2>
 
-            <div>
-                <p>"Nome"</p>
-                <span>id: 01 nome:salmão preco:50r$ quantidade:1></span>
-                <span>preco total:50</span>
-                <span>horario: 12:00</span>
-            </div>
+            <section class="listagem">
+                <section class="titulo-card">
+                    <p>Listagem dos pedidos dos clientes</p>
+
+                </section>
+                <section class="listagem-card">
+
+                    <% pratosMenu.forEach(prato=> { %>
+
+                        <section class="card-listagem">
+                            <section class="card-listagem-img">
+                                <img src="uploads/pratos/<%= prato.imagem %>" alt="Imagem do prato">
+                            </section>
+                            <section class="card-listagem-info">
+                                <p class="info-nome">
+                                    <%= prato.id %>. <%= prato.nome %>
+                                </p>
+                                <p class="info-desc">
+                                    <%= prato.descricao %>
+                                </p>
+                                <p class="info-preco">
+                                    <%= prato.preco %>
+                                </p>
+                            </section>
+                        </section>
+                        <% }) %>
+                </section>
+            </section>
 
         </section>
 
         <section class="container container-5">
-            <h2>Administrador</h2>
-            <button class="form-btn" data-target="form-adicionar-adicionaradm">Adicionar</button>
 
-            <form id="form-adicionar-adicionaradm" class="form" action="atribuir-admin" method="POST">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email do Administrador">
+            <section>
+                <section class="titulo">
+                    <h2>Administrador</h2>
+                </section>
 
-                <label for="adicionar permissao">Adicionar Permissao</label>
+                <section class="form-buttons">
+                    <button class="form-btn" data-target="form-adicionar-adicionaradm">Adicionar</button>
+                </section>
+            </section>
 
-                <select name="permissao" id="permissao">
-                    <option value="" disabled selected>Selecionar...</option>
-                    <option value="admin">Admin</option>
-                    <option value="">User</option>
-                </select>
 
-                <button>Adicionar administrador</button>
-            </form>
 
-            <P>Administrador Ativos:</P>
-            <ul>
-                <% adm.forEach(admin=> { %>
-                    <li>ID: <%= admin.id %> - EMAIL: <%= admin.email %> - PERMISSAO: <%= admin.cargo %>
-                    </li>
-                    <% }) %>
-            </ul>
+            <section id="form-adicionar-adicionaradm" class="form">
+
+                <form action="atribuir-admin" method="POST">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email do Administrador">
+
+                    <label for="permissao">Adicionar Permissao</label>
+                    <select name="permissao" id="permissao">
+                        <option value="" disabled selected>Selecionar...</option>
+                        <option value="admin">Admin</option>
+                        <option value="">User</option>
+                    </select>
+
+                    <button>Adicionar administrador</button>
+                </form>
+
+            </section>
+
+            <section class="listagem">
+                <section class="titulo-card">
+                    <p>Administradores Cadastrados</p>
+
+                </section>
+                <section class="listagem-card">
+
+                    <% adm.forEach(adms=> { %>
+
+                        <section class="card-listagem">
+                            <section class="card-listagem-img">
+                                <img src="uploads/user/<%= adms.icone %>" alt="Imagem do prato">
+                            </section>
+                            <section class="card-listagem-info">
+                                <p class="info-nome">
+                                    <%= adms.id %>. <%= adms.nome %>
+                                </p>
+                                <p class="info-desc">
+                                    <%= adms.email %>
+                                </p>
+                                <p class="info-preco">
+                                    Cargo: <strong>
+
+                                        <%= adms.cargo %>
+                                    </strong>
+                                </p>
+                            </section>
+                        </section>
+                        <% }) %>
+                </section>
+            </section>
         </section>
 
-        <section class="container container-6">
-            <h2>Feedback</h2>
-
-            <form action="/criar-feedback" method="POST">
-                <label for="feedback">Feedback</label>
-                <input type="text" id="feedback" name="feedback" placeholder="Deixe aqui seu Feedback!!">
-
-                <button>Enviar Feedback</button>
-            </form>
-        </section>
 
     </main>
 
