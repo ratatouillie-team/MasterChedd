@@ -464,33 +464,59 @@
 
         <section class="container container-4">
 
-            <section class="listagem">
+
+            <section class="listagem-pedido">
                 <section class="titulo-card">
-                    <p>Listagem de pedidos</p>
-
+                    <p>Listagem dos pedidos</p>
                 </section>
-                <section class="listagem-card">
 
-                    <% usuarios.forEach(user=> { %>
-                        
-                        <section class="card-listagem">
-                            <section class="card-listagem-img">
-                                <img src="uploads/banner/<%= user.imagem %>" alt="Imagem do prato">
-                            </section>
-                            <section class="card-listagem-info">
-                                    <% pedidos.forEach(pedido=> { %>
-                                    <p class="info-nome">
-                                        <%= pedido.id_prato %>. <%= pedido.nome %>
-                                    </p>
-                                    <% }) %>
-                                    <p class="info-desc">
-                                        
-                                    </p>
+                <section class="listagem-card">
+                    <% usuarios.forEach(usuario=> { %>
+                        <% const pedidosUsuario=pedidos.filter(pedido=> pedido.id_usuario === usuario.id); %>
+
+                            <% if (pedidosUsuario.length> 0) { %>
+                                <section class="card-listagem">
+                                    <p><strong>
+                                            <%= usuario.id %>. <%= usuario.nome %>
+                                        </strong></p>
+
+                                    <!-- Inicializa o total do pedido -->
+                                    <% let totalUsuario=0; %>
+
+                                        <% pedidosUsuario.forEach(pedido=> { %>
+                                            <section class="card-listagem-info">
+                                                <p><strong>Prato:</strong>
+                                                    <%= pedido.nome_prato %>
+                                                </p>
+                                                <p><strong>Quantidade:</strong>
+                                                    <%= pedido.quantidade %>
+                                                </p>
+                                                <p><strong>Preço:</strong> R$ <%= pedido.total_pedido.toFixed(2) %>
+                                                </p>
+                                            </section>
+
+                                            <!-- Acumula o total do pedido -->
+                                            <% totalUsuario +=pedido.total_pedido; %>
+                                                <% }) %>
+
+                                                    <!-- Exibe o total final e o status -->
+                                                    <section class="card-listagem-status">
+                                                        <p><strong>Status:</strong>
+                                                            <%= pedidosUsuario[0].status_pedido %>
+                                                        </p>
+                                                        <p><strong>Total:</strong> R$ <%=
+                                                                totalUsuario.toFixed(2) %>
+                                                        </p>
+                                                    </section>
                                 </section>
-                        </section>
-                        <% }) %>
+                                <% } %>
+                                    <% }) %>
                 </section>
             </section>
+
+
+
+
 
         </section>
 
@@ -518,7 +544,7 @@
                     <select name="permissao" id="permissao">
                         <option value="" disabled selected>Selecionar...</option>
                         <option value="admin">Admin</option>
-                        <option value="">User</option>
+                        <option value="user">User</option>
                     </select>
 
                     <button>Adicionar administrador</button>
@@ -537,7 +563,7 @@
 
                         <section class="card-listagem">
                             <section class="card-listagem-img">
-                                <img src="uploads/user/<%= adms.icone %>" alt="Imagem do prato">
+                                <img src="uploads/user/<%= adms.icone %>" alt="Imagem do user">
                             </section>
                             <section class="card-listagem-info">
                                 <p class="info-nome">
