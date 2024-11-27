@@ -8,6 +8,7 @@ async function adicionarUsuario(nome, email, senha) {
     data: {
       nome: nome,
       email: email,
+      cargo: 'user',
       senha: md5(senha),
       criadoEm: new Date()
     }

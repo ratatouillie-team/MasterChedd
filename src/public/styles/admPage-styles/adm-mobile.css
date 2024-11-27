@@ -398,11 +398,80 @@ main {
               object-fit: cover;
             }
           }
+
+         
         }
       }
 
 
 
+    }
+
+    & .listagem-pedido{
+      padding: 15px;
+      color: white;
+
+      & .titulo-card {
+        color: white;
+        border-bottom: 1px solid #EBA742;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 50px;
+        font-size: 25px;
+        font-weight: 700;
+      }
+
+      & .listagem-card {
+        overflow-y: scroll;
+        padding: 15px;
+
+        & .card-listagem {
+          width: 100%;
+          padding: 10px;
+          font-size: 15px;
+          margin-bottom: 10px;
+          border: 1px solid #EBA742;
+          border-radius: 5px;
+          background-color: #2c2c2c;
+          /* overflow: hidden; */
+
+          & p{
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 900;
+          }
+
+          & .card-listagem-info {
+            border: 1px solid #eba74288;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+
+            & p{
+              margin-bottom: 5px;
+              font-size: 15px;
+              font-weight: 500;
+            }
+          }
+
+          & .card-listagem-status{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+
+            & p{
+              font-size: 17px;
+            }
+          }
+        }
+      }
     }
 
     & .form.active {
