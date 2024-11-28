@@ -170,42 +170,44 @@
     });
 
     // Api para mandar os itens do localstorage para o banco de dados
- async function enviarDados() {
-  try {
-    const pratosStorage = JSON.parse(localStorage.getItem('pratos'));
-    if (!pratosStorage || pratosStorage.length === 0) {
-      alert("Nenhum dado para enviar!");
-      return;
+    async function enviarDados() {
+      try {
+        const pratosStorage = JSON.parse(localStorage.getItem('pratos'));
+        if (!pratosStorage || pratosStorage.length === 0) {
+          alert("Nenhum dado para enviar!");
+          return;
+        }
+
+        const response = await fetch('/pedidos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ pratos: pratosStorage }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        // alert('Pedido enviado com sucesso!');
+        console.log(data);
+
+        // Deleta os dados do localStorage após o envio bem-sucedido
+        localStorage.removeItem('pratos');
+        carregarItens()
+        alert('Pedido enviado com sucesso!');
+
+      } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+        alert('Erro ao enviar dados. Por favor, tente novamente.');
+      }
     }
 
-    const response = await fetch('/pedidos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ pratos: pratosStorage }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erro: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    // alert('Pedido enviado com sucesso!');
-    console.log(data);
-    
-    // Deleta os dados do localStorage após o envio bem-sucedido
-    localStorage.removeItem('pratos');
-    carregarItens()
-    console.log('Dados do localStorage removidos.');
-
-  } catch (error) {
-    console.error('Erro ao enviar dados:', error);
-    alert('Erro ao enviar dados. Por favor, tente novamente.');
-  }
-}
-
-document.getElementById('enviar-dados').addEventListener('click', enviarDados);
+    document.getElementById('enviar-dados').addEventListener('click', enviarDados, setTimeout(() => {
+      window.location.href = '/';
+    }, 5000));
 
 
 
