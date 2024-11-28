@@ -1,6 +1,7 @@
 const perfilModels = require('../models/perfilModels');
 const fs = require('fs');
 const path = require('path');
+const md5 = require('md5');
 
 function exibirPaginaPerfil(req, res) {
     const user = req.session.user
@@ -14,14 +15,14 @@ function deletarArquivo(icone) {
     // Verificar se já existe um arquivo de perfil do usuário
     const arquivos = fs.readdirSync(uploadDir);
     const arquivoAntigo = arquivos.find(file => file === icone);
-  
+
     // Se houver um arquivo antigo, exclua-o
     if (arquivoAntigo) {
         const caminhoArquivoAntigo = path.join(uploadDir, arquivoAntigo);
         fs.unlinkSync(caminhoArquivoAntigo);
     }
-  
-  };
+
+};
 
 async function enviarArquivo(req, res) {
     const { nome } = req.body
@@ -40,11 +41,29 @@ async function enviarArquivo(req, res) {
     return userUpdate
 }
 
-function atualizarPerfil(req, res) {
+async function atualizarPerfil(req, res) {
     const { nome, email, senha } = req.body
-    console.log(nome, email, senha)
+    console.log('Senha:', senha)
+    const id = req.session.user.id
+    const senhaAtual = req.session.user.senha
 
-    res.redirect('/perfil')
+    if (senhaAtual !== md5(senha)) {
+        res.send("Senha incorreta, tente novamente...")
+        return
+    } else {
+        const userUpdate = await perfilModels.atualizarPerfil(id, {
+            nome: nome,
+            email: email,
+            senha: md5(senha)
+        }, senhaAtual);
+
+        req.session.user.nome = userUpdate.nome
+        req.session.user.email = userUpdate.email
+        res.redirect('/perfil')
+        return userUpdate
+    }
+
+
 }
 
 

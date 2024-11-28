@@ -18,7 +18,7 @@ async function logarUsuario(request, response) {
 
   if(md5(senha) !== user.senha){
 
-    response.redirect('/login');
+    response.send('Senha incorreta, tente novamente...');
     return;
   }
 
