@@ -30,27 +30,31 @@ main {
   padding: 0 20px;
   position: relative;
   z-index: 1;
+}
 
-  & .logo {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    cursor: default;
-  }
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: default;
+}
 
-  & .voltar a {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-weight: 900;
-    cursor: pointer;
-  }
-
-  & .voltar a:hover {
-    color: #EBA742;
-  }
+.logo span {
 
 }
+
+.voltar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.voltar a:hover {
+  color: #EBA742;
+}
+
 
 .perfil-form {
   display: flex;
@@ -58,79 +62,81 @@ main {
   align-items: center;
   width: 100vw;
   height: 220px;
-
-  & form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 10px;
-  }
-
-  & .profile-circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    margin-top: 25px;
-    border: #EBA742 2px solid;
-    transition: 0.3s;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  & .profile-circle:hover::before {
-    content: "\270E";
-    width: 100%;
-    height: 100%;
-    background-color: #13131348;
-    font-size: 24px;
-    color: #c5c5c5;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-  }
-
-  & #file {
-    display: none;
-  }
-
-  & p {
-    font-size: 20px;
-    color: white;
-    font-weight: 600;
-
-  }
-
-  & .perfil-botao {
-    padding: 5px 10px;
-    background-color: #EBA742;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  & .perfil-botao:hover {
-    background-color: #EBA742;
-    transform: scale(1.1);
-    transition: 0.3s;
-  }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+
+.profile-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 25px;
+  border: #EBA742 2px solid;
+  transition: 0.3s;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.profile-circle:hover::before {
+  content: "\270E";
+  width: 100%;
+  height: 100%;
+  background-color: #13131348;
+  font-size: 24px;
+  color: #c5c5c5;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+#file {
+  display: none;
+}
+
+p {
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+
+}
+
+.perfil-botao {
+  padding: 5px 10px;
+  background-color: #EBA742;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.perfil-botao:hover {
+  background-color: #EBA742;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 
 .perfil-info {
   background: linear-gradient(40deg, #a8a8a84d, #0000006c);
@@ -142,72 +148,70 @@ main {
   width: 100%;
   max-width: 800px;
   height: 250px;
-
-  & .profileField {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-
-    & label {
-      color: white;
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    & span {
-      color: white;
-      font-weight: 500;
-      font-size: 15px;
-      padding: 5px 1px;
-      border-bottom: 1px solid #EBA742;
-    }
-
-    & input{
-      width: 100%;
-      height: 28px;
-      font-size: 15px;
-      padding: 5px 2px;
-      color: white;
-      background-color: #575757;
-      border-bottom: 1px solid #EBA742;
-    }
-
-    & input:focus {
-      outline: 0;
-    }
-  }
-
-  & #profileForm {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  & #profileFields{
-    width: 100%;
-  }
-
-  & .perfil-botao {
-    padding: 5px 10px;
-    background-color: #EBA742;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  & .perfil-botao:hover {
-    background-color: #EBA742;
-    transform: scale(1.1);
-    transition: 0.3s;
-  }
-
 }
 
+.profileField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+}
+
+label {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.info-label {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 5px 1px;
+  border-bottom: 1px solid #EBA742;
+}
+
+input {
+  width: 100%;
+  height: 28px;
+  font-size: 15px;
+  padding: 5px 2px;
+  color: white;
+  background-color: #575757;
+  border-bottom: 1px solid #EBA742;
+}
+
+input:focus {
+  outline: 0;
+}
+
+#profileForm {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#profileFields {
+  width: 100%;
+}
+
+.perfil-botao {
+  padding: 5px 10px;
+  background-color: #EBA742;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.perfil-botao:hover {
+  background-color: #EBA742;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
