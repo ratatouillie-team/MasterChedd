@@ -148,7 +148,7 @@
 
       <section class="organzando-caixa">
 
-        <% pratos.forEach(prato=> { %>
+        <% pratos.slice(0, 4).forEach(prato=> { %>
           <form action="/avaliar/<%= prato.id %>" method="POST">
             <section class="caixa" id="<%= prato.id %>">
               <div class="caixa-img">
